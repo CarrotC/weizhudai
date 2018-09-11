@@ -1,0 +1,249 @@
+@font-face {
+	font-family: XingKai;
+	src: url(../ttf/HYXuJingXingKaiW-2.ttf);
+}
+
+@font-face {
+	font-family: FangSong;
+	src: url(../ttf/ZiTiGuanJiaFangSongTi-1.ttf);
+}
+@font-face {
+	font-family: JianTi;
+	src: url(../ttf/HanYiChangLiSongKeBenJianTi-2.ttf);
+}
+@font-face {
+	font-family: regular;
+	src: url(../ttf/HuaKangGuJiMuLan-Regular-2.ttf);
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+	font-size: 16px;
+}
+.bg{
+	position: fixed;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.bg img{
+	width: 130%;
+	height: 130%;
+	animation: 60s bgMove linear;
+	animation-iteration-count: infinite;
+}
+@keyframes bgMove{
+	0%{
+		width: 130%;
+		height: 130%;
+	}
+	25%{
+		width: 160%;
+		height: 160%;
+	}
+	50%{
+		width: 130%;
+		height: 130%;
+	}
+	75%{
+		width: 100%;
+		height: 100%;
+	}
+	100%{
+		width: 130%;
+		height: 130%;
+	}
+}
+
+.img-box{
+	position: relative;
+	width: 100%;
+	height: 550px;
+	border-radius: 8px;
+}
+.top,.banner{
+	position: absolute;
+	left: 0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+}
+
+
+.img-box div img{
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .7em 1.2em rgba(0, 0, 0, 0.6);
+	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
+}
+.top{
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border-radius: 8px;
+	
+	background-color: rgba(210, 210, 210, 0.25);
+}
+.footer{
+	width: auto !important;
+	height:  auto !important; 
+	position: absolute;
+	z-index: 2;
+	left: 0;
+	right:0;
+	margin: auto;
+	bottom: 30px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.footer-item{
+	cursor: pointer;
+	width: 10px !important;
+	height: 10px !important;
+	border-radius: 50% !important;
+	border: 1px solid white;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+.live-footer{
+	background-color: white;
+}
+@keyframes imgIn{
+	from{
+		left: -100%;
+	}
+	to{
+		left: 0;
+	}
+
+}
+@keyframes imgOut{
+		to{
+		left: 100%;
+		}
+}
+.search-box{
+	width: auto !important;
+	height: auto;
+	position: absolute;
+	z-index: 3;
+	left: 0;
+	right: 0;
+	top: 70px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: center;
+}
+.search{
+	width: auto !important;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: center;
+	
+}
+.companyName{
+	width: 400px;
+	outline: none;
+	border: 0.5px solid rgb(200,200,200);
+	border-radius: 16px;
+	text-indent: 15px;
+	font-family: FangSong;
+	font-weight: 060;
+	color: rgb(45,45,45);
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+}
+.companyName::-webkit-input-placeholder{
+	color: rgb(180,180,180);
+}
+#search{
+	width: 80px;
+	margin-left: 10px;
+	border-radius: 16px;
+	
+}
+.searchResult{
+	top: 80px;
+	width: 620px;
+	height: 320px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: rgba(230,230,230,0.15);
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	border-radius: 8px;
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .7em 1.2em rgba(0, 0, 0, 0.6);
+	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
+	padding: 30px;
+}
+.searchResult::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 8px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 0px;
+    }
+.searchResult::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 10px;
+         -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        background: rgba(80,80,80,0.9);
+    }
+.searchResult::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        opacity: 0;
+    }
+.bottom-text{
+	z-index: 99;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	font-family: FangSong;
+	font-weight: 600;
+	color: rgb(230,230,230);
+	text-align: center;
+}
+.spilt{
+	width: 2px;
+	height: 15px;
+	border-left: 1px solid rgb(230,230,230);
+}
+.bottom-text span{
+	width: 150px;
+}
+.bottom-text a{
+	cursor: pointer;
+	color: rgb(230,230,230);
+	width: 60px;
+}
+.bottom-text a:hover{
+	text-decoration: none;
+}

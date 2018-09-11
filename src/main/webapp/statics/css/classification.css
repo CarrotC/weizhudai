@@ -1,0 +1,312 @@
+@font-face {
+	font-family: XingKai;
+	src: url(../ttf/HYXuJingXingKaiW-2.ttf);
+}
+
+@font-face {
+	font-family: FangSong;
+	src: url(../ttf/ZiTiGuanJiaFangSongTi-1.ttf);
+}
+@font-face {
+	font-family: JianTi;
+	src: url(../ttf/HanYiChangLiSongKeBenJianTi-2.ttf);
+}
+@font-face {
+	font-family: regular;
+	src: url(../ttf/HuaKangGuJiMuLan-Regular-2.ttf);
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+	font-size: 16px;
+}
+.bg{
+	position: fixed;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.bg img{
+	width: 130%;
+	height: 130%;
+	animation: 60s bgMove linear;
+	animation-iteration-count: infinite;
+}
+@keyframes bgMove{
+	0%{
+		width: 130%;
+		height: 130%;
+	}
+	25%{
+		width: 160%;
+		height: 160%;
+	}
+	50%{
+		width: 130%;
+		height: 130%;
+	}
+	75%{
+		width: 100%;
+		height: 100%;
+	}
+	100%{
+		width: 130%;
+		height: 130%;
+	}
+}
+
+
+.main-container{
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	
+}
+.type-box{
+	position: relative;
+	width: 250px;
+	height:1015px;
+	border-radius: 8px;
+	background-color: rgba(40,40,40,0.95);
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .7em 1.2em rgba(0, 0, 0, 0.6);
+	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
+	margin-right: 30px;
+	padding: 25px 30px 25px 30px;
+	font-family: FangSong;
+	color: rgb(230,230,230);
+	font-size: 14px;
+}
+.card{
+	position: absolute;
+	z-index: 2;
+	width: 120px !important;
+	height: 35px !important;
+	left: -36px;
+	top: -5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transform: rotate(315deg);
+}
+.card img{
+	position: absolute;
+	width: 120px;
+	height:35px;
+}
+.card p{
+	margin: 0 !important;
+	margin-left: -8px !important;
+	position: relative;
+	z-index: 3;
+	color: rgb(20,20,20);
+	font-weight: 600;
+}
+.type-item img{
+	display: none;
+}
+.type-item:hover{
+	color: white !important;
+	background-color: rgb(20,20,20) !important;
+}
+.typeClick{
+	color: white !important;
+	background-color: rgb(20,20,20) !important;
+} 
+.typeClick img{
+	display: block !important;
+	position: absolute;
+	right: -60px;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 60px;
+	height: 40px;
+	
+}
+.spilt{
+	position: relative;
+	width: 100%;
+	height: 2px !important;
+	border-bottom: 1px solid rgb(30,30,30) ;
+	margin-bottom: 1px;
+	
+}
+.type-item{
+	cursor: pointer;
+	position: relative;
+	width: 100%;
+	height: 45px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.company-box{
+	overflow: hidden;
+	position: relative;
+	width: 600px;
+	height: 1015px;
+	border-radius: 8px;
+	background-color: rgba(40,40,40,0.95);
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .7em 1.2em rgba(0, 0, 0, 0.6);
+	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
+	font-family: FangSong;
+	color: rgb(230,230,230);
+	font-size: 14px;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 30px 30px 30px 30px;
+}
+.title{
+	flex: 0 0 auto;
+	font-size: 22px !important;
+	font-weight: 600 !important;
+	margin-bottom: 15px;
+}
+.spilt2{
+	position: relative;
+	width: 100%;
+	height: 2px !important;
+	border-bottom: 1px dashed rgb(30,30,30) ;
+	margin-bottom: 1px;
+	
+}
+.choose-box{
+	flex: 0 0 auto;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 30px 20px 30px;
+}
+.choose-item{
+	cursor: pointer;
+	
+	
+	margin-left: 3px;
+	margin-right: 3px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.choose-item div{
+	width: 10px !important;
+	height: 10px !important;
+	border-radius: 50% !important;
+	border: 1px solid white;
+	margin-right: 4px;
+}
+.choose-item  p{
+	margin: 0 !important;
+}
+.liveItem div{
+	background-color: white;
+}
+.main-box{
+	margin-top: 20px;
+	position: relative;
+	width: 100%;
+	height: 820px !important;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	overflow-y:scroll ;
+	padding: 20px 0 20px 0;
+}
+.company-Item{
+	padding: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	cursor: pointer;
+	position: relative;
+	width: 110px;
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.company-Item:hover{
+	background-color: rgb(40,40,40) !important;
+	border-radius: 8px;
+}
+.company-Item:hover .company-icon {
+	animation: imgChange 0.8s forwards;
+}
+@keyframes imgChange{
+	to{
+		width: 65px;
+		height: 65px;
+		}
+}
+
+.company-Item img{
+	width: 50px;
+	height: 50px;
+}
+.company-Item p{
+	color: white !important; 
+	margin: 0!important;
+	margin-top: 5px !important;
+	font-size: 12px !important;
+	text-align: center;
+	width: 100%;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden; 
+}
+.quoted{
+	position: absolute !important;
+	width: 20px !important;
+	height: 20px !important;
+	top: 7px;
+	right: 25px;
+}
+.company-icon{
+	border-radius: 50%;
+}
+
+
+.main-box::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 8px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 0px;
+    }
+.main-box::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 10px;
+         -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        background: rgba(80,80,80,0.9);
+    }
+.main-box::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        opacity: 0;
+    }
