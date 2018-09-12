@@ -87,7 +87,7 @@
                 </div>
                 <div class="btBox">
                     <button onclick="companyLogin()" id="submit-company" class="submit rkmd-btn btn-lightBlue ripple-effect">登录</button>
-                    <button id="register" class="register rkmd-btn btn-lightBlue ripple-effect">前往注册</button>
+                    <button id="register" class="register rkmd-btn btn-lightBlue ripple-effect" onclick="turnToSignIn()">前往注册</button>
                 </div>
             </div>
         </div>
@@ -143,9 +143,9 @@
     // }
 
     $(document).ready(function() {
-        $("#register").on("click", function() {
-            location.href = "register.html";
-        });
+        // $("#register").on("click", function() {
+        //     location.href = "register.html";
+        // });
 
         $(".before-cg").bind("click", function(event) {
             $(".before .inner").hide();
@@ -251,6 +251,10 @@
             }
         })
 
+    }
+
+    function turnToSignIn() {
+        window.location.href = '/frontend/sign/index';
     }
 </script>
 

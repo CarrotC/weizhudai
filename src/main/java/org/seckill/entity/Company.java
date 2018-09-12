@@ -8,9 +8,9 @@ public class Company {
 
     private String companyType;
 
-    private String legelPersonName;
+    private String legalPersonName;
 
-    private String legelPersonId;
+    private String legalPersonId;
 
     private Integer registeredCapital;
 
@@ -19,6 +19,8 @@ public class Company {
     private String bankAccount;
 
     private String companyName;
+
+    private String companyId;
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -44,20 +46,20 @@ public class Company {
         return companyType;
     }
 
-    public void setLegelPersonName(String legelPersonName) {
-        this.legelPersonName = legelPersonName;
+    public void setLegalPersonName(String legelPersonName) {
+        this.legalPersonName = legalPersonName;
     }
 
-    public String getLegelPersonName() {
-        return legelPersonName;
+    public String getLegalPersonName() {
+        return legalPersonName;
     }
 
-    public void setLegelPersonId(String legelPersonId) {
-        this.legelPersonId = legelPersonId;
+    public void setLegalPersonId(String legalPersonId) {
+        this.legalPersonId = legalPersonId;
     }
 
-    public String getLegelPersonId() {
-        return this.legelPersonId;
+    public String getLegalPersonId() {
+        return this.legalPersonId;
     }
 
     public void setRegisteredCapital(Integer registeredCapital) {
@@ -93,5 +95,12 @@ public class Company {
     }
 
 
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
 }
 

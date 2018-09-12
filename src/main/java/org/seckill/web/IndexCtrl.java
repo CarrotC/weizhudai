@@ -1,8 +1,10 @@
 package org.seckill.web;
 
 import com.alibaba.fastjson.JSONObject;
+import org.seckill.entity.Company;
 import org.seckill.entity.ResultBean;
 import org.seckill.entity.User;
+import org.seckill.service.CompanyService;
 import org.seckill.service.UserService;
 import org.seckill.util.SessionUtils;
 import org.seckill.util.StringUtils;
@@ -21,6 +23,9 @@ public class IndexCtrl {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CompanyService companyService;
     /**
      * 跳转到首页
      * @return
@@ -116,7 +121,9 @@ public class IndexCtrl {
         //3.存储用户信息
         //4.将注册成功与否的结果用ReaultBean返回
         String userName = body.getString("userName");
-        String passwd = body.getString("passwd");
+        String password = body.getString("password");
+        String companyName = body.getString("companyName");
+        String companyType = body.getString("companyType");
         //todo:还要从body中获取其他信息，即用户注册时填写的其他信息，获取值的方法和上面的相同
 
         User user = this.userService.getUserByUserName(userName);
@@ -124,14 +131,24 @@ public class IndexCtrl {
 
         if(user!=null) {
             result = new ResultBean(500,"用户名已存在");
+            return result;
         } else {
             user = new User();
             user.setId(StringUtils.UUID());
             user.setUserName(userName);
-            user.setPassword(StringUtils.MD5(passwd));
+            user.setPassword(StringUtils.MD5(password));
             user.setIsBank(new Byte("0"));
             result = this.userService.addUser(user);
         }
+
+        Company company0 = this.companyService.getCompanyByName(companyName);
+        Company company = new Company();
+        company.setUserName(userName);
+        company.setCompanyName(companyName);
+        company.setCompanyType(companyType);
+        //测试所用
+        company.setCompanyId("testCompanyId");
+        result = this.companyService.addCompany(company);
 
         return result;
     }

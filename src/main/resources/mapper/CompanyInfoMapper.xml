@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.seckill.dao.CompanyInfoMapper">
+    <resultMap id="CompanyResultMap" type="org.seckill.entity.Company">
+        <id column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="social_credit" jdbcType="VARCHAR" property="socialCredit" />
+        <result column="company_type" jdbcType="VARCHAR" property="companyType" />
+        <result column="legal_person_name" jdbcType="VARCHAR" property="legalPersonName" />
+        <result column="legal_person_id" jdbcType="VARCHAR" property="legalPersonId" />
+        <result column="registered_capital" jdbcType="INTEGER" property="registeredCapital" />
+        <result column="operating_period" jdbcType="VARCHAR" property="operatingPeriod" />
+        <result column="bank_account" jdbcType="VARCHAR" property="bankAccount" />
+        <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+        <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+
+    </resultMap>
+    <sql id="Company_Column_List">
+        user_name, social_credit, company_type, legal_person_name, legal_person_id, registered_capital, operating_period, bank_account, company_name, company_id
+    </sql>
+
+    <insert id="insertCompany" parameterType="org.seckill.entity.Company">
+        insert into company (user_name, social_credit, company_type, legal_person_name, legal_person_id, registered_capital, operating_period, bank_account, company_name, company_id)
+        values (
+        #{userName,jdbcType=VARCHAR},
+        #{socialCredit, jdbcType=VARCHAR},
+        #{companyType, jdbcType=VARCHAR},
+        #{legalPersonName, jdbcType=VARCHAR},
+        #{legalPersonId, jdbcType=VARCHAR},
+        #{registeredCapital, jdbcType=VARCHAR},
+        #{operatingPeriod, jdbcType=VARCHAR},
+        #{bankAccount, jdbcType=VARCHAR},
+        #{companyName, jdbcType=VARCHAR},
+        #{companyId, jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <select id="selectAllCompany" resultType="org.seckill.entity.Company">
+        select
+        <include refid="Company_Column_List" />
+        from company
+    </select>
+
+    <select id="selectCompanyByType" resultType="org.seckill.entity.Company">
+        select
+        <include refid="Company_Column_List" />
+        from comapny
+        where company_type = #{type, jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectCompanyByName" resultType="org.seckill.entity.Company">
+        select *
+        from company
+        where company_name = #{id, jdbcType=VARCHAR}
+    </select>
+
+
+</mapper>
