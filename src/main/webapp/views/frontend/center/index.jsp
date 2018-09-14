@@ -12,6 +12,7 @@
 </head>
 <body>
 <center>
+    <p>hhhhhhhhhh</p>
     <a href="/frontend/center/index">首页</a>
     |
     <a href="/frontend/center/industryCategory?index=0">行业分类</a>
@@ -22,7 +23,30 @@
     <br>
     <br><br>
     <br>
-    <input type="text" placeholder="企业名称">&nbsp&nbsp&nbsp<button onclick="window.location.href='/frontend/enterpriseInfo/index'">搜索</button>
+    <input id="companyName" type="text" placeholder="企业名称">&nbsp&nbsp&nbsp<button onclick=searchCompany()>搜索</button>
 </center>
+
+<script>
+    function searchCompany() {
+        var input = $("#companyName").val();
+        $.ajax({
+            url: '/frontend/center/search',
+            data: JSON.stringify({
+                input: input
+            }),
+            contentType: 'application/json',
+            dataType: 'json',
+            method: 'post',
+            async: false,
+            success: function (res) {
+
+            },
+            error: function (res) {
+                alert(res.toString())
+
+            }
+        })
+    }
+</script>
 </body>
 </html>

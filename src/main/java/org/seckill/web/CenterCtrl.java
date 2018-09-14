@@ -38,11 +38,14 @@ public class CenterCtrl {
         //3.如果是银行用户，进入enterpriseInfo.jsp页面（或者重定向到EnterpriseInfoCtrl）
         User user = SessionUtils.getUser(request);
 
-        if(user.getIsBank().equals(new Byte("0"))){  //是企业用户
-            return "/views/frontend/enterpriseInfo/index";
-        } else {
-            return "/views/frontend/center/index";      //是银行用户
-        }
+//        if(user.getIsBank().equals(new Byte("0"))){  //是企业用户
+//            return "/views/frontend/enterpriseInfo/index";
+//        } else {
+//            return "/views/frontend/center/index";      //是银行用户
+//        }
+
+        //测试银行端
+        return "/views/frontend/center/index";
 
 
     }
@@ -54,8 +57,12 @@ public class CenterCtrl {
      * @return
      */
     @RequestMapping("/search")
-    public ResultBean search(HttpServletRequest request, Model model){
+    @ResponseBody
+    public ResultBean search(@RequestBody JSONObject body, HttpServletRequest request, Model model){
         //todo:实现搜索功能
+        String input = body.getString("input");
+        List<CompanyType> companyTypeList = this.companyTypeService.getCompanyByFuzzyName(input);
+        model.addAttribute("companyList", companyTypeList);
         return null;
     }
 

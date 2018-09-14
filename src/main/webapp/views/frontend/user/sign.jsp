@@ -78,19 +78,13 @@
                     window.location.href = '/frontend/login/index';
                     alert("yes");
                 } else {
-                    //window.location.href = '/';
                     alert("no")
                 }
             },
             error:  function (xhr, err)
             {
-                //console.log(xhr.responseText);
                 jQuery("#companyUserSign").html(xhr.responseText);
             }
-            // function (res) {
-            //     // alert(res.toString())
-            //     console.log(res);
-            // }
         })
 
     }

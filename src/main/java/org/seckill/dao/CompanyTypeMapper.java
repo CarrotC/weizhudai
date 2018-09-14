@@ -11,4 +11,6 @@ public interface CompanyTypeMapper {
     List<String> getAllCompanyType();
 
     List<CompanyType> getAllCompanyByType(String companyType);
+
+    List<CompanyType> getCompanyByFuzzyName(String name);
 }

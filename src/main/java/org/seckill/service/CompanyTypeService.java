@@ -11,4 +11,6 @@ public interface CompanyTypeService {
     public List<String> getAllCompanyType();
 
     public List<CompanyType> getAllCompanyByType(String companyType);
+
+    public List<CompanyType> getCompanyByFuzzyName(String name);
 }
