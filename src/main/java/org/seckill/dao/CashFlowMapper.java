@@ -2,6 +2,8 @@ package org.seckill.dao;
 
 import org.seckill.entity.CashFlow;
 
+import java.util.List;
+
 public interface CashFlowMapper {
-    public CashFlow getCashFlowById(String id);
+    public List<CashFlow> selectCashFlowById(String id);
 }

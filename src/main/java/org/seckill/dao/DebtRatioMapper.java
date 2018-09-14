@@ -2,6 +2,8 @@ package org.seckill.dao;
 
 import org.seckill.entity.DebtRatio;
 
+import java.util.List;
+
 public interface DebtRatioMapper {
-    public DebtRatio getDebtRatioById(String id);
+    public List<DebtRatio> selectDebtRatioById(String id);
 }

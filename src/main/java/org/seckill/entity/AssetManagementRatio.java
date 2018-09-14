@@ -11,6 +11,8 @@ public class AssetManagementRatio {
     private Double finalReceivables;
     private Double initialTotalAssets;
     private Double finalTotalAssets;
+    private Double initialCurrentAssets;
+    private Double finalCurrentAssets;
 //    private Double inventoryTurnover;
 //    private Double inventoryTurnoverInDays;
 //    private Double accountReceivableTurnover;
@@ -99,31 +101,47 @@ public class AssetManagementRatio {
         this.finalTotalAssets = finalTotalAssets;
     }
 
-    public Double getInventoryTurnover() {
+    public Double getInitialCurrentAssets() {
+        return initialCurrentAssets;
+    }
+
+    public void setInitialCurrentAssets(Double initialCurrentAssets) {
+        this.initialCurrentAssets = initialCurrentAssets;
+    }
+
+    public Double getFinalCurrentAssets() {
+        return finalCurrentAssets;
+    }
+
+    public void setFinalCurrentAssets(Double finalCurrentAssets) {
+        this.finalCurrentAssets = finalCurrentAssets;
+    }
+
+    public Double getInventoryTurnover() {//存货周期率
         return sellingCost / ((initialInventory + finalInventory) / 2);
     }
 
-    public Double getInventoryTurnoverInDays() {
+    public Double getInventoryTurnoverInDays() {//存货周转天数
         return 360 / getInventoryTurnover();
     }
 
-    public Double getAccountReceivableTurnover() {
+    public Double getAccountReceivableTurnover() {//应收账款周转率
         return salesRevenue / ((initialReceivables + finalReceivables) / 2);
     }
 
-    public Double getAccountReceivableTurnoverInDays() {
+    public Double getAccountReceivableTurnoverInDays() {//应收账款周转天数
         return 360 / getAccountReceivableTurnover();
     }
 
-    public Double getOperatingCycle() {
+    public Double getOperatingCycle() {//营业周期
         return getInventoryTurnoverInDays() + getAccountReceivableTurnoverInDays();
     }
 
-    public Double getCurrentAssetTurnover() {
-        return 1.0;
+    public Double getCurrentAssetTurnover() {//流动资产周转率
+        return salesRevenue / ((initialCurrentAssets + finalCurrentAssets) / 2);
     }
 
-    public Double getTotalAssetTurnover() {
+    public Double getTotalAssetTurnover() {//总资产周转率
         return salesRevenue / ((initialTotalAssets + finalTotalAssets) / 2);
     }
 }

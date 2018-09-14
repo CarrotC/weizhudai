@@ -2,6 +2,8 @@ package org.seckill.dao;
 
 import org.seckill.entity.AssetManagementRatio;
 
+import java.util.List;
+
 public interface AssetManagementRatioMapper {
-    public AssetManagementRatio getAssetManagementRatioById(String id);
+    public List<AssetManagementRatio> selectAssetManagementRatioById(String id);
 }
