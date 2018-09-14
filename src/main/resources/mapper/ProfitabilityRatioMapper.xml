@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.seckill.dao.AssetManagementRatioMapper">
-    <resultMap id="BaseResultMap" type="org.seckill.entity.AssetManagementRatio">
+<mapper namespace="org.seckill.dao.ProfitabilityRatioMapper">
+    <resultMap id="BaseResultMap" type="org.seckill.entity.ProfitabilityRatio">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="year" jdbcType="INTEGER" property="year" />
-        <result column="inventory_turnover" jdbcType="NUMERIC" property="inventoryTurnover" />
-        <result column="inventory_turnover_in_days" jdbcType="NUMERIC" property="inventoryTurnoverInDays" />
-        <result column="account_receivable_turnover" jdbcType="NUMERIC" property="accountReceivableTurnover" />
-        <result column="account_receivable_turnover_in_days" jdbcType="NUMERIC" property="accountReceivableTurnoverInDays" />
-        <result column="operating_cycle" jdbcType="NUMERIC" property="operatingCycle" />
-        <result column="current_asset_turnover" jdbcType="NUMERIC" property="currentAssetTurnover" />
-        <result column="total_asset_turnover" jdbcType="NUMERIC" property="totalAssetTurnover" />
+        <result column="net_profits" jdbcType="NUMERIC" property="netProfits" />
+        <result column="sales_revenue" jdbcType="NUMERIC" property="salesRevenue" />
+        <result column="sales_cost" jdbcType="NUMERIC" property="salesCost" />
+        <result column="initial_total_assets" jdbcType="NUMERIC" property="initialTotalAssets" />
+        <result column="final_total_assets" jdbcType="NUMERIC" property="finalTotalAssets" />
+        <result column="initial_owner_equity" jdbcType="NUMERIC" property="initialOwnerEquity" />
+        <result column="final_owner_equity" jdbcType="NUMERIC" property="finalOwnerEquity" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, year, inventory_turnover, inventory_turnover_in_days, account_receivable_turnover, account_receivable_turnover_in_days, operating_cycle, current_asset_turnover, total_asset_turnover
+        id, year, net_profits, sales_revenue, sales_cost, initial_total_assets, final_total_assets, initial_owner_equity, final_owner_equity
     </sql>
 
-    <select id="selectUserById" resultType="org.seckill.entity.AssetManagementRatio">
+    <select id="selectProfitabilityRatioById" resultType="org.seckill.entity.ProfitabilityRatio">
         select
         <include refid="Base_Column_List" />
-        from user
+        from profitability_ratio
         where id = #{id, jdbcType=INTEGER}
     </select>
 

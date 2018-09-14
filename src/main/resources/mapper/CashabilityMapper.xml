@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.seckill.dao.AssetManagementRatioMapper">
-    <resultMap id="BaseResultMap" type="org.seckill.entity.AssetManagementRatio">
+<mapper namespace="org.seckill.dao.CashabilityMapper">
+    <resultMap id="BaseResultMap" type="org.seckill.entity.Cashability">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="year" jdbcType="INTEGER" property="year" />
-        <result column="inventory_turnover" jdbcType="NUMERIC" property="inventoryTurnover" />
-        <result column="inventory_turnover_in_days" jdbcType="NUMERIC" property="inventoryTurnoverInDays" />
-        <result column="account_receivable_turnover" jdbcType="NUMERIC" property="accountReceivableTurnover" />
-        <result column="account_receivable_turnover_in_days" jdbcType="NUMERIC" property="accountReceivableTurnoverInDays" />
-        <result column="operating_cycle" jdbcType="NUMERIC" property="operatingCycle" />
-        <result column="current_asset_turnover" jdbcType="NUMERIC" property="currentAssetTurnover" />
-        <result column="total_asset_turnover" jdbcType="NUMERIC" property="totalAssetTurnover" />
+        <result column="current_assets" jdbcType="NUMERIC" property="currentAssets" />
+        <result column="current_liabilities" jdbcType="NUMERIC" property="currentLiabilities" />
+        <result column="inventory" jdbcType="NUMERIC" property="inventory" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, year, inventory_turnover, inventory_turnover_in_days, account_receivable_turnover, account_receivable_turnover_in_days, operating_cycle, current_asset_turnover, total_asset_turnover
+        id, year, current_assets, current_liabilities, inventory
     </sql>
 
-    <select id="selectUserById" resultType="org.seckill.entity.AssetManagementRatio">
+    <select id="selectCashabilityById" resultType="org.seckill.entity.Cashability">
         select
         <include refid="Base_Column_List" />
-        from user
+        from cashability
         where id = #{id, jdbcType=INTEGER}
     </select>
 

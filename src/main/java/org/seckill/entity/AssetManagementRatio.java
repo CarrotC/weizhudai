@@ -3,13 +3,21 @@ package org.seckill.entity;
 public class AssetManagementRatio {
     private Integer id;
     private Integer year;
-    private Double inventoryTurnover;
-    private Double inventoryTurnoverInDays;
-    private Double accountReceivableTurnover;
-    private Double accountReceivableTurnoverInDays;
-    private Double operatingCycle;
-    private Double currentAssetTurnover;
-    private Double totalAssetTurnover;
+    private Double sellingCost;
+    private Double initialInventory;
+    private Double finalInventory;
+    private Double salesRevenue;
+    private Double initialReceivables;
+    private Double finalReceivables;
+    private Double initialTotalAssets;
+    private Double finalTotalAssets;
+//    private Double inventoryTurnover;
+//    private Double inventoryTurnoverInDays;
+//    private Double accountReceivableTurnover;
+//    private Double accountReceivableTurnoverInDays;
+//    private Double operatingCycle;
+//    private Double currentAssetTurnover;
+//    private Double totalAssetTurnover;
 
     public Integer getId() {
         return id;
@@ -27,59 +35,95 @@ public class AssetManagementRatio {
         this.year = year;
     }
 
-    public Double getInventoryTurnover() {
-        return inventoryTurnover;
+    public Double getSellingCost() {
+        return sellingCost;
     }
 
-    public void setInventoryTurnover(Double inventoryTurnover) {
-        this.inventoryTurnover = inventoryTurnover;
+    public void setSellingCost(Double sellingCost) {
+        this.sellingCost = sellingCost;
+    }
+
+    public Double getInitialInventory() {
+        return initialInventory;
+    }
+
+    public void setInitialInventory(Double initialInventory) {
+        this.initialInventory = initialInventory;
+    }
+
+    public Double getFinalInventory() {
+        return finalInventory;
+    }
+
+    public void setFinalInventory(Double finalInventory) {
+        this.finalInventory = finalInventory;
+    }
+
+    public Double getSalesRevenue() {
+        return salesRevenue;
+    }
+
+    public void setSalesRevenue(Double salesRevenue) {
+        this.salesRevenue = salesRevenue;
+    }
+
+    public Double getInitialReceivables() {
+        return initialReceivables;
+    }
+
+    public void setInitialReceivables(Double initialReceivables) {
+        this.initialReceivables = initialReceivables;
+    }
+
+    public Double getFinalReceivables() {
+        return finalReceivables;
+    }
+
+    public void setFinalReceivables(Double finalReceivables) {
+        this.finalReceivables = finalReceivables;
+    }
+
+    public Double getInitialTotalAssets() {
+        return initialTotalAssets;
+    }
+
+    public void setInitialTotalAssets(Double initialTotalAssets) {
+        this.initialTotalAssets = initialTotalAssets;
+    }
+
+    public Double getFinalTotalAssets() {
+        return finalTotalAssets;
+    }
+
+    public void setFinalTotalAssets(Double finalTotalAssets) {
+        this.finalTotalAssets = finalTotalAssets;
+    }
+
+    public Double getInventoryTurnover() {
+        return sellingCost / ((initialInventory + finalInventory) / 2);
     }
 
     public Double getInventoryTurnoverInDays() {
-        return inventoryTurnoverInDays;
-    }
-
-    public void setInventoryTurnoverInDays(Double inventoryTurnoverInDays) {
-        this.inventoryTurnoverInDays = inventoryTurnoverInDays;
+        return 360 / getInventoryTurnover();
     }
 
     public Double getAccountReceivableTurnover() {
-        return accountReceivableTurnover;
-    }
-
-    public void setAccountReceivableTurnover(Double accountReceivableTurnover) {
-        this.accountReceivableTurnover = accountReceivableTurnover;
+        return salesRevenue / ((initialReceivables + finalReceivables) / 2);
     }
 
     public Double getAccountReceivableTurnoverInDays() {
-        return accountReceivableTurnoverInDays;
-    }
-
-    public void setAccountReceivableTurnoverInDays(Double accountReceivableTurnoverInDays) {
-        this.accountReceivableTurnoverInDays = accountReceivableTurnoverInDays;
+        return 360 / getAccountReceivableTurnover();
     }
 
     public Double getOperatingCycle() {
-        return operatingCycle;
-    }
-
-    public void setOperatingCycle(Double operatingCycle) {
-        this.operatingCycle = operatingCycle;
+        return getInventoryTurnoverInDays() + getAccountReceivableTurnoverInDays();
     }
 
     public Double getCurrentAssetTurnover() {
-        return currentAssetTurnover;
-    }
-
-    public void setCurrentAssetTurnover(Double currentAssetTurnover) {
-        this.currentAssetTurnover = currentAssetTurnover;
+        return 1.0;
     }
 
     public Double getTotalAssetTurnover() {
-        return totalAssetTurnover;
-    }
-
-    public void setTotalAssetTurnover(Double totalAssetTurnover) {
-        this.totalAssetTurnover = totalAssetTurnover;
+        return salesRevenue / ((initialTotalAssets + finalTotalAssets) / 2);
     }
 }

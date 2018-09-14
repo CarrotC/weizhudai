@@ -4,22 +4,23 @@
     <resultMap id="BaseResultMap" type="org.seckill.entity.AssetManagementRatio">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="year" jdbcType="INTEGER" property="year" />
-        <result column="inventory_turnover" jdbcType="NUMERIC" property="inventoryTurnover" />
-        <result column="inventory_turnover_in_days" jdbcType="NUMERIC" property="inventoryTurnoverInDays" />
-        <result column="account_receivable_turnover" jdbcType="NUMERIC" property="accountReceivableTurnover" />
-        <result column="account_receivable_turnover_in_days" jdbcType="NUMERIC" property="accountReceivableTurnoverInDays" />
-        <result column="operating_cycle" jdbcType="NUMERIC" property="operatingCycle" />
-        <result column="current_asset_turnover" jdbcType="NUMERIC" property="currentAssetTurnover" />
-        <result column="total_asset_turnover" jdbcType="NUMERIC" property="totalAssetTurnover" />
+        <result column="selling_cost" jdbcType="NUMERIC" property="sellingCost" />
+        <result column="initial_inventory" jdbcType="NUMERIC" property="initialInventory" />
+        <result column="final_inventory" jdbcType="NUMERIC" property="finalInventory" />
+        <result column="sales_revenue" jdbcType="NUMERIC" property="salesRevenue" />
+        <result column="initial_receivables" jdbcType="NUMERIC" property="initialReceivables" />
+        <result column="final_receivables" jdbcType="NUMERIC" property="finalReceivables" />
+        <result column="initial_total_assets" jdbcType="NUMERIC" property="initialTotalAssets" />
+        <result column="final_total_assets" jdbcType="NUMERIC" property="finalTotalAssets" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, year, inventory_turnover, inventory_turnover_in_days, account_receivable_turnover, account_receivable_turnover_in_days, operating_cycle, current_asset_turnover, total_asset_turnover
+        id, year, selling_cost, initial_inventory, final_inventory, sales_revenue, initial_receivables, final_receivables, initial_total_assets, final_total_assets
     </sql>
 
-    <select id="selectUserById" resultType="org.seckill.entity.AssetManagementRatio">
+    <select id="selectAssetManagementRatioById" resultType="org.seckill.entity.AssetManagementRatio">
         select
         <include refid="Base_Column_List" />
-        from user
+        from asset_management_ratio
         where id = #{id, jdbcType=INTEGER}
     </select>
 
