@@ -190,7 +190,7 @@
     //		切换语言
     $(".language").on("click", function() {
         translate();
-    })
+    });
 
     //切换筛选条件
     $("#filter-choose").on("click",function(){
