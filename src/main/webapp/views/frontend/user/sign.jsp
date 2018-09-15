@@ -310,13 +310,13 @@
                     i--;
                     $("#time").text(i);
                     if ($("#time").text() == "1") {
-                        location.href = "login.html"; //PC网页式跳转
+                        location.href = "/frontend/login/index"; //PC网页式跳转
                         clearInterval(Timer);
                     }
                 }, 1000)
 
                 $("#goLogin").on("click", function () {
-                    location.href = "login.html"; //PC网页式跳转
+                    location.href = "/frontend/login/index"; //PC网页式跳转
                 })
             }
         })
