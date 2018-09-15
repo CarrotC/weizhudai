@@ -1,10 +1,8 @@
 package org.seckill.web;
 
 import com.alibaba.fastjson.JSONObject;
-import org.seckill.entity.CompanyType;
-import org.seckill.entity.Flow;
-import org.seckill.entity.Loan;
-import org.seckill.entity.ResultBean;
+import org.seckill.dao.*;
+import org.seckill.entity.*;
 import org.seckill.service.CompanyTypeService;
 import org.seckill.service.LoanAndFlowService;
 import org.seckill.util.SessionUtils;
@@ -32,6 +30,19 @@ public class EnterpriseInfoCtrl {
 
     @Autowired
     private LoanAndFlowService loanAndFlowService;
+
+    @Autowired
+    AssetManagementRatioMapper assetManagementRatioMapper;
+    @Autowired
+    CashabilityMapper cashabilityMapper;
+    @Autowired
+    CashFlowMapper cashFlowMapper;
+    @Autowired
+    DebtRatioMapper debtRatioMapper;
+    @Autowired
+    ProfitabilityMapper profitabilityMapper;
+    @Autowired
+    ProfitabilityRatioMapper profitabilityRatioMapper;
 
     /**
      * 显示企业信息（只能由企业用户进入的）
@@ -189,5 +200,102 @@ public class EnterpriseInfoCtrl {
         return "/views/frontend/enterpriseInfo/index";
     }
 
+    /**
+     * 显示搜索结果/财务信息（只能由银行用户进入）
+     * @return
+     */
+    @RequestMapping("financialInfo")
+    public String financialInfo(HttpServletRequest request, Model model){
+        //todo
+        //1.从前端获取具体企业
+
+        String compId = "1"; //测试所用
+
+        //变现能力
+        List<Cashability> cashabilityList = cashabilityMapper.selectCashabilityById(compId);
+        int cashabilityListSize = cashabilityList.size();
+        Integer[] years = new Integer[cashabilityListSize];
+        Double[] currentRatios = new Double[cashabilityListSize];//流动比率
+        Double[] quickRatios = new Double[cashabilityListSize];//速动比率
+        for(int i = 0; i < cashabilityListSize; i++){
+            years[i] = cashabilityList.get(i).getYear();
+            currentRatios[i] = cashabilityList.get(i).getCurrentRatio();
+            quickRatios[i] = cashabilityList.get(i).getQuickRatio();
+        }
+
+        //资产管理比率
+        List<AssetManagementRatio> assetManagementRatioList = assetManagementRatioMapper.selectAssetManagementRatioById(compId);
+        int assetManagementRatioListSize = assetManagementRatioList.size();
+
+        Double[] inventoryTurnover = new Double[assetManagementRatioListSize];//存货周转率
+        Double[] inventoryTurnoverInDays = new Double[assetManagementRatioListSize];//存货周转天数
+        Double[] accountReceivableTurnover = new Double[assetManagementRatioListSize];//应收账款周转率
+        Double[] accountReceivableTurnoverInDays = new Double[assetManagementRatioListSize];//应收账款周转天数
+        Double[] operatingCycle = new Double[assetManagementRatioListSize];//营业周期
+        Double[] currentAssetTurnover = new Double[assetManagementRatioListSize];//流动资产周转率
+        Double[] totalAssetTurnover = new Double[assetManagementRatioListSize];//总资产周转率
+        for(int i = 0; i < assetManagementRatioListSize; i++){
+            inventoryTurnover[i] = assetManagementRatioList.get(i).getInventoryTurnover();
+            inventoryTurnoverInDays[i] = assetManagementRatioList.get(i).getInventoryTurnoverInDays();
+            accountReceivableTurnover[i] = assetManagementRatioList.get(i).getAccountReceivableTurnover();
+            accountReceivableTurnoverInDays[i] =  assetManagementRatioList.get(i).getAccountReceivableTurnoverInDays();
+            operatingCycle[i] = assetManagementRatioList.get(i).getOperatingCycle();
+            currentAssetTurnover[i] = assetManagementRatioList.get(i).getCurrentAssetTurnover();
+            totalAssetTurnover[i] = assetManagementRatioList.get(i).getTotalAssetTurnover();
+        }
+
+        //负债比率
+        List<DebtRatio> debtRatioList = debtRatioMapper.selectDebtRatioById(compId);
+        int debtRatioListSize = debtRatioList.size();
+        Double[] assetLiabilityRatio = new Double[debtRatioListSize];//资产负债比率
+        Double[] equityRatio = new Double[debtRatioListSize];//产权比率
+        Double[] tangibleDebtRatio = new Double[debtRatioListSize];//有形净资产债务率
+        Double[] interestEarnedRatio = new Double[debtRatioListSize];//已获利息倍
+        for(int i = 0; i < debtRatioListSize; i++){
+            assetLiabilityRatio[i] = debtRatioList.get(i).getAssetLiabilityRatio();
+            equityRatio[i] = debtRatioList.get(i).getEquityRatio();
+            tangibleDebtRatio[i] = debtRatioList.get(i).getTangibleDebtRatio();
+            interestEarnedRatio[i] = debtRatioList.get(i).getInterestEarnedRatio();
+        }
+
+        //盈利能力比率
+        List<ProfitabilityRatio> profitabilityRatioList = profitabilityRatioMapper.selectProfitabilityRatioById(compId);
+        int profitabilityRatioListSize = profitabilityRatioList.size();
+        Double[] netProfitRatioInSale = new Double[profitabilityRatioListSize];//销售净利率
+        Double[] grossProfitRatioInSale = new Double[profitabilityRatioListSize];//销售毛利率
+        Double[] netProfitRatioInAsset = new Double[profitabilityRatioListSize];//资产净利率
+        Double[] netAssetIncomeRatio = new Double[profitabilityRatioListSize];//净资产收益率
+        for(int i = 0; i < profitabilityRatioListSize; i++){
+            netProfitRatioInSale[i] = profitabilityRatioList.get(i).getNetProfitRatioInSale();
+            grossProfitRatioInSale[i] = profitabilityRatioList.get(i).getGrossProfitRatioInSale();
+            netProfitRatioInAsset[i] = profitabilityRatioList.get(i).getNetProfitRatioInAsset();
+            netAssetIncomeRatio[i] = profitabilityRatioList.get(i).getNetAssetIncomeRatio();
+        }
+
+        //现金流量分析
+        List<CashFlow> cashFlowList = cashFlowMapper.selectCashFlowById(compId);
+        int cashFlowSize = cashFlowList.size();
+        Double[] cashMaturityDebtRatio = new Double[cashFlowSize];//现金到期债务比
+        Double[] cashFlowDebtRatio = new Double[cashFlowSize];//现金流动债务比
+        Double[] totalCashDebtRatio = new Double[cashFlowSize];//现金债务总额比
+        for(int i = 0; i < cashFlowSize; i++){
+            cashMaturityDebtRatio[i] = cashFlowList.get(i).getCashMaturityDebtRatio();
+            cashFlowDebtRatio[i] = cashFlowList.get(i).getCashFlowDebtRatio();
+            totalCashDebtRatio[i] = cashFlowList.get(i).getTotalCashDebtRatio();
+        }
+
+        //获现能力
+        List<Profitability> profitabilityList = profitabilityMapper.selectProfitabilityById(compId);
+        int profitabilitySize = profitabilityList.size();
+        Double[] saleCashRatio = new Double[profitabilitySize];
+        Double[] cashRecoveryRatio = new Double[profitabilitySize];
+        for(int i = 0; i < profitabilitySize; i++){
+            saleCashRatio[i] = profitabilityList.get(i).getSaleCashRatio();
+            cashRecoveryRatio[i] = profitabilityList.get(i).getCashRecoveryRatio();
+        }
+
+
+        return "/views/frontend/enterpriseInfo/index";
+    }
 
 }
