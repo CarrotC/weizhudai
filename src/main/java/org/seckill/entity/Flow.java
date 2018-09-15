@@ -14,6 +14,7 @@ public class Flow {
     private String bank;                //受理银行
     private String use;                 //用途
     private String remarks;             //备注
+    private String mainPartner;
 
     public String getFirmId() {
         return firmId;
@@ -93,6 +94,14 @@ public class Flow {
 
     public void setFlowNo(String flowNo) {
         this.flowNo = flowNo;
+    }
+
+    public String getMainPartner() {
+        return mainPartner;
+    }
+
+    public void setMainPartner(String mainPartner) {
+        this.mainPartner = mainPartner;
     }
 
     @Override
