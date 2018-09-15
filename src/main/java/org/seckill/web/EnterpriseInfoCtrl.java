@@ -3,8 +3,7 @@ package org.seckill.web;
 import com.alibaba.fastjson.JSONObject;
 import org.seckill.dao.*;
 import org.seckill.entity.*;
-import org.seckill.service.CompanyTypeService;
-import org.seckill.service.LoanAndFlowService;
+import org.seckill.service.*;
 import org.seckill.util.SessionUtils;
 import org.seckill.util.TxtReader;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,17 +31,28 @@ public class EnterpriseInfoCtrl {
     private LoanAndFlowService loanAndFlowService;
 
     @Autowired
-    AssetManagementRatioMapper assetManagementRatioMapper;
+    AssetManagementRatioService assetManagementRatioService;
     @Autowired
-    CashabilityMapper cashabilityMapper;
+    CashabilityService cashabilityService;
     @Autowired
-    CashFlowMapper cashFlowMapper;
+    CashFlowService cashFlowService;
     @Autowired
-    DebtRatioMapper debtRatioMapper;
+    DebtRatioService debtRatioService;
     @Autowired
-    ProfitabilityMapper profitabilityMapper;
+    ProfitabilityService profitabilityService;
     @Autowired
-    ProfitabilityRatioMapper profitabilityRatioMapper;
+    ProfitabilityRatioService profitabilityRatioService;
+
+    @Autowired
+    CompService compService;
+    @Autowired
+    CompFormerNameService compFormerNameService;
+    @Autowired
+    CompMembersService compMembersService;
+    @Autowired
+    CompShareHolderService compShareHolderService;
+
+
 
     /**
      * 显示企业信息（只能由企业用户进入的）
@@ -197,8 +207,21 @@ public class EnterpriseInfoCtrl {
         //todo:从区块链中获取流水和借贷信息
         CompanyType companyType = this.companyTypeService.getCompanyById(companyId);
         model.addAttribute("companyName",companyType.getCompanyName());
+
+        //从数据库中加载企业基本信息
+        Comp comp = compService.getCompById(companyId);
+        CompFormerName compFormerName = compFormerNameService.getCompFormerNameById(companyId);
+        CompMembers compMembers = compMembersService.getCompMembersById(companyId);
+        CompShareholder compShareHolder =  compShareHolderService.getCompShareholderById(companyId);
+        model.addAttribute("comp", comp);
+        model.addAttribute("compFormerName", compFormerName);
+        model.addAttribute("compMembers", compMembers);
+        model.addAttribute("compShareHolder", compShareHolder);
+
         return "/views/frontend/enterpriseInfo/index";
     }
+
+
 
     /**
      * 显示搜索结果/财务信息（只能由银行用户进入）
@@ -212,7 +235,7 @@ public class EnterpriseInfoCtrl {
         String compId = "1"; //测试所用
 
         //变现能力
-        List<Cashability> cashabilityList = cashabilityMapper.selectCashabilityById(compId);
+        List<Cashability> cashabilityList = cashabilityService.getCashabilityById(compId);
         int cashabilityListSize = cashabilityList.size();
         Integer[] years = new Integer[cashabilityListSize];
         Double[] currentRatios = new Double[cashabilityListSize];//流动比率
@@ -222,11 +245,13 @@ public class EnterpriseInfoCtrl {
             currentRatios[i] = cashabilityList.get(i).getCurrentRatio();
             quickRatios[i] = cashabilityList.get(i).getQuickRatio();
         }
+        model.addAttribute("years", years);
+        model.addAttribute("currentRatios", currentRatios);
+        model.addAttribute("quickRatios", quickRatios);
 
         //资产管理比率
-        List<AssetManagementRatio> assetManagementRatioList = assetManagementRatioMapper.selectAssetManagementRatioById(compId);
+        List<AssetManagementRatio> assetManagementRatioList = assetManagementRatioService.getAssetManagementRatioById(compId);
         int assetManagementRatioListSize = assetManagementRatioList.size();
-
         Double[] inventoryTurnover = new Double[assetManagementRatioListSize];//存货周转率
         Double[] inventoryTurnoverInDays = new Double[assetManagementRatioListSize];//存货周转天数
         Double[] accountReceivableTurnover = new Double[assetManagementRatioListSize];//应收账款周转率
@@ -243,9 +268,18 @@ public class EnterpriseInfoCtrl {
             currentAssetTurnover[i] = assetManagementRatioList.get(i).getCurrentAssetTurnover();
             totalAssetTurnover[i] = assetManagementRatioList.get(i).getTotalAssetTurnover();
         }
+        model.addAttribute("inventoryTurnover", inventoryTurnover);
+        model.addAttribute("inventoryTurnoverInDays", inventoryTurnoverInDays);
+        model.addAttribute("accountReceivableTurnover", accountReceivableTurnover);
+        model.addAttribute("accountReceivableTurnoverInDays",accountReceivableTurnoverInDays);
+        model.addAttribute("operatingCycle", operatingCycle);
+        model.addAttribute("currentAssetTurnover", currentAssetTurnover);
+        model.addAttribute("totalAssetTurnover", totalAssetTurnover);
+
+
 
         //负债比率
-        List<DebtRatio> debtRatioList = debtRatioMapper.selectDebtRatioById(compId);
+        List<DebtRatio> debtRatioList = debtRatioService.getDebtRatioById(compId);
         int debtRatioListSize = debtRatioList.size();
         Double[] assetLiabilityRatio = new Double[debtRatioListSize];//资产负债比率
         Double[] equityRatio = new Double[debtRatioListSize];//产权比率
@@ -257,9 +291,13 @@ public class EnterpriseInfoCtrl {
             tangibleDebtRatio[i] = debtRatioList.get(i).getTangibleDebtRatio();
             interestEarnedRatio[i] = debtRatioList.get(i).getInterestEarnedRatio();
         }
+        model.addAttribute("assetLiabilityRatio", assetLiabilityRatio);
+        model.addAttribute("equityRatio", equityRatio);
+        model.addAttribute("tangibleDebtRatio", tangibleDebtRatio);
+        model.addAttribute("interestEarnedRatio", interestEarnedRatio);
 
         //盈利能力比率
-        List<ProfitabilityRatio> profitabilityRatioList = profitabilityRatioMapper.selectProfitabilityRatioById(compId);
+        List<ProfitabilityRatio> profitabilityRatioList = profitabilityRatioService.getProfitabilityRatioById(compId);
         int profitabilityRatioListSize = profitabilityRatioList.size();
         Double[] netProfitRatioInSale = new Double[profitabilityRatioListSize];//销售净利率
         Double[] grossProfitRatioInSale = new Double[profitabilityRatioListSize];//销售毛利率
@@ -271,9 +309,13 @@ public class EnterpriseInfoCtrl {
             netProfitRatioInAsset[i] = profitabilityRatioList.get(i).getNetProfitRatioInAsset();
             netAssetIncomeRatio[i] = profitabilityRatioList.get(i).getNetAssetIncomeRatio();
         }
+        model.addAttribute("netProfitRatioInSale", netProfitRatioInSale);
+        model.addAttribute("grossProfitRatioInSale", grossProfitRatioInSale);
+        model.addAttribute("netProfitRatioInAsset", netProfitRatioInAsset);
+        model.addAttribute("netAssetIncomeRatio", netAssetIncomeRatio);
 
         //现金流量分析
-        List<CashFlow> cashFlowList = cashFlowMapper.selectCashFlowById(compId);
+        List<CashFlow> cashFlowList = cashFlowService.getCashFlowById(compId);
         int cashFlowSize = cashFlowList.size();
         Double[] cashMaturityDebtRatio = new Double[cashFlowSize];//现金到期债务比
         Double[] cashFlowDebtRatio = new Double[cashFlowSize];//现金流动债务比
@@ -283,9 +325,12 @@ public class EnterpriseInfoCtrl {
             cashFlowDebtRatio[i] = cashFlowList.get(i).getCashFlowDebtRatio();
             totalCashDebtRatio[i] = cashFlowList.get(i).getTotalCashDebtRatio();
         }
+        model.addAttribute("cashMaturityDebtRatio", cashMaturityDebtRatio);
+        model.addAttribute("cashFlowDebtRatio", cashFlowDebtRatio);
+        model.addAttribute("totalCashDebtRatio", totalCashDebtRatio);
 
         //获现能力
-        List<Profitability> profitabilityList = profitabilityMapper.selectProfitabilityById(compId);
+        List<Profitability> profitabilityList = profitabilityService.getProfitabilityById(compId);
         int profitabilitySize = profitabilityList.size();
         Double[] saleCashRatio = new Double[profitabilitySize];
         Double[] cashRecoveryRatio = new Double[profitabilitySize];
@@ -293,9 +338,13 @@ public class EnterpriseInfoCtrl {
             saleCashRatio[i] = profitabilityList.get(i).getSaleCashRatio();
             cashRecoveryRatio[i] = profitabilityList.get(i).getCashRecoveryRatio();
         }
+        model.addAttribute("saleCashRatio", saleCashRatio);
+        model.addAttribute("cashRecoveryRatio", cashRecoveryRatio);
 
 
         return "/views/frontend/enterpriseInfo/index";
     }
+
+
 
 }

@@ -4,9 +4,11 @@ import org.seckill.dao.DebtRatioMapper;
 import org.seckill.entity.DebtRatio;
 import org.seckill.service.DebtRatioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DebtRatioServiceImpl implements DebtRatioService {
     @Autowired
     DebtRatioMapper debtRatioMapper;
