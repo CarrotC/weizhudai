@@ -39,6 +39,7 @@ public class CenterCtrl {
         User user = SessionUtils.getUser(request);
 
         if(user.getIsBank().equals(new Byte("0"))){  //是企业用户
+            model.addAttribute("companyId", user.getId());
             return "/views/frontend/enterpriseInfo/index";
         } else {
             return "/views/frontend/center/index";      //是银行用户

@@ -50,7 +50,6 @@ public class EnterpriseInfoCtrl {
      */
     @RequestMapping("index")
     public String index(HttpServletRequest request, Model model){
-        //验证是否为企业用户
         return "/views/frontend/enterpriseInfo/index";
     }
 
@@ -177,6 +176,7 @@ public class EnterpriseInfoCtrl {
             CompanyType companyType = this.companyTypeService.getCompanyById(companyId);
             if(companyType!=null&&companyType.getIsRegister().equals(new Byte("1"))){
                 String url = "/frontend/enterpriseInfo/showCompanyInfo?companyId=" + companyId;
+                //model.addAttribute("companyId",companyId);
                 return new ResultBean(200,url,"获取企业资料成功");
             }
         }
@@ -196,6 +196,7 @@ public class EnterpriseInfoCtrl {
         //todo:从区块链中获取流水和借贷信息
         CompanyType companyType = this.companyTypeService.getCompanyById(companyId);
         model.addAttribute("companyName",companyType.getCompanyName());
+        model.addAttribute("companyId", companyId);
         return "/views/frontend/enterpriseInfo/index";
     }
 

@@ -85,12 +85,12 @@
                     </ul>
                 </li>
                 <li class="firstLayer">
-                    <a href="/frontend/enterpriseInfo/companyFlow" class="three-d"> 企业流水 <span class="three-d-box"><span class="front">企业流水</span><span class="back">企业流水</span></span>
+                    <a href="/frontend/enterpriseInfo/companyFlow?companyId=${companyId}" class="three-d"> 企业流水 <span class="three-d-box"><span class="front">企业流水</span><span class="back">企业流水</span></span>
                     </a>
 
                 </li>
                 <li class="firstLayer">
-                    <a href="/frontend/enterpriseInfo/companyLoan" class="three-d "> 企业信用 <span class="three-d-box"><span class="front"> 企业信用</span><span class="back">企业信用</span></span>
+                    <a href="/frontend/enterpriseInfo/companyLoan?companyId=${companyId}" class="three-d "> 企业信用 <span class="three-d-box"><span class="front"> 企业信用</span><span class="back">企业信用</span></span>
                     </a>
                 </li>
                 <li class="firstLayer">
