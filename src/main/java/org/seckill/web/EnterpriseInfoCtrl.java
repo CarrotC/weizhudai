@@ -160,6 +160,32 @@ public class EnterpriseInfoCtrl {
         //todo:前端需要添加页面
          return "/views/frontend/enterpriseInfo/financialInfo";
     }
+    /**
+     * 显示纳税情况
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("taxSituation")
+    public String taxSituation(HttpServletRequest request, Model model){
+
+        //todo:前端需要添加页面
+        return "/views/frontend/enterpriseInfo/taxSituation";
+    }
+
+    /**
+     * 显示涉诉情况
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("complaint")
+    public String complaint(HttpServletRequest request, Model model){
+
+        //todo:前端需要添加页面
+        return "/views/frontend/enterpriseInfo/complaint";
+    }
+
 
     /**
      * 显示搜索结果/企业信息（只能由银行用户进入）
