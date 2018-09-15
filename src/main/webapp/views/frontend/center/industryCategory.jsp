@@ -76,8 +76,10 @@
         <div class="main-box">
 
             <c:forEach items="${companyList}" var="c" varStatus="status">
-                <div class="company-Item" data-id="${c.companyId}" onclick="getCompanyInfo(this)">
-                    <img class="quoted" src="/statics/img/star.png">
+                <div class="company-Item status-${c.isRegister}" data-id="${c.companyId}" onclick="getCompanyInfo(this)">
+                    <c:if test="${c.isRegister==1}">
+                        <img class="quoted" src="/statics/img/star.png">
+                    </c:if>
                     <div class="company-icon">
                         <img  src="/statics/img/company.png">
                     </div>
@@ -94,8 +96,16 @@
     //更换筛选方式
     $(".choose-item").on("click",function(){
         if( $(".choose-item").hasClass("liveItem")){
+            var $registered = $('.status-0');
+            $registered.each(function() {
+                $(this).show();
+            });
             $(this).removeClass("liveItem");
         }else {
+            var $registered = $('.status-0');
+            $registered.each(function() {
+                $(this).hide();
+            });
             $(this).addClass("liveItem");
         }
     })
