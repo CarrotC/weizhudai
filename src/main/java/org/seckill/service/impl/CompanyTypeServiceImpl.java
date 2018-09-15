@@ -42,6 +42,16 @@ public class CompanyTypeServiceImpl implements CompanyTypeService {
         return this.companyTypeMapper.getAllCompanyByType(companyType);
     }
 
+    /**
+     *
+     * @param companyId
+     * @return
+     */
+    @Override
+    public CompanyType getCompanyById(String companyId){
+        return this.companyTypeMapper.getCompanyById(companyId);
+    }
+
     @Override
     public List<CompanyType> getCompanyByFuzzyName(String name){
         return this.companyTypeMapper.getCompanyByFuzzyName(name);

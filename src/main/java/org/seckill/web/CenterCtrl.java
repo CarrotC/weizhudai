@@ -38,15 +38,11 @@ public class CenterCtrl {
         //3.如果是银行用户，进入enterpriseInfo.jsp页面（或者重定向到EnterpriseInfoCtrl）
         User user = SessionUtils.getUser(request);
 
-//        if(user.getIsBank().equals(new Byte("0"))){  //是企业用户
-//            return "/views/frontend/enterpriseInfo/index";
-//        } else {
-//            return "/views/frontend/center/index";      //是银行用户
-//        }
-
-        //测试银行端
-        return "/views/frontend/center/index";
-
+        if(user.getIsBank().equals(new Byte("0"))){  //是企业用户
+            return "/views/frontend/enterpriseInfo/index";
+        } else {
+            return "/views/frontend/center/index";      //是银行用户
+        }
 
     }
 

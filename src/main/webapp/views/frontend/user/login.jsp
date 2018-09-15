@@ -226,7 +226,7 @@
         })
     }
 
-    function bankLogin() {
+    function bankLogin(){
         var userName = $("#BUsername").val();
         var passwd = $('#BPassword').val();
         $.ajax({
@@ -248,7 +248,7 @@
                 }
             },
             error: function (res) {
-                alert(res.toString())
+                alert("出错啦！")
 
             }
         })
