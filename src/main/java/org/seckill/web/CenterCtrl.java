@@ -87,4 +87,8 @@ public class CenterCtrl {
     public String aboutUs() {
         return "/views/frontend/center/aboutUs";
     }
+    @RequestMapping("/contactUs")
+    public String contactUs() {
+        return "/views/frontend/center/contactUs";
+    }
 }
