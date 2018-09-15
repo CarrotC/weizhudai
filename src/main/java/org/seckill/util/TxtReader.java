@@ -18,12 +18,17 @@ public class TxtReader {
     public static List txtReader(String name) {
 
         List<String> arrayList = new ArrayList<>();
+        int lineIndex = 0;
         try {
+
             FileReader fr = new FileReader(name);
             BufferedReader bf = new BufferedReader(fr);
             String str;
             while ((str = bf.readLine()) != null) {
-                arrayList.add(str);
+                lineIndex++;
+                if(lineIndex>1){
+                    arrayList.add(str);
+                }
             }
             bf.close();
             fr.close();
