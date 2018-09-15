@@ -7,6 +7,10 @@
 	font-family: FangSong;
 	src: url(../ttf/ZiTiGuanJiaFangSongTi-1.ttf);
 }
+p,font{
+	background-color: transparent !important; 
+	color: rgb(230,230,230) !important;
+}
 
 * {
 	margin: 0;

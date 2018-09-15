@@ -1,0 +1,457 @@
+@font-face {
+	font-family: XingKai;
+	src: url(../ttf/HYXuJingXingKaiW-2.ttf);
+}
+
+@font-face {
+	font-family: FangSong;
+	src: url(../ttf/ZiTiGuanJiaFangSongTi-1.ttf);
+}
+.aTab:hover{
+	background-color: rgb(120,120,120) !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-transition-delay: 99999s;
+	-webkit-transition: color 99999s ease-out, background-color 99999s ease-out;
+	/* -webkit-box-shadow: 0 0 0px 1000px white inset; */
+}
+.table p{
+	margin: 0 !important;
+}
+p,font{
+	background-color: transparent !important; 
+	color: rgb(230,230,230) !important;
+}
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body{
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+	font-size: 16px;
+}
+.bg{
+	position: fixed;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.bg img{
+	width: 130%;
+	height: 130%;
+	animation: 60s bgMove linear;
+	animation-iteration-count: infinite;
+}
+@keyframes bgMove{
+	0%{
+		width: 130%;
+		height: 130%;
+	}
+	25%{
+		width: 160%;
+		height: 160%;
+	}
+	50%{
+		width: 130%;
+		height: 130%;
+	}
+	75%{
+		width: 100%;
+		height: 100%;
+	}
+	100%{
+		width: 130%;
+		height: 130%;
+	}
+}
+
+.main-container{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 50px;
+}
+.title{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 700px;
+	font-family: FangSong;
+	color: rgb(15,15,15);
+}
+.big-title{
+	color: black !important;
+	font-size: 26px;
+	font-weight: 900;
+}
+.small-title{
+	color: black !important;
+	width: 100%;
+	text-align: right !important;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+
+/*主体内容*/
+.main-box{
+	position: relative;
+	width: 780px;
+	height:auto;
+	min-height: 100px;
+	border-radius: 8px;
+	background-color: rgba(60,60,60,0.95);
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .7em 1.2em rgba(0, 0, 0, 0.6);
+	/*text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);*/
+	margin-top: 20PX;
+	padding: 35px 30px 25px 30px;
+	font-family: FangSong;
+	color: rgb(230,230,230);
+	font-size: 14px;
+}
+
+.nav{
+	margin-top: 10px;
+}
+
+.showing{
+	display: block !important;
+}
+.nav-tabs a{
+	padding: 6px 20px !important;
+	
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+	background-color: rgb(120,120,120) !important;
+	color: (45,45,45)!important;
+}
+.tab-pane{
+	margin-top: 10px;
+	padding: 20px !important;
+}
+
+.tab-title{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: auto;
+	border-radius: 8px;
+	line-height: 180%;
+	text-align: right;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-size: 16px;
+	margin-bottom: 20px;
+	background-color: rgb(55,55,55) !important;
+}
+
+.filter-box{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+}
+.type,.order{
+	width: 45%;
+}
+.type,.order{
+	padding-left: 50px;
+	padding-right: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.all,.mainBusiness,.timeUp,.timeDown{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	cursor: pointer;
+}
+.all p,.mainBusiness p,.timeUp p,.timeDown p{
+	width: auto !important;
+}
+form{
+	position: relative;
+	width:100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+form div{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+p{
+	margin: 0!important;
+}
+
+.form-control{
+	margin:0 5px;
+	height: 30px !important;
+	width: 100px !important;
+}
+.choosed div{
+	background-color: white;
+}
+option{
+	background-color: rgb(100,100,100)!important;
+	border: 1px solid rgb(100,100,100);
+	display: flex;http://127.0.0.1:8020/MicroAssistance/static/img/indexBg.png
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+.filter-item{
+	flex:0 0 auto;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border:1px solid white;
+	margin-right: 3px;
+}
+.split{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 2px;
+	width: 100%;
+	border-bottom: 1px dashed rgb(55,55,55);
+}
+.time,.state{
+	margin-top: 15px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.cover{
+	position: absolute;
+	width: 100% !important;
+	height: 35px;
+	top: 0;
+	left: 0;
+}
+.coverd p{
+	color: rgb(55,55,55)!important;
+}
+.coverd select{
+	background-color: rgb(55,55,55) !important;
+	border: rgb(55,55,55) !important;
+	color: rgb(100,100,100)!important;
+}
+.coverd input{
+	background-color: rgb(55,55,55)!important;
+}
+
+.conclusion{
+	width: 100%;
+	height: auto;
+	padding: 20px;
+	background-color: rgb(55,55,55);
+	border-radius: 8px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.conclusion p{
+	font-size: 15px;
+	line-height: 180%;
+	width: 50%;
+	text-align: center;
+}
+.credit-item{
+	position: relative;
+	width: 100%;
+	padding: 10px 30px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.item-title{
+	width: 15%;
+	font-size: 15px;
+}
+.left-box{
+	width: 60%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.left-box p{
+	width: 50%;
+	line-height: 200%;
+}
+.credit-state{
+	width: 15%;
+	text-align: center;
+}
+.detail{
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+	color: rgb(200,200,200) !important;
+	font-size: 12px !important;
+	text-decoration: underline !important;
+}
+.bank{
+	
+}
+#bank{
+	background-color: rgb(100,100,100);
+	outline: none;
+	line-height:180% ;
+	border-radius:8px; 
+	border: none;
+	text-indent: 10px;
+}
+#bank:hover{
+	outline: none;
+}
+.material-icons {
+	border: none !important;
+	outline: none;
+	display:block;
+    float: left;
+    width: auto;
+    height: auto;
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+}
+.bank{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+}
+#bank{
+	width: 250px;
+}
+#bank-search{
+	display: flex !important;
+	flex-direction: row;
+	align-items: center;
+	margin-left: 40px;
+	height: 33px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 12px;
+	background-color:rgb(100,100,100);
+	border-radius: 12px;
+}
+#bank-search:hover
+{
+	background-color:rgb(200,200,200);
+}
+
+
+.bank-item{
+	width: 100%;
+	height: auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 20px;
+	
+}
+.top-info{
+	color:rgb(230,230,230);
+	padding: 20px 30px;
+	background-color: rgb(55,55,55);
+	border-radius: 8px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
+	line-height: 180%;
+}
+.bank-title{
+	width: 40%;
+}
+.lineOfCredit,.creditRating{
+	width: 30%;
+}
+a{
+	cursor: pointer;
+}
+
+
+.linePast,.ratingPast{
+	border-radius: 8px;
+	position: relative;
+	width: 95%;
+	height: auto;
+	min-height: 50px;
+	background-color: rgb(100,100,100);
+	margin-top: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	padding: 20px;
+}
+.linePast img{
+	position: absolute;
+	top:-10px ;
+	left: 275px;
+	margin: auto;
+	width: 30px !important;
+	height: 20px !important;
+}
+.ratingPast img{
+	position: absolute;
+	top:-10px ;
+	left: 460px;
+	margin: auto;
+	width: 30px !important;
+	height: 20px !important;
+}
+.table-striped > tbody > tr:nth-of-type(odd){
+	background-color: rgb(55,55,55)!important;
+}
+th,td{
+	text-align: center !important;
+}
+a{
+	cursor: pointer;
+}
+.creditTable{
+	width: 30%;
+}

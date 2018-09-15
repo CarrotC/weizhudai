@@ -8,26 +8,45 @@
 	src: url(../ttf/ZiTiGuanJiaFangSongTi-1.ttf);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-transition-delay: 99999s;
+	-webkit-transition: color 99999s ease-out, background-color 99999s ease-out;
+	/* -webkit-box-shadow: 0 0 0px 1000px white inset; */
+}
+
 * {
 	margin: 0;
 	padding: 0;
 }
 
+p,
+font {
+	background-color: transparent !important;
+	color: rgb(230, 230, 230) !important;
+}
+
 body {
-	
 	width: 100%;
 	height: 100%;
 	position: relative;
-	font-size: 16px;
+	font-size: 15px;
 	overflow: hidden;
 }
-.main-container{
+
+.main-container {
 	padding: 50px 0 0 0;
 	width: 100%;
 	height: 100%;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-.bg{
+
+.bg {
 	position: fixed;
 	z-index: -1;
 	width: 100%;
@@ -36,30 +55,32 @@ body {
 	left: 0;
 	margin: 0;
 }
-.bg img{
+
+.bg img {
 	width: 120%;
 	height: 120%;
 	animation: 30s bgMove linear;
 	animation-iteration-count: infinite;
 }
-@keyframes bgMove{
-	0%{
+
+@keyframes bgMove {
+	0% {
 		width: 120%;
 		height: 120%;
 	}
-	25%{
+	25% {
 		width: 140%;
 		height: 140%;
 	}
-	50%{
+	50% {
 		width: 120%;
 		height: 120%;
 	}
-	75%{
+	75% {
 		width: 100%;
 		height: 100%;
 	}
-	100%{
+	100% {
 		width: 120%;
 		height: 120%;
 	}
@@ -72,7 +93,6 @@ body {
 	position: fixed;
 	top: 70px;
 	left: 30px;
-	
 	height: 30px;
 	display: flex;
 	flex-direction: row;
@@ -95,7 +115,7 @@ body {
 	font-size: 16px !important;
 }
 
-.title {
+.lineTitle {
 	position: relative;
 	z-index: 1;
 	margin-top: 10px;
@@ -108,7 +128,9 @@ body {
 }
 
 .prompt {
-	width: 92%;
+	align-self: flex-end;
+	margin-right: 50px;
+	text-align: right !important;
 	position: relative;
 	z-index: 1;
 	flex: 0 0 auto;
@@ -164,7 +186,7 @@ body {
 .before {
 	position: absolute;
 	z-index: 3;
-	transform: translate(-15px,0);
+	transform: translate(-15px, 0);
 	background-color: rgba(60, 105, 150, 0.75);
 	overflow: hidden;
 	border-radius: .3em;
@@ -175,7 +197,7 @@ body {
 .after {
 	position: absolute;
 	z-index: 2;
-	transform: translate(0,-15px);
+	transform: translate(0, -15px);
 	left: 0;
 	background-color: rgba(210, 210, 210, 0.45);
 	overflow: hidden;
@@ -183,39 +205,36 @@ body {
 	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .5em 1em rgba(0, 0, 0, 0.6);
 	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
 	color: transparent !important;
-
 }
-@keyframes cardChange1{
 
+@keyframes cardChange1 {
 	70% {
 		opacity: 0;
-		-webkit-transform: translate3d(-25%,200%,0) rotate3d(0,0,1,25deg);
-		transform: translate3d(-25%,200%,0) rotate3d(0,0,1,25deg);
+		-webkit-transform: translate3d(-25%, 200%, 0) rotate3d(0, 0, 1, 25deg);
+		transform: translate3d(-25%, 200%, 0) rotate3d(0, 0, 1, 25deg);
 	}
-	80%{
+	80% {
 		opacity: 0;
-		transform: translate(5px,-20px);
-		z-index: 2;	
+		transform: translate(5px, -20px);
+		z-index: 2;
 		background-color: rgba(60, 105, 150, 0.75);
-		}
-	100%{
+	}
+	100% {
 		opacity: 1;
-		transform: translate(0,-15px);	
+		transform: translate(0, -15px);
 		z-index: 2;
 		background-color: rgba(210, 210, 210, 0.45);
 	}
-
 }
-@keyframes cardChange2{
-	to{
+
+@keyframes cardChange2 {
+	to {
 		transform: none;
-		transform: translate(-15px,0);
-		z-index: 3;	
+		transform: translate(-15px, 0);
+		z-index: 3;
 		background-color: rgba(60, 105, 150, 0.75);
 	}
 }
-
-
 
 .bank-box,
 .company-box {
@@ -244,14 +263,14 @@ body {
 	margin-top: 3px;
 }
 
-.company-box p {
+.bank-box p {
 	margin-top: 30px;
 	font-family: FangSong;
 	font-size: 22px;
 	color: rgb(235, 235, 235);
 }
 
-.bank-box p {
+.company-box p {
 	margin-top: 30px;
 	font-family: FangSong;
 	font-size: 22px;
@@ -266,11 +285,14 @@ body {
 	justify-content: flex-start;
 	align-items: center;
 }
-.input-item img{
-	height: 22px;width: auto;
+
+.input-item img {
+	height: 22px;
+	width: auto;
 	margin-left: 5px;
 	margin-right: 15px;
 }
+
 .input-box input {
 	width: 100%;
 	background-color: transparent;

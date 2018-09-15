@@ -7,13 +7,13 @@
 	font-family: FangSong;
 	src: url(../ttf/ZiTiGuanJiaFangSongTi-1.ttf);
 }
-@font-face {
-	font-family: JianTi;
-	src: url(../ttf/HanYiChangLiSongKeBenJianTi-2.ttf);
+.type-item{
+	text-align: center;
+	font-size: 12px;
 }
-@font-face {
-	font-family: regular;
-	src: url(../ttf/HuaKangGuJiMuLan-Regular-2.ttf);
+p,font{
+	background-color: transparent !important; 
+	color: rgb(230,230,230) !important;
 }
 *{
 	margin: 0;
@@ -199,7 +199,7 @@ body{
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	padding: 20px 30px 20px 30px;
 }

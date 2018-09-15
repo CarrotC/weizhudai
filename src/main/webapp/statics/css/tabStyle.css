@@ -2,9 +2,27 @@
 	font-family: XingKai;
 	src: url(../ttf/HYXuJingXingKaiW-2.ttf);
 }
+
+@font-face {
+	font-family: FangSong;
+	src: url(../ttf/ZiTiGuanJiaFangSongTi-1.ttf);
+}
+
+.main-style{
+		margin: 0!important ;
+		color: rgb(150,150,150) !important;
+}
+.main-style:hover{
+	color: white !important;
+
+}
+.active .main-style{
+	color: white !important;
+}
 .navbar-brand{
 	font-size: 25px !important;
-	font-family: XingKai !important;
+	font-family: FangSong !important;
+	font-weight: bolder;
 	margin: 0;
 }
 
@@ -24,8 +42,9 @@
 }
 .navbar-nav {
     float: right !important;
-    font-family: XingKai !important;
+    font-family: FangSong !important;
     font-size: 16px;
+    font-weight: bolder;
 }
 .nameActive{
 	color: white !important;

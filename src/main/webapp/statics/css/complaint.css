@@ -1,0 +1,153 @@
+@font-face {
+	font-family: XingKai;
+	src: url(../ttf/HYXuJingXingKaiW-2.ttf);
+}
+
+@font-face {
+	font-family: FangSong;
+	src: url(../ttf/ZiTiGuanJiaFangSongTi-1.ttf);
+}
+
+p,font{
+	background-color: transparent !important; 
+	color: rgb(230,230,230) !important;
+}
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body{
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+	font-size: 16px;
+}
+.bg{
+	position: fixed;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.bg img{
+	width: 130%;
+	height: 130%;
+	animation: 60s bgMove linear;
+	animation-iteration-count: infinite;
+}
+@keyframes bgMove{
+	0%{
+		width: 130%;
+		height: 130%;
+	}
+	25%{
+		width: 160%;
+		height: 160%;
+	}
+	50%{
+		width: 130%;
+		height: 130%;
+	}
+	75%{
+		width: 100%;
+		height: 100%;
+	}
+	100%{
+		width: 130%;
+		height: 130%;
+	}
+}
+
+.main-container{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 50px;
+}
+.title{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 700px;
+	font-family: FangSong;
+	color: rgb(15,15,15);
+}
+.big-title{
+	color: black !important;
+	font-size: 26px;
+	font-weight: 900;
+}
+.small-title{
+	color: black !important;
+	width: 100%;
+	text-align: right !important;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+
+/*主体内容*/
+.main-box{
+	position: relative;
+	width: 780px;
+	height:auto;
+	min-height: 100px;
+	border-radius: 8px;
+	background-color: rgba(60,60,60,0.95);
+	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .7em 1.2em rgba(0, 0, 0, 0.6);
+	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
+	margin-top: 20PX;
+	padding: 45px 30px 25px 30px;
+	font-family: FangSong;
+	color: rgb(230,230,230);
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+}
+.tab-title{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: auto;
+	border-radius: 8px;
+	line-height: 180%;
+	text-align: right;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-size: 16px;
+	margin-bottom: 20px;
+	background-color: rgb(55,55,55) !important;
+}
+.complaint-item{
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+.split{
+	width: 100%;
+	height: 2px;
+	border-bottom: 1px dashed rgba(120,120,120,0.85);
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+p{
+	margin: 0 !important;
+	line-height: 160%!important;
+}

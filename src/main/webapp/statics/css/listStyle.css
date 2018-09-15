@@ -7,14 +7,7 @@
 	font-family: FangSong;
 	src: url(../ttf/ZiTiGuanJiaFangSongTi-1.ttf);
 }
-@font-face {
-	font-family: JianTi;
-	src: url(../ttf/HanYiChangLiSongKeBenJianTi-2.ttf);
-}
-@font-face {
-	font-family: regular;
-	src: url(../ttf/HuaKangGuJiMuLan-Regular-2.ttf);
-}
+
 .nav-menu{
 	position: relative;
 	z-index: 5;
@@ -33,6 +26,8 @@
 }
 
 .nav-menu>li {
+	width: 150px;
+	text-align: center;
 	display: inline;
 	float: left;
 	border-right: 1px solid transparent;
