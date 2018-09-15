@@ -110,7 +110,6 @@ public class EnterpriseInfoCtrl {
 
             for(int j = 0; j < payList.size(); j++){
                 payAmountForAllBank = payAmountForAllBank.add(payList.get(j).getAmount());//计算在所有银行下的还款总额
-                //todo:添加时间的判断，是否拖欠
                 if(loanList.get(i).getBank().equals(payList.get(j).getBank())){
                     payAmountForOneBank = payAmountForOneBank.add(payList.get(j).getAmount());//计算在同一个银行下的还款总额
                 }
