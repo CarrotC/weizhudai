@@ -97,7 +97,7 @@
         <img src="/statics/img/bg2.png" />
     </div>
     <div class="banner banner4" style="display: none;">
-        <img src="static/img/bg3.png" />
+        <img src="/statics/img/bg3.png" />
     </div>
     <div class="banner banner5" style="display: none;">
         <img src="/statics/img/bg4.png" />

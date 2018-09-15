@@ -7,14 +7,7 @@
 	font-family: FangSong;
 	src: url(../ttf/ZiTiGuanJiaFangSongTi-1.ttf);
 }
-@font-face {
-	font-family: JianTi;
-	src: url(../ttf/HanYiChangLiSongKeBenJianTi-2.ttf);
-}
-@font-face {
-	font-family: regular;
-	src: url(../ttf/HuaKangGuJiMuLan-Regular-2.ttf);
-}
+
 *{
 	margin: 0;
 	padding: 0;
@@ -134,7 +127,7 @@ body{
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
 	background-color: rgb(200,200,200) !important;
-	color: (45,45,45)!important;
+	color: rgb(45,45,45)!important;
 }
 .tab-pane{
 	margin-top: 10px;
