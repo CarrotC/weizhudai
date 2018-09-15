@@ -1,9 +1,11 @@
 package org.seckill.service;
 
 import org.seckill.entity.CompanyType;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface CompanyTypeService {
 
     public List<CompanyType> getAllCompany();
