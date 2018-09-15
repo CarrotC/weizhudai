@@ -194,16 +194,20 @@
                 <div class="tab-pane fade" id="appendix-box">
                     <div class="appendix-item">
                         <p>法人证件照（正）.jpg</p>
-                        <a><p style="margin:0;">下载</p></a>
+                        <a href="/statics/img/company/legalPerson/${companyId}_1.jpg" download="法人证件照（正）.jpg"><p style="margin:0;">下载</p></a>
                     </div>
                     <div class="appendix-item">
                         <p>法人证件照（反）.jpg</p>
-                        <a><p style="margin:0;">下载</p></a>
+                        <a href="/statics/img/company/legalPerson/${companyId}_2.jpg" download="法人证件照（反）.jpg"><p style="margin:0;">下载</p></a>
                     </div>
                     <div class="appendix-item">
-                        <p>法人信息导出.pdf</p>
-                        <a><p style="margin:0;">下载</p></a>
+                        <p>股权结构.jpg</p>
+                        <a href="/statics/img/company/shareHolderStructure/${companyId}.jpg" download="股权结构.jpg"><p style="margin:0;">下载</p></a>
                     </div>
+                    <%--<div class="appendix-item">--%>
+                        <%--<p>法人信息导出.pdf</p>--%>
+                        <%--<a><p style="margin:0;">下载</p></a>--%>
+                    <%--</div>--%>
                 </div>
 
             </div>

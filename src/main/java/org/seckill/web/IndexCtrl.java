@@ -124,6 +124,11 @@ public class IndexCtrl {
         String password = body.getString("password");
         String companyName = body.getString("companyName");
         String companyType = body.getString("companyType");
+        String socialCredit = body.getString("socialCredit");
+        String legalPersonName = body.getString("legalPersonName");
+        String legalPersonId = body.getString("legalPersonId");
+        Integer registerCapital = Integer.valueOf(body.getString("registerCapital"));
+        String operatingPeroid = body.getString("operatingPeroid");
         //todo:还要从body中获取其他信息，即用户注册时填写的其他信息，获取值的方法和上面的相同
 
         User user = this.userService.getUserByUserName(userName);
@@ -145,9 +150,13 @@ public class IndexCtrl {
         Company company = new Company();
         company.setUserName(userName);
         company.setCompanyName(companyName);
-        company.setCompanyType(companyType);
+        company.setSocialCredit(socialCredit);
+        company.setLegalPersonName(legalPersonName);
+        company.setLegalPersonId(legalPersonId);
+        company.setRegisteredCapital(registerCapital);
+        company.setOperatingPeriod(operatingPeroid);
         //测试所用
-        company.setCompanyId("testCompanyId");
+        company.setCompanyId(StringUtils.UUID());
         result = this.companyService.addCompany(company);
 
         return result;

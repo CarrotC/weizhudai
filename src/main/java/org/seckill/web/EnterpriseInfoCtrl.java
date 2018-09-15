@@ -319,6 +319,8 @@ public class EnterpriseInfoCtrl {
         String[][] currentRatios = new String[2][cashabilityListSize];
         //Double[] quickRatios = new Double[cashabilityListSize];//速动比率
         String[][] quickRatios = new String[2][cashabilityListSize];
+        Double averCurrentRatio = 0.0;
+        Double averQuickRatio = 0.0;
         for(int i = 0; i < cashabilityListSize; i++){
             //years[i] = cashabilityList.get(i).getYear();
             //currentRatios[i] = cashabilityList.get(i).getCurrentRatio();
@@ -327,8 +329,12 @@ public class EnterpriseInfoCtrl {
             currentRatios[1][i] = String.valueOf(cashabilityList.get(i).getCurrentRatio());
             quickRatios[0][i] = cashabilityList.get(i).getYear() + "-" + cashabilityList.get(i).getQuarter();
             quickRatios[1][i] = String.valueOf(cashabilityList.get(i).getQuickRatio());
+            averCurrentRatio += cashabilityList.get(i).getCurrentRatio();
+            averQuickRatio += cashabilityList.get(i).getQuickRatio();
         }
         //model.addAttribute("years", years);
+        model.addAttribute("averCurrentRatio", averCurrentRatio / cashabilityListSize);
+        model.addAttribute("averQuickRatio", averQuickRatio / cashabilityListSize);
         model.addAttribute("currentRatios", currentRatios);
         model.addAttribute("quickRatios", quickRatios);
 
@@ -349,6 +355,13 @@ public class EnterpriseInfoCtrl {
         String[][] currentAssetTurnover = new String[2][assetManagementRatioListSize];
         //Double[] totalAssetTurnover = new Double[assetManagementRatioListSize];//总资产周转率
         String[][] totalAssetTurnover = new String[2][assetManagementRatioListSize];
+        Double averInventoryTurnover = 0.0;
+        Double averInventoryTurnoverInDays = 0.0;
+        Double averAccountReceivableTurnover = 0.0;
+        Double averAccountReceivableTurnoverInDays = 0.0;
+        Double averOperatingCycle = 0.0;
+        Double averCurrentAssetTurnover = 0.0;
+        Double averTotalAssetTurnover = 0.0;
         for(int i = 0; i < assetManagementRatioListSize; i++){
 //            inventoryTurnover[i] = assetManagementRatioList.get(i).getInventoryTurnover();
 //            inventoryTurnoverInDays[i] = assetManagementRatioList.get(i).getInventoryTurnoverInDays();
@@ -373,8 +386,22 @@ public class EnterpriseInfoCtrl {
             currentAssetTurnover[1][i] = String.valueOf(assetManagementRatioList.get(i).getCurrentAssetTurnover());
             totalAssetTurnover[1][i] = String.valueOf(assetManagementRatioList.get(i).getTotalAssetTurnover());
 
-
+            averInventoryTurnover += assetManagementRatioList.get(i).getInventoryTurnover();
+            averInventoryTurnoverInDays += assetManagementRatioList.get(i).getInventoryTurnoverInDays();
+            averAccountReceivableTurnover += assetManagementRatioList.get(i).getAccountReceivableTurnover();
+            averAccountReceivableTurnoverInDays += assetManagementRatioList.get(i).getAccountReceivableTurnoverInDays();
+            averOperatingCycle += assetManagementRatioList.get(i).getOperatingCycle();
+            averCurrentAssetTurnover += assetManagementRatioList.get(i).getCurrentAssetTurnover();
+            averTotalAssetTurnover += assetManagementRatioList.get(i).getTotalAssetTurnover();
         }
+        model.addAttribute("averInventoryTurnover", averInventoryTurnover / assetManagementRatioListSize);
+        model.addAttribute("averInventoryTurnoverInDays", averInventoryTurnoverInDays / assetManagementRatioListSize);
+        model.addAttribute("averAccountReceivableTurnover", averAccountReceivableTurnover / assetManagementRatioListSize);
+        model.addAttribute("averAccountReceivableTurnoverInDays", averAccountReceivableTurnoverInDays / assetManagementRatioListSize);
+        model.addAttribute("averOperatingCycle", averOperatingCycle / assetManagementRatioListSize);
+        model.addAttribute("averCurrentAssetTurnover", averCurrentAssetTurnover / assetManagementRatioListSize);
+        model.addAttribute("averTotalAssetTurnover", averTotalAssetTurnover / assetManagementRatioListSize);
+
         model.addAttribute("inventoryTurnover", inventoryTurnover);
         model.addAttribute("inventoryTurnoverInDays", inventoryTurnoverInDays);
         model.addAttribute("accountReceivableTurnover", accountReceivableTurnover);
@@ -396,6 +423,10 @@ public class EnterpriseInfoCtrl {
         String[][] tangibleDebtRatio = new String[2][debtRatioListSize];
         //Double[] interestEarnedRatio = new Double[debtRatioListSize];//已获利息倍
         String[][] interestEarnedRatio = new String[2][debtRatioListSize];
+        Double averAssetLiabilityRatio = 0.0;
+        Double averEquityRatio = 0.0;
+        Double averTangibleDebtRatio = 0.0;
+        Double averInterestEarnedRatio = 0.0;
         for(int i = 0; i < debtRatioListSize; i++){
 //            assetLiabilityRatio[i] = debtRatioList.get(i).getAssetLiabilityRatio();
 //            equityRatio[i] = debtRatioList.get(i).getEquityRatio();
@@ -410,7 +441,17 @@ public class EnterpriseInfoCtrl {
             equityRatio[1][i] = String.valueOf(debtRatioList.get(i).getEquityRatio());
             tangibleDebtRatio[1][i] = String.valueOf(debtRatioList.get(i).getTangibleDebtRatio());
             interestEarnedRatio[1][i] = String.valueOf(debtRatioList.get(i).getInterestEarnedRatio());
+
+            averAssetLiabilityRatio += debtRatioList.get(i).getAssetLiabilityRatio();
+            averEquityRatio += debtRatioList.get(i).getEquityRatio();
+            averTangibleDebtRatio += debtRatioList.get(i).getTangibleDebtRatio();
+            averInterestEarnedRatio += debtRatioList.get(i).getInterestEarnedRatio();
         }
+        model.addAttribute("averAssetLiabilityRatio",averAssetLiabilityRatio / debtRatioListSize);
+        model.addAttribute("averEquityRatio",averEquityRatio / debtRatioListSize);
+        model.addAttribute("averTangibleDebtRatio",averTangibleDebtRatio / debtRatioListSize);
+        model.addAttribute("averInterestEarnedRatio",averInterestEarnedRatio / debtRatioListSize);
+
         model.addAttribute("assetLiabilityRatio", assetLiabilityRatio);
         model.addAttribute("equityRatio", equityRatio);
         model.addAttribute("tangibleDebtRatio", tangibleDebtRatio);
@@ -427,6 +468,10 @@ public class EnterpriseInfoCtrl {
         String[][] netProfitRatioInAsset = new String[2][profitabilityRatioListSize];
         //Double[] netAssetIncomeRatio = new Double[profitabilityRatioListSize];//净资产收益率
         String[][] netAssetIncomeRatio = new String[2][profitabilityRatioListSize];
+        Double averNetProfitRatioInSale = 0.0;
+        Double averGrossProfitRatioInSale = 0.0;
+        Double averNetProfitRatioInAsset = 0.0;
+        Double averNetAssetIncomeRatio = 0.0;
         for(int i = 0; i < profitabilityRatioListSize; i++){
 //            netProfitRatioInSale[i] = profitabilityRatioList.get(i).getNetProfitRatioInSale();
 //            grossProfitRatioInSale[i] = profitabilityRatioList.get(i).getGrossProfitRatioInSale();
@@ -442,7 +487,17 @@ public class EnterpriseInfoCtrl {
             grossProfitRatioInSale[1][i] = String.valueOf(profitabilityRatioList.get(i).getGrossProfitRatioInSale());
             netProfitRatioInAsset[1][i] = String.valueOf(profitabilityRatioList.get(i).getNetProfitRatioInAsset());
             netAssetIncomeRatio[1][i] = String.valueOf(profitabilityRatioList.get(i).getNetAssetIncomeRatio());
+
+            averNetProfitRatioInSale += profitabilityRatioList.get(i).getNetProfitRatioInSale();
+            averGrossProfitRatioInSale += profitabilityRatioList.get(i).getGrossProfitRatioInSale();
+            averNetProfitRatioInAsset += profitabilityRatioList.get(i).getNetProfitRatioInAsset();
+            averNetAssetIncomeRatio += profitabilityRatioList.get(i).getNetAssetIncomeRatio();
         }
+        model.addAttribute("averNetProfitRatioInSale",averNetProfitRatioInSale / profitabilityRatioListSize);
+        model.addAttribute("averGrossProfitRatioInSale",averGrossProfitRatioInSale/ profitabilityRatioListSize);
+        model.addAttribute("averNetProfitRatioInAsset",averNetProfitRatioInAsset/ profitabilityRatioListSize);
+        model.addAttribute("averNetAssetIncomeRatio",averNetAssetIncomeRatio/ profitabilityRatioListSize);
+
         model.addAttribute("netProfitRatioInSale", netProfitRatioInSale);
         model.addAttribute("grossProfitRatioInSale", grossProfitRatioInSale);
         model.addAttribute("netProfitRatioInAsset", netProfitRatioInAsset);
@@ -457,6 +512,9 @@ public class EnterpriseInfoCtrl {
         String[][] cashFlowDebtRatio = new String[2][cashFlowSize];
         //Double[] totalCashDebtRatio = new Double[cashFlowSize];//现金债务总额比
         String[][] totalCashDebtRatio = new String[2][cashFlowSize];
+        Double averCashMaturityDebtRatio = 0.0;
+        Double averCashFlowDebtRatio = 0.0;
+        Double averTotalCashDebtRatio = 0.0;
         for(int i = 0; i < cashFlowSize; i++){
 //            cashMaturityDebtRatio[i] = cashFlowList.get(i).getCashMaturityDebtRatio();
 //            cashFlowDebtRatio[i] = cashFlowList.get(i).getCashFlowDebtRatio();
@@ -469,7 +527,15 @@ public class EnterpriseInfoCtrl {
             cashMaturityDebtRatio[1][i] = String.valueOf(cashFlowList.get(i).getCashFlowDebtRatio());
             cashFlowDebtRatio[1][i] = String.valueOf(cashFlowList.get(i).getCashFlowDebtRatio());
             totalCashDebtRatio[1][i] = String.valueOf(cashFlowList.get(i).getTotalCashDebtRatio());
+
+            averCashMaturityDebtRatio += cashFlowList.get(i).getCashMaturityDebtRatio();
+            averCashFlowDebtRatio += cashFlowList.get(i).getCashFlowDebtRatio();
+            averTotalCashDebtRatio += cashFlowList.get(i).getTotalCashDebtRatio();
         }
+        model.addAttribute("averCashMaturityDebtRatio",averCashMaturityDebtRatio / cashFlowSize);
+        model.addAttribute("averCashFlowDebtRatio",averCashFlowDebtRatio / cashFlowSize);
+        model.addAttribute("averTotalCashDebtRatio", averTotalCashDebtRatio / cashFlowSize);
+
         model.addAttribute("cashMaturityDebtRatio", cashMaturityDebtRatio);
         model.addAttribute("cashFlowDebtRatio", cashFlowDebtRatio);
         model.addAttribute("totalCashDebtRatio", totalCashDebtRatio);
@@ -481,13 +547,20 @@ public class EnterpriseInfoCtrl {
         String[][] saleCashRatio = new String[2][profitabilitySize];
         //Double[] cashRecoveryRatio = new Double[profitabilitySize];
         String[][] cashRecoveryRatio = new String[2][profitabilitySize];
+        Double averSaleCashRatio = 0.0;
+        Double averCashRecoveryRatio = 0.0;
         for(int i = 0; i < profitabilitySize; i++){
+            averSaleCashRatio += profitabilityList.get(i).getSaleCashRatio();
+            averCashRecoveryRatio += profitabilityList.get(i).getCashRecoveryRatio();
+
             saleCashRatio[0][1] = profitabilityList.get(i).getYear() + "-" + profitabilityList.get(i).getQuarter();
             cashRecoveryRatio[0][1] = profitabilityList.get(i).getYear() + "-" + profitabilityList.get(i).getQuarter();
 
             saleCashRatio[1][i] = String.valueOf(profitabilityList.get(i).getSaleCashRatio());
             cashRecoveryRatio[1][i] = String.valueOf(profitabilityList.get(i).getCashRecoveryRatio());
         }
+        model.addAttribute("averSaleCashRatio", averSaleCashRatio / profitabilitySize);
+        model.addAttribute("averSaleCashRatio", averSaleCashRatio / profitabilitySize);
         model.addAttribute("saleCashRatio", saleCashRatio);
         model.addAttribute("cashRecoveryRatio", cashRecoveryRatio);
 
