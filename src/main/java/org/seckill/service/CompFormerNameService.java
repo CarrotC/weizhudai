@@ -3,7 +3,9 @@ package org.seckill.service;
 import org.seckill.entity.CompFormerName;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface CompFormerNameService {
-    public CompFormerName getCompFormerNameById(String id);
+    public List<CompFormerName> getCompFormerNameById(String id);
 }

@@ -3,13 +3,14 @@
 <mapper namespace="org.seckill.dao.CashabilityMapper">
     <resultMap id="BaseResultMap" type="org.seckill.entity.Cashability">
         <id column="id" jdbcType="VARCHAR" property="id" />
-        <result column="year" jdbcType="VARCHAR" property="year" />
+        <result column="year" jdbcType="INTEGER" property="year" />
+        <result column="quarter" jdbcType="INTEGER" property="quarter" />
         <result column="current_assets" jdbcType="NUMERIC" property="currentAssets" />
         <result column="current_liabilities" jdbcType="NUMERIC" property="currentLiabilities" />
         <result column="inventory" jdbcType="NUMERIC" property="inventory" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, year, current_assets, current_liabilities, inventory
+        id, year, quarter, current_assets, current_liabilities, inventory
     </sql>
 
     <select id="selectCashabilityById" resultType="org.seckill.entity.Cashability">

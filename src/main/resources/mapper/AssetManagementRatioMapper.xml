@@ -3,7 +3,8 @@
 <mapper namespace="org.seckill.dao.AssetManagementRatioMapper">
     <resultMap id="BaseResultMap" type="org.seckill.entity.AssetManagementRatio">
         <id column="id" jdbcType="VARCHAR" property="id" />
-        <result column="year" jdbcType="VARCHAR" property="year" />
+        <result column="year" jdbcType="INTEGER" property="year" />
+        <result column="quarter" jdbcType="INTEGER" property="quarter" />
         <result column="selling_cost" jdbcType="NUMERIC" property="sellingCost" />
         <result column="initial_inventory" jdbcType="NUMERIC" property="initialInventory" />
         <result column="final_inventory" jdbcType="NUMERIC" property="finalInventory" />
@@ -16,7 +17,7 @@
         <result column="final_current_assets" jdbcType="NUMERIC" property="finalCurrentAssets" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, year, selling_cost, initial_inventory, final_inventory, sales_revenue, initial_receivables, final_receivables, initial_total_assets, final_total_assets, initial_current_assets, final_current_assets
+        id, year, quarter, selling_cost, initial_inventory, final_inventory, sales_revenue, initial_receivables, final_receivables, initial_total_assets, final_total_assets, initial_current_assets, final_current_assets
     </sql>
 
     <select id="selectAssetManagementRatioById" resultType="org.seckill.entity.AssetManagementRatio">

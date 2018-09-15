@@ -3,56 +3,68 @@ package org.seckill.entity;
 import java.sql.Date;
 
 public class CompShareholder {
-	private int s_id;
-	private int comp_id;
+	private int sId;
+	private int compId;
 	private String name;
-	private double shareholding_ratio;
+	private double shareholdingRatio;
 	private String type;
-	private double subscribed_capital_contribution;
-	private Date date_of_subscription;
-	public int getS_id() {
-		return s_id;
+	private double subscribedCapitalContribution;
+	private Date dateOfSubscription;
+
+
+	public int getsId() {
+		return sId;
 	}
-	public void setS_id(int s_id) {
-		this.s_id = s_id;
+
+	public void setsId(int sId) {
+		this.sId = sId;
 	}
-	public int getComp_id() {
-		return comp_id;
+
+	public int getCompId() {
+		return compId;
 	}
-	public void setComp_id(int comp_id) {
-		this.comp_id = comp_id;
+
+	public void setCompId(int compId) {
+		this.compId = compId;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public double getShareholding_ratio() {
-		return shareholding_ratio;
+
+	public double getShareholdingRatio() {
+		return shareholdingRatio;
 	}
-	public void setShareholding_ratio(double shareholding_ratio) {
-		this.shareholding_ratio = shareholding_ratio;
+
+	public void setShareholdingRatio(double shareholdingRatio) {
+		this.shareholdingRatio = shareholdingRatio;
 	}
+
 	public String getType() {
 		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	public double getSubscribed_capital_contribution() {
-		return subscribed_capital_contribution;
+
+	public double getSubscribedCapitalContribution() {
+		return subscribedCapitalContribution;
 	}
-	public void setSubscribed_capital_contribution(double subscribed_capital_contribution) {
-		this.subscribed_capital_contribution = subscribed_capital_contribution;
+
+	public void setSubscribedCapitalContribution(double subscribedCapitalContribution) {
+		this.subscribedCapitalContribution = subscribedCapitalContribution;
 	}
-	public Date getDate_of_subscription() {
-		return date_of_subscription;
+
+	public Date getDateOfSubscription() {
+		return dateOfSubscription;
 	}
-	public void setDate_of_subscription(Date date_of_subscription) {
-		this.date_of_subscription = date_of_subscription;
+
+	public void setDateOfSubscription(Date dateOfSubscription) {
+		this.dateOfSubscription = dateOfSubscription;
 	}
-	
-	
-	
 }

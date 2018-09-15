@@ -1,8 +1,9 @@
 package org.seckill.entity;
 
 public class ProfitabilityRatio {
-    private Integer id;
+    private String id;
     private Integer year;
+    private Integer quarter;
     private Double netProfits;
     private Double salesRevenue;
     private Double salesCost;
@@ -11,11 +12,11 @@ public class ProfitabilityRatio {
     private Double initialOwnerEquity;
     private Double finalOwnerEquity;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -107,5 +108,13 @@ public class ProfitabilityRatio {
         temp = Double.valueOf(Math.round(temp * 100) / 100);
         Double netAssetIncomeRatio = netProfits / temp;
         return netAssetIncomeRatio;
+    }
+
+    public Integer getQuarter() {
+        return quarter;
+    }
+
+    public void setQuarter(Integer quarter) {
+        this.quarter = quarter;
     }
 }
