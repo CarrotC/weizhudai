@@ -4,9 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import org.seckill.dao.*;
 import org.seckill.entity.*;
 import org.seckill.service.*;
-import org.seckill.service.CompanyTypeService;
-import org.seckill.service.LoanAndFlowService;
-import org.seckill.util.ListSortByDate;
 import org.seckill.util.SessionUtils;
 import org.seckill.util.TxtReader;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +30,6 @@ public class EnterpriseInfoCtrl {
     @Autowired
     private LoanAndFlowService loanAndFlowService;
 
-
     @Autowired
     AssetManagementRatioService assetManagementRatioService;
     @Autowired
@@ -55,7 +51,6 @@ public class EnterpriseInfoCtrl {
     CompMembersService compMembersService;
     @Autowired
     CompShareHolderService compShareHolderService;
-
 
     /**
      * 显示企业信息（只能由企业用户进入的）
@@ -82,7 +77,6 @@ public class EnterpriseInfoCtrl {
 
         String realPath = request.getSession().getServletContext().getRealPath("/");
         List<Flow> flowList = loanAndFlowService.getAllTransactionRecord(realPath, companyId);
-        ListSortByDate.loanListSort(flowList);
 
         model.addAttribute("flowList", flowList);
         model.addAttribute("companyType", companyType);
