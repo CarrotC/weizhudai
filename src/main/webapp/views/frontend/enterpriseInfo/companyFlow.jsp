@@ -105,7 +105,7 @@
 
                 </li>
                 <li class="firstLayer">
-                    <a href="/frontend/enterpriseInfo/companyLoan" class="three-d "> 企业信用 <span
+                    <a href="/frontend/enterpriseInfo/companyLoan?companyId=${companyType.companyId}" class="three-d "> 企业信用 <span
                             class="three-d-box"><span class="front"> 企业信用</span><span class="back">企业信用</span></span>
                     </a>
                 </li>
