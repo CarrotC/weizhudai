@@ -59,7 +59,7 @@
 
 <div class="main-container">
     <div class="title">
-        <p class="big-title">${companyName}</p>
+        <p class="big-title">${companyName}基本信息</p>
         <p class="small-title">————XXX行业</p>
     </div>
     <section class="nav-box">
@@ -74,11 +74,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="taxSituation.html" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
+                            <a href="/frontend/enterpriseInfo/taxSituation" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
                             </a>
                         </li>
                         <li>
-                            <a href="complaint.html" class="three-d"> 涉诉情况 <span class="three-d-box"><span class="front">涉诉情况</span><span class="back">涉诉情况</span></span>
+                            <a href="/frontend/enterpriseInfo/complaint" class="three-d"> 涉诉情况 <span class="three-d-box"><span class="front">涉诉情况</span><span class="back">涉诉情况</span></span>
                             </a>
                         </li>
 
@@ -94,7 +94,7 @@
                     </a>
                 </li>
                 <li class="firstLayer">
-                    <a href="financialInfo.html" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span class="back">财务信息</span></span>
+                    <a href="/frontend/enterpriseInfo/companyFinance" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span class="back">财务信息</span></span>
                     </a>
                 </li>
             </ul>
@@ -191,7 +191,6 @@
     $(".language").on("click", function() {
         translate();
     });
-
     //切换筛选条件
     $("#filter-choose").on("click",function(){
         $("#all").removeClass("choosed");

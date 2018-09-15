@@ -1,19 +1,20 @@
 package org.seckill.entity;
 
 public class Profitability {
-    private Integer id;
+    private String id;
     private Integer year;
+    private Integer quarter;
     private Double netCashFlowFromOperating;
     private Double sales;
     private Double finalTotalAssets;
 //    private Double saleCashRatio;
 //    private Double cashRecoveryRatio;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -57,5 +58,14 @@ public class Profitability {
     public Double getCashRecoveryRatio() {
         Double cashRecoveryRatio = netCashFlowFromOperating / finalTotalAssets;
         return cashRecoveryRatio;
+    }
+
+
+    public Integer getQuarter() {
+        return quarter;
+    }
+
+    public void setQuarter(Integer quarter) {
+        this.quarter = quarter;
     }
 }

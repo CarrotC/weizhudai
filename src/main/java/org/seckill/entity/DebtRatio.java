@@ -1,8 +1,9 @@
 package org.seckill.entity;
 
 public class DebtRatio {
-    private Integer id;
+    private String id;
     private Integer year;
+    private Integer quarter;
     private Double totalLiabilities;
     private Double totalAssets;
     private Double shareholdersEquity;
@@ -12,11 +13,11 @@ public class DebtRatio {
     private Double interests;
     private Double capitalizedInterest;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -114,5 +115,13 @@ public class DebtRatio {
     public Double getInterestEarnedRatio() {
         Double interestEarnedRatio = (totalProfits + financialExpenses) / (interests + capitalizedInterest);
         return interestEarnedRatio;
+    }
+
+    public Integer getQuarter() {
+        return quarter;
+    }
+
+    public void setQuarter(Integer quarter) {
+        this.quarter = quarter;
     }
 }

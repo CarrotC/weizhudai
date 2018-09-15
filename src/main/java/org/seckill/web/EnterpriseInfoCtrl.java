@@ -169,8 +169,34 @@ public class EnterpriseInfoCtrl {
     public String companyFinance(HttpServletRequest request, Model model){
 
         //todo:前端需要添加页面
-        return "";
+         return "/views/frontend/enterpriseInfo/financialInfo";
     }
+    /**
+     * 显示纳税情况
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("taxSituation")
+    public String taxSituation(HttpServletRequest request, Model model){
+
+        //todo:前端需要添加页面
+        return "/views/frontend/enterpriseInfo/taxSituation";
+    }
+
+    /**
+     * 显示涉诉情况
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("complaint")
+    public String complaint(HttpServletRequest request, Model model){
+
+        //todo:前端需要添加页面
+        return "/views/frontend/enterpriseInfo/complaint";
+    }
+
 
     /**
      * 显示搜索结果/企业信息（只能由银行用户进入）
@@ -219,11 +245,11 @@ public class EnterpriseInfoCtrl {
 
         //从数据库中加载企业基本信息
         Comp comp = compService.getCompById(companyId);
-        CompFormerName compFormerName = compFormerNameService.getCompFormerNameById(companyId);
+        List<CompFormerName> compFormerNameList = compFormerNameService.getCompFormerNameById(companyId);
         CompMembers compMembers = compMembersService.getCompMembersById(companyId);
         CompShareholder compShareHolder =  compShareHolderService.getCompShareholderById(companyId);
         model.addAttribute("comp", comp);
-        model.addAttribute("compFormerName", compFormerName);
+        model.addAttribute("compFormerName", compFormerNameList);
         model.addAttribute("compMembers", compMembers);
         model.addAttribute("compShareHolder", compShareHolder);
 
@@ -349,7 +375,7 @@ public class EnterpriseInfoCtrl {
         model.addAttribute("cashRecoveryRatio", cashRecoveryRatio);
 
 
-        return "/views/frontend/enterpriseInfo/index";
+        return "/views/frontend/enterpriseInfo/financialInfo";
     }
 
 

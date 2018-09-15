@@ -3,8 +3,9 @@ package org.seckill.entity;
 import javax.xml.crypto.dom.DOMCryptoContext;
 
 public class CashFlow {
-    private Integer id;
+    private String id;
     private Integer year;
+    private Integer quarter;
     private Double netCashFlowFromOperating;
     private Double currentMaturitiesOfLongtermDebt;
     private Double notesPavable;
@@ -12,11 +13,11 @@ public class CashFlow {
     private Double finalCurrentLiabilities;
     private Double finalTotalLiabilities;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -91,4 +92,13 @@ public class CashFlow {
         return this.netCashFlowFromOperating / this.finalTotalLiabilities;
     }
 
+
+
+    public Integer getQuarter() {
+        return quarter;
+    }
+
+    public void setQuarter(Integer quarter) {
+        this.quarter = quarter;
+    }
 }

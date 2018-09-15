@@ -1,8 +1,9 @@
 package org.seckill.entity;
 
 public class AssetManagementRatio {
-    private Integer id;
+    private String id;
     private Integer year;
+    private Integer quarter;
     private Double sellingCost;
     private Double initialInventory;
     private Double finalInventory;
@@ -21,11 +22,11 @@ public class AssetManagementRatio {
 //    private Double currentAssetTurnover;
 //    private Double totalAssetTurnover;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String  id) {
         this.id = id;
     }
 
@@ -143,5 +144,15 @@ public class AssetManagementRatio {
 
     public Double getTotalAssetTurnover() {//总资产周转率
         return salesRevenue / ((initialTotalAssets + finalTotalAssets) / 2);
+    }
+
+
+
+    public Integer getQuarter() {
+        return quarter;
+    }
+
+    public void setQuarter(Integer quarter) {
+        this.quarter = quarter;
     }
 }

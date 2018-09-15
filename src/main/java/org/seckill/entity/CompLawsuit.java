@@ -5,48 +5,59 @@ import java.sql.Date;
 public class CompLawsuit {
 
 	
-	private int l_id;
-	private int comp_id;
-	private String posting_comp;
-	private Date posting_date;
-	private String posting_type;
-	private String posting_people;
-	public int getL_id() {
-		return l_id;
+	private int lId;
+	private int compId;
+	private String postingComp;
+	private Date postingDate;
+	private String postingType;
+	private String postingPeople;
+
+
+	public int getlId() {
+		return lId;
 	}
-	public void setL_id(int l_id) {
-		this.l_id = l_id;
+
+	public void setlId(int lId) {
+		this.lId = lId;
 	}
-	public int getComp_id() {
-		return comp_id;
+
+	public int getCompId() {
+		return compId;
 	}
-	public void setComp_id(int comp_id) {
-		this.comp_id = comp_id;
+
+	public void setCompId(int compId) {
+		this.compId = compId;
 	}
-	public String getPosting_comp() {
-		return posting_comp;
+
+	public String getPostingComp() {
+		return postingComp;
 	}
-	public void setPosting_comp(String posting_comp) {
-		this.posting_comp = posting_comp;
+
+	public void setPostingComp(String postingComp) {
+		this.postingComp = postingComp;
 	}
-	public Date getPosting_date() {
-		return posting_date;
+
+	public Date getPostingDate() {
+		return postingDate;
 	}
-	public void setPosting_date(Date posting_date) {
-		this.posting_date = posting_date;
+
+	public void setPostingDate(Date postingDate) {
+		this.postingDate = postingDate;
 	}
-	public String getPosting_type() {
-		return posting_type;
+
+	public String getPostingType() {
+		return postingType;
 	}
-	public void setPosting_type(String posting_type) {
-		this.posting_type = posting_type;
+
+	public void setPostingType(String postingType) {
+		this.postingType = postingType;
 	}
-	public String getPosting_people() {
-		return posting_people;
+
+	public String getPostingPeople() {
+		return postingPeople;
 	}
-	public void setPosting_people(String posting_people) {
-		this.posting_people = posting_people;
+
+	public void setPostingPeople(String postingPeople) {
+		this.postingPeople = postingPeople;
 	}
-	
-	
 }
