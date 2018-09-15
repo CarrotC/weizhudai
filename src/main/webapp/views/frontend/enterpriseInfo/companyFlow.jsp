@@ -68,7 +68,7 @@
 </nav>
 <div class="main-container">
     <div class="title">
-        <p class="big-title">${companyType.companyName}近期财务数据</p>
+        <p class="big-title">${companyType.companyName}企业流水</p>
         <p class="small-title">————${companyType.companyType}</p>
     </div>
     <section class="nav-box">
@@ -86,12 +86,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="taxSituation.html" class="three-d"> 纳税情况 <span class="three-d-box"><span
+                            <a href="/frontend/enterpriseInfo/taxSituation" class="three-d"> 纳税情况 <span class="three-d-box"><span
                                     class="front">纳税情况</span><span class="back">纳税情况</span></span>
                             </a>
                         </li>
                         <li>
-                            <a href="companyInfo.html" class="three-d"> 涉诉情况 <span class="three-d-box"><span
+                            <a href="/frontend/enterpriseInfo/complaint" class="three-d"> 涉诉情况 <span class="three-d-box"><span
                                     class="front">涉诉情况</span><span class="back">涉诉情况</span></span>
                             </a>
                         </li>
@@ -110,7 +110,7 @@
                     </a>
                 </li>
                 <li class="firstLayer">
-                    <a href="financialInfo.html" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span
+                    <a href="/frontend/enterpriseInfo/companyFinance" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span
                             class="back">财务信息</span></span>
                     </a>
                 </li>
@@ -125,34 +125,6 @@
         <div id="waterBill">
             <p class="tab-title">企业流水</p>
             <div class="filter-box">
-                <div class="type">
-                    <p>分类：</p>
-                    <div class="all choosed" id="all">
-                        <div class="filter-item" id="all-button"></div>
-                        <p>全部</p>
-                    </div>
-                    <div class="mainBusiness" id="mainBusiness">
-                        <div class="filter-item" id="main-button"></div>
-                        <p>主要业务</p>
-                    </div>
-                </div>
-                <form>
-                    <div class="time">
-                        <p>时间：&nbsp;最近</p>
-                        <select class="form-control" id="time-select"
-                                style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
-                            <option>1</option>
-                            <option>3</option>
-                            <option>6</option>
-                            <option>12</option>
-                            <option>24</option>
-                            <option>全部</option>
-                        </select>
-                        <p style="width: auto;">月</p>
-
-                    </div>
-                    <div class="cover"></div>
-                </form>
                 <div class="order">
                     <p>顺序：</p>
                     <div class="timeUp " id="timeUp">

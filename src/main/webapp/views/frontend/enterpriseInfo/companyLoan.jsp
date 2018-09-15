@@ -67,7 +67,7 @@
 </nav>
 <div class="main-container">
     <div class="title">
-        <p class="big-title">${companyType.companyName}近期财务数据</p>
+        <p class="big-title">${companyType.companyName}企业信用</p>
         <p class="small-title">————${companyType.companyType}</p>
     </div>
     <section class="nav-box">
@@ -82,11 +82,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
+                            <a href="/frontend/enterpriseInfo/taxSituation" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
                             </a>
                         </li>
                         <li>
-                            <a href="complaint.html" class="three-d"> 涉诉情况 <span class="three-d-box"><span class="front">涉诉情况</span><span class="back">涉诉情况</span></span>
+                            <a href="/frontend/enterpriseInfo/complaint" class="three-d"> 涉诉情况 <span class="three-d-box"><span class="front">涉诉情况</span><span class="back">涉诉情况</span></span>
                             </a>
                         </li>
 
@@ -102,7 +102,7 @@
                     </a>
                 </li>
                 <li class="firstLayer">
-                    <a href="financialInfo.html" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span class="back">财务信息</span></span>
+                    <a href="/frontend/enterpriseInfo/companyFinance" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span class="back">财务信息</span></span>
                     </a>
                 </li>
             </ul>
@@ -141,6 +141,16 @@
                             <p>筛选</p>
                         </div>
                     </div>
+                    <form class="coverd formCover">
+                        <div class="cover"></div>
+                        <div class="state">
+                            <p>还款情况：</p>
+                            <select class="form-control" id="type-select" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
+                                <option>已还清</option>
+                                <option>还款中</option>
+                            </select>
+                        </div>
+                    </form>
                     <div class="order">
                         <p>顺序：</p>
                         <div class="timeUp choosed" id="timeUp">
@@ -153,34 +163,7 @@
                         </div>
                     </div>
 
-                    <form class="coverd">
-                        <div class="cover"></div>
-                        <div class="state">
-                            <p>还款情况：</p>
-                            <select class="form-control" id="type-select" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
-                                <option>已还清</option>
-                                <option>还款中</option>
-                            </select>
-                        </div>
-                        <div class="time">
-                            <p>时间</p>
-                            <select class="form-control" id="time-select1" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
-                                <option>2015</option>
-                                <option>2016</option>
-                                <option>2017</option>
-                                <option>2018</option>
-                                <option>2019</option>
-                            </select>
-                            <p style="margin: 0;">~</p>
-                            <select class="form-control" id="time-select2" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
-                                <option>2015</option>
-                                <option>2016</option>
-                                <option>2017</option>
-                                <option>2018</option>
-                                <option>2019</option>
-                            </select>
-                        </div>
-                    </form>
+
 
                 </div>
                 <div class="split"></div>
