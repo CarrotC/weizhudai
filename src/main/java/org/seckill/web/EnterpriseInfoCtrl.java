@@ -158,7 +158,7 @@ public class EnterpriseInfoCtrl {
     public String companyFinance(HttpServletRequest request, Model model){
 
         //todo:前端需要添加页面
-        return "";
+         return "/views/frontend/enterpriseInfo/financialInfo";
     }
 
     /**
@@ -338,7 +338,7 @@ public class EnterpriseInfoCtrl {
         model.addAttribute("cashRecoveryRatio", cashRecoveryRatio);
 
 
-        return "/views/frontend/enterpriseInfo/index";
+        return "/views/frontend/enterpriseInfo/financialInfo";
     }
 
 
