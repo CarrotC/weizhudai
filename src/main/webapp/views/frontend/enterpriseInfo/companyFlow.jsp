@@ -155,12 +155,12 @@
                 </form>
                 <div class="order">
                     <p>顺序：</p>
-                    <div class="timeUp choosed" id="timeUp">
-                        <div class="filter-item" id="timeUp-button"></div>
+                    <div class="timeUp " id="timeUp">
+                        <div class="filter-item"></div>
                         <p>时间升序</p>
                     </div>
-                    <div class="timeDown" id="timeDown">
-                        <div class="filter-item" id="timeDown-button"></div>
+                    <div class="timeDown choosed" id="timeDown">
+                        <div class="filter-item"></div>
                         <p>时间降序</p>
                     </div>
                 </div>
@@ -183,11 +183,42 @@
                     </th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="timedown-item">
+                <c:set var="startIndex" value="${fn:length(flowList)-1 }"></c:set>
+                <c:forEach items="${flowList}" var="t"  varStatus="status">
+                    <tr class="mainPartner-status-${flowList[startIndex - status.index].mainPartner}">
+                        <td><p><fmt:formatDate value='${flowList[startIndex - status.index].operateTime}' pattern='yyyy-MM-dd'/></p></td>
+                        <td><p>${flowList[startIndex - status.index].transactionPart}有限公司</p></td>
+                        <td><p>${flowList[startIndex - status.index].operateType}：¥<fmt:formatNumber value="${flowList[startIndex - status.index].amount}" pattern="#,#00.0#"/> </p></td>
+                        <td>
+                            <a class="md-trigger"><p>查看详情</p></a>
+                            <div class="md-modal md-effect-5">
+                                <div class="md-content">
+                                    <h3>交易明细</h3>
+                                    <div>
+                                        <ul>
+                                            <li><strong>交易编号：</strong> ${flowList[startIndex - status.index].flowNo}</li>
+                                            <li><strong>交易金额：</strong> ¥<fmt:formatNumber value="${flowList[startIndex - status.index].amount}" pattern="#,#00.0#"/></li>
+                                            <li><strong>金额大写：</strong> 贰万元整</li>
+                                            <li><strong>交易时间：</strong> <fmt:formatDate value='${flowList[startIndex - status.index].operateTime}' pattern='yyyy-MM-dd'/></li>
+                                            <li><strong>受理银行：</strong> ${flowList[startIndex - status.index].bank}</li>
+                                            <li><strong>收款方：</strong> ${flowList[startIndex - status.index].transactionPart}</li>
+                                            <li><strong>用途：</strong> 无</li>
+                                            <li><strong>备注：</strong> 无</li>
+                                        </ul>
+                                        <!--<button class="md-close">Close me!</button>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md-overlay" style="z-index: 999;"></div>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+                <tbody id="timeup-item" style="display: none">
                 <c:forEach items="${flowList}" var="t" varStatus="status">
                     <tr class="mainPartner-status-${t.mainPartner}">
-                            <%--<td>${t.operateTime}</td>--%>
-                        <td><p><fmt:formatDate value='${t.operateTime}' pattern='yyyy-MM-dd HH:mm:ss'/></p></td>
+                        <td><p><fmt:formatDate value='${t.operateTime}' pattern='yyyy-MM-dd'/></p></td>
                         <td><p>${t.transactionPart}有限公司</p></td>
                         <td><p>${t.operateType}：¥<fmt:formatNumber value="${t.amount}" pattern="#,#00.0#"/> </p></td>
                         <td>
@@ -200,7 +231,7 @@
                                             <li><strong>交易编号：</strong> ${t.flowNo}</li>
                                             <li><strong>交易金额：</strong> ¥<fmt:formatNumber value="${t.amount}" pattern="#,#00.0#"/></li>
                                             <li><strong>金额大写：</strong> 贰万元整</li>
-                                            <li><strong>交易时间：</strong> 2018年8月28日</li>
+                                            <li><strong>交易时间：</strong> <fmt:formatDate value='${t.operateTime}' pattern='yyyy-MM-dd'/></li>
                                             <li><strong>受理银行：</strong> ${t.bank}</li>
                                             <li><strong>收款方：</strong> ${t.transactionPart}</li>
                                             <li><strong>用途：</strong> 无</li>
@@ -233,7 +264,7 @@
     $("#mainBusiness").on("click", function () {
         var $mainPartner = $('.mainPartner-status-0');
         $mainPartner.each(function() {
-            $(this).show();
+            $(this).hide();
         });
         $("#all").removeClass("choosed");
         $(this).addClass("choosed");
@@ -241,6 +272,10 @@
         $("form").addClass("coverd");
     })
     $("#all").on("click", function () {
+        var $mainPartner = $('.mainPartner-status-0');
+        $mainPartner.each(function() {
+            $(this).show();
+        });
         $(this).addClass("choosed");
         $("#mainBusiness").removeClass("choosed");
         $(".cover").hide();
@@ -249,10 +284,14 @@
     $("#timeUp").on("click", function () {
         $("#timeDown").removeClass("choosed");
         $(this).addClass("choosed");
+        $("#timedown-item").hide();
+        $("#timeup-item").show();
     })
     $("#timeDown").on("click", function () {
         $(this).addClass("choosed");
         $("#timeUp").removeClass("choosed");
+        $("#timeup-item").hide();
+        $("#timedown-item").show();
     })
 
     // function showDetail(e) {
