@@ -39,7 +39,7 @@
             </li>
 
             <li class="li-item">
-                <a href="/frontend/sign/index"><p class="main-style">退出登录</p></a>
+                <a href="/frontend/login/index"><p class="main-style">退出登录</p></a>
             </li>
             <li class="line"></li>
             <li class="language chinese">

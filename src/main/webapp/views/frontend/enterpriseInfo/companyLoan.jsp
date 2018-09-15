@@ -17,7 +17,7 @@
     <link href="/statics/css/enterpriseCredit.css" rel="stylesheet" />
     <link href="/statics/css/listStyle.css" rel="stylesheet" />
     <link href="/statics/css/tabStyle.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="static/img/logo01.png" />
+    <link rel="icon" type="image/x-icon" href="/statics/img/logo01.png" />
     <link href="/dist/bookstrap/css/bootstrap.css" rel="stylesheet">
     <script src="/dist/js/jquery-3.3.1.js"></script>
     <script src="/dist/js/button-style.js"></script>
@@ -31,29 +31,7 @@
 
 <body>
 
-<div class="md-modal md-effect-5" id="modal">
-    <c:forEach items="${loanList}" var="t" varStatus="status">
-        <div class="md-content" data-id="${status.index}">
-            <h3>借贷详情</h3>
-            <div>
-                <ul>
-                    <li><strong>贷款时间：</strong> ${t.operateDate}</li>
-                    <li><strong>融资金额：</strong> ${t.amount}元</li>
-                    <li><strong>融资利率：</strong> ${t.interestRate*100}%</li>
-                    <li><strong>融资提供人：</strong> ${t.bank}</li>
-                    <li><strong>担保信息：</strong></li>
-                    <li style="text-indent: 50px;"><strong>担保人信用评级：</strong> ${t.guarantorCreditRating}</li>
-                    <li style="text-indent: 50px;"><strong>质押抵押品价值：</strong> ${t.hostagePrice}元</li>
-                    <li><strong>状态变化：</strong> </li>
-                    <li style="text-indent: 50px;"><strong>贷还款情况：</strong> ${t.status}</li>
-                    <li style="text-indent: 50px;"><strong>信用评级：</strong> ${t.creditRating}</li>
-                    <li style="text-indent: 50px;"><strong>授信额度：</strong> ${t.creditLine}</li>
-                </ul>
-                <!--<button class="md-close">Close me!</button>-->
-            </div>
-        </div>
-    </c:forEach>
-</div>
+
 <div class="bg">
     <img src="/statics/img/indexBg.png" />
 </div>
@@ -65,18 +43,24 @@
     <div>
         <ul class="nav navbar-nav">
             <li class="li-item">
-                <a href="index.html">首页</a>
+                <a href="/frontend/center/index">
+                    <p class="main-style">首页</p>
+                </a>
             </li>
             <li class="li-item active">
-                <a href="classification.html">行业分类</a>
+                <a href="/frontend/center/industryCategory">
+                    <p class="main-style">行业分类</p>
+                </a>
             </li>
 
             <li class="li-item">
-                <a href="login.html">退出登录</a>
+                <a href="/frontend/login/index">
+                    <p class="main-style">退出登录</p>
+                </a>
             </li>
             <li class="line"></li>
             <li class="language chinese">
-                <img class="rkmd-btn btn-fab-mini btn-pink ripple-effect" src="/statics/img/chinese.png" />
+                <img class="rkmd-btn btn-fab-mini btn-pink ripple-effect" src="/statics/img/english.png" />
             </li>
         </ul>
     </div>
@@ -90,15 +74,15 @@
         <div id="nav">
             <ul class="nav-menu clearfix unstyled">
                 <li class="firstLayer">
-                    <a href="basicInfo.html" class="three-d "> 企业资料 <span class="three-d-box"><span class="front">企业资料</span><span class="back">企业资料</span></span>
+                    <a href="/frontend/center/index" class="three-d "> 企业资料 <span class="three-d-box"><span class="front">企业资料</span><span class="back">企业资料</span></span>
                     </a>
                     <ul class="clearfix unstyled drop-menu">
                         <li>
-                            <a href="basicInfo.html" class="three-d"> 基本信息 <span class="three-d-box"><span class="front">基本信息</span><span class="back">基本信息</span></span>
+                            <a href="/frontend/center/index" class="three-d"> 基本信息 <span class="three-d-box"><span class="front">基本信息</span><span class="back">基本信息</span></span>
                             </a>
                         </li>
                         <li>
-                            <a href="taxSituation.html" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
+                            <a href="#" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
                             </a>
                         </li>
                         <li>
@@ -130,13 +114,15 @@
         <!--企业信用-->
         <!------------>
         <ul class="nav nav-tabs">
-            <li id="byCondition" class="active">
-                <a href="#byCondition-box" data-toggle="tab">
-                    按条件检索
+            <li id="byCondition"  class="active">
+                <a href="#byCondition-box" data-toggle="tab" class="aTab">
+                    <p style="margin: 0;">按条件检索</p>
                 </a>
             </li>
             <li id="byBank">
-                <a href="#byBank-box" data-toggle="tab">按银行检索</a>
+                <a href="#byBank-box" data-toggle="tab" class="aTab">
+                    <p style="margin: 0;">按银行检索</p>
+                </a>
             </li>
 
         </ul>
@@ -166,19 +152,19 @@
                             <p>时间降序</p>
                         </div>
                     </div>
-                    <div class="cover"></div>
-                    <form class="coverd">
 
+                    <form class="coverd">
+                        <div class="cover"></div>
                         <div class="state">
                             <p>还款情况：</p>
-                            <select class="form-control" id="time-select" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
+                            <select class="form-control" id="type-select" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
                                 <option>已还清</option>
                                 <option>还款中</option>
                             </select>
                         </div>
                         <div class="time">
                             <p>时间</p>
-                            <select class="form-control" id="time-select" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
+                            <select class="form-control" id="time-select1" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
                                 <option>2015</option>
                                 <option>2016</option>
                                 <option>2017</option>
@@ -186,7 +172,7 @@
                                 <option>2019</option>
                             </select>
                             <p style="margin: 0;">~</p>
-                            <select class="form-control" id="time-select" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
+                            <select class="form-control" id="time-select2" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
                                 <option>2015</option>
                                 <option>2016</option>
                                 <option>2017</option>
@@ -219,7 +205,29 @@
                                 <p>融资提供人：${t.bank}</p>
                             </div>
                             <p class="credit-state">状态：${t.status}</p>
-                            <button class="md-trigger detail rkmd-btn btn-flat ripple-effect" onclick="showDetail(this)" data-id="${status.index}">查看借贷详情</button>
+                            <button class="md-trigger detail rkmd-btn btn-flat ripple-effect">查看借贷详情</button>
+                            <div class="md-modal md-effect-5">
+                                    <div class="md-content">
+                                        <h3>借贷详情</h3>
+                                        <div>
+                                            <ul>
+                                                <li><strong>贷款时间：</strong> ${t.operateDate}</li>
+                                                <li><strong>融资金额：</strong> ${t.amount}元</li>
+                                                <li><strong>融资利率：</strong> ${t.interestRate*100}%</li>
+                                                <li><strong>融资提供人：</strong> ${t.bank}</li>
+                                                <li><strong>担保信息：</strong></li>
+                                                <li style="text-indent: 50px;"><strong>担保人信用评级：</strong> ${t.guarantorCreditRating}</li>
+                                                <li style="text-indent: 50px;"><strong>质押抵押品价值：</strong> ${t.hostagePrice}元</li>
+                                                <li><strong>状态变化：</strong> </li>
+                                                <li style="text-indent: 50px;"><strong>贷还款情况：</strong> ${t.status}</li>
+                                                <li style="text-indent: 50px;"><strong>信用评级：</strong> ${t.creditRating}</li>
+                                                <li style="text-indent: 50px;"><strong>授信额度：</strong> ${t.creditLine}</li>
+                                            </ul>
+                                            <!--<button class="md-close">Close me!</button>-->
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="md-overlay" style="z-index: 999;"></div>
                         </div>
                         <div class="split"></div>
                     </c:forEach>
@@ -242,11 +250,11 @@
                         <p class="bank-title"><strong>xx银行相关借贷信息:</strong></p>
                         <div class="lineOfCredit">
                             <p>授信额度：70</p>
-                            <a>查看往期</a>
+                            <a><p style="margin: 0;">查看往期</p></a>
                         </div>
                         <div class="creditRating">
                             <p>信用评级：AA</p>
-                            <a>查看往期</a>
+                            <a><p style="margin: 0;">查看往期</p></a>
                         </div>
                     </div>
                     <div class="linePast" style="display: none;">
@@ -255,34 +263,62 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>时间</th>
-                                    <th>授信额度</th>
+                                    <th>
+                                        <p>时间</p>
+                                    </th>
+                                    <th>
+                                        <p>授信额度</p>
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>70</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>70</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>60</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>70</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>75</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>70</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>34</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>70</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>75</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>70</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>34</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>70</p>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -294,34 +330,62 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>时间</th>
-                                    <th>信用评级</th>
+                                    <th>
+                                        <p>时间</p>
+                                    </th>
+                                    <th>
+                                        <p>信用评级</p>
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>AAAtd>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>AAA</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>BB</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>AAA</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>CCC</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>AAA</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>DD</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>AAA</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>CCC</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>AAA</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2018.08.28</td>
-                                    <td>DD</td>
+                                    <td>
+                                        <p>2018.08.28</p>
+                                    </td>
+                                    <td>
+                                        <p>AAA</p>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -330,107 +394,12 @@
                     </div>
                 </div>
 
-                <div class="bank-item">
-                    <div class="top-info">
-                        <p class="bank-title"><strong>xx银行相关借贷信息:</strong></p>
-                        <div class="lineOfCredit">
-                            <p>授信额度：70</p>
-                            <a>查看往期</a>
-                        </div>
-                        <div class="creditRating">
-                            <p>信用评级：AA</p>
-                            <a>查看往期</a>
-                        </div>
-                    </div>
-                    <div class="linePast" style="display: none;">
-                        <img src="/statics/img/up-arrow.png" />
-                        <div class="creditTable">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>时间</th>
-                                    <th>授信额度</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>70</td>
-                                </tr>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>60</td>
-                                </tr>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>75</td>
-                                </tr>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>34</td>
-                                </tr>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>75</td>
-                                </tr>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>34</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <div class="ratingPast" style="display: none;">
-                        <img src="/statics/img/up-arrow.png" />
-                        <div class="creditTable">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>时间</th>
-                                    <th>信用评级</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>AAAtd>
-                                </tr>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>BB</td>
-                                </tr>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>CCC</td>
-                                </tr>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>DD</td>
-                                </tr>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>CCC</td>
-                                </tr>
-                                <tr>
-                                    <td>2018.08.28</td>
-                                    <td>DD</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
 
             </div>
         </div>
 
     </div>
 </div>
-
-<div class="md-overlay" style="z-index: 999;"></div>
 <script src="/statics/js/classie.js"></script>
 <script src="/statics/js/modalEffects.js"></script>
 
@@ -486,17 +455,7 @@
     })
     //		切换语言
     $(".language").on("click", function() {
-        if($(this).hasClass("chinese")) {
-            //换成英文
-            $(this).addClass("english");
-            $(this).removeClass("chinese");
-            $(".language img").attr("src", "static/img/english.png");
-            translate();
-        } else {
-            $(this).removeClass("english");
-            $(this).addClass("chinese");
-            $(".language img").attr("src", "static/img/chinese.png")
-        }
+        translate();
     })
 
     function addChart() {
