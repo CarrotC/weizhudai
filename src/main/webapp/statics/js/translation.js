@@ -31,7 +31,7 @@ $(function() {
 
 	function onComplete() {
 		$("#WidgetFloaterPanels").hide();
-		$("#language img").attr("src", "static/img/chinese.png");
+		$("#language img").attr("src", "/statics/img/chinese.png");
 		$("#BUsername").attr("placeholder", "Please enter the user name.");
 		$("#CUsername").attr("placeholder", "Please enter the user name.");
 		$("#BPassword").attr("placeholder", "Please enter the password.");
