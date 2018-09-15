@@ -185,11 +185,11 @@
                 </thead>
                 <tbody>
                 <c:forEach items="${flowList}" var="t" varStatus="status">
-                    <tr>
+                    <tr class="mainPartner-status-${t.mainPartner}">
                             <%--<td>${t.operateTime}</td>--%>
-                        <td><p>2018.09.14</p></td>
-                        <td><p>${t.firmId}有限公司</p></td>
-                        <td><p>${t.operateType}：￥${t.amount}元</p></td>
+                        <td><p><fmt:formatDate value='${t.operateTime}' pattern='yyyy-MM-dd HH:mm:ss'/></p></td>
+                        <td><p>${t.transactionPart}有限公司</p></td>
+                        <td><p>${t.operateType}：¥<fmt:formatNumber value="${t.amount}" pattern="#,#00.0#"/> </p></td>
                         <td>
                             <a class="md-trigger"><p>查看详情</p></a>
                             <div class="md-modal md-effect-5">
@@ -198,11 +198,11 @@
                                     <div>
                                         <ul>
                                             <li><strong>交易编号：</strong> ${t.flowNo}</li>
-                                            <li><strong>交易金额：</strong> ￥${t.amount}元</li>
+                                            <li><strong>交易金额：</strong> ¥<fmt:formatNumber value="${t.amount}" pattern="#,#00.0#"/></li>
                                             <li><strong>金额大写：</strong> 贰万元整</li>
                                             <li><strong>交易时间：</strong> 2018年8月28日</li>
                                             <li><strong>受理银行：</strong> ${t.bank}</li>
-                                            <li><strong>收款方：</strong> ${t.firmId}</li>
+                                            <li><strong>收款方：</strong> ${t.transactionPart}</li>
                                             <li><strong>用途：</strong> 无</li>
                                             <li><strong>备注：</strong> 无</li>
                                         </ul>
@@ -231,6 +231,10 @@
 
     //切换筛选条件
     $("#mainBusiness").on("click", function () {
+        var $mainPartner = $('.mainPartner-status-0');
+        $mainPartner.each(function() {
+            $(this).show();
+        });
         $("#all").removeClass("choosed");
         $(this).addClass("choosed");
         $(".cover").show();

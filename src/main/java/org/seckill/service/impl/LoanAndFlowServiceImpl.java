@@ -61,6 +61,7 @@ public class LoanAndFlowServiceImpl implements LoanAndFlowService {
 
                     flow.setUse(flowSingleRecord.getString("use"));
                     flow.setRemarks(flowSingleRecord.getString("remarks"));
+                    flow.setMainPartner(flowSingleRecord.getString("mainPartner"));
 
                     transactionList.add(flow);
 
