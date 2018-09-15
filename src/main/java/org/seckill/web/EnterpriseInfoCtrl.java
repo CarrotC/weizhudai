@@ -241,6 +241,7 @@ public class EnterpriseInfoCtrl {
         //todo:从区块链中获取流水和借贷信息
         CompanyType companyType = this.companyTypeService.getCompanyById(companyId);
         model.addAttribute("companyName",companyType.getCompanyName());
+        model.addAttribute("companyType", companyType.getCompanyType());
         model.addAttribute("companyId", companyId);
 
         //从数据库中加载企业基本信息
