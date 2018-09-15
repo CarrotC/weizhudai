@@ -12,7 +12,7 @@ div{
 	font-family: FangSong;
 }
 p,font{
-	background-color: transparent !important; 
+	background-color: transparent !important;
 	color: rgb(230,230,230) !important;
 }
 * {
@@ -21,7 +21,7 @@ p,font{
 }
 
 body {
-	
+
 	width: 100%;
 	height: 100%;
 	position: relative;
@@ -44,7 +44,6 @@ body {
 	margin: 0;
 }
 .bg img{
-	s
 	width: 120%;
 	height: 120%;
 	animation: 30s bgMove linear;
@@ -79,7 +78,7 @@ body {
 	position: fixed;
 	top: 70px;
 	left: 30px;
-	
+
 	height: 30px;
 	display: flex;
 	flex-direction: row;
@@ -110,7 +109,7 @@ body {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	
+
 }
 
 .step-box{
@@ -124,7 +123,7 @@ body {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: flex-start;
-	
+
 }
 .dashedLine{
 	position: absolute;
@@ -136,7 +135,7 @@ body {
 	font-weight: 600;
 }
 .first-step,.second-step,.third-step{
-	height: 100%;
+	height: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -151,7 +150,7 @@ body {
 	height: 1px;
 	width: 460px;
 	position: absolute;
-	
+
 	top: 12px;
 	left: 63px;
 	display: flex;
@@ -184,7 +183,7 @@ body {
 	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
 	color: transparent !important;
 	margin-bottom: 70px;
-	
+
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -211,7 +210,7 @@ body {
 	justify-content: flex-start;
 	align-items: flex-start;
 	padding: 10px 0 10px 0;
-	
+
 
 }
 .info-box div{
@@ -227,8 +226,8 @@ body {
 	border-radius: 1.2em;
 	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .2em 0.5em rgba(55, 55, 55, 0.4);
 	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
-	
-	
+
+
 }
 .info-box p{
 	flex: 0 0 auto;
@@ -267,7 +266,7 @@ input{
 	z-index: 7;
 	top: 30px;
 	left: 30px;
-	
+
 	height: 30px;
 	display: flex;
 	flex-direction: row;
@@ -300,7 +299,7 @@ input{
 	border-radius: 1.2em;
 	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .2em 0.5em rgba(0, 0, 0, 0.6);
 	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
-	
+
 }
 .businessLicense,.corporationIdPhoto{
 	padding: 4px 35px 4px 35px;
@@ -311,7 +310,7 @@ input{
 	width: 100%;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	
+
 }
 .businessLicense p,.corporationIdPhoto p{
 	text-align: left !important;
@@ -335,7 +334,7 @@ input{
 	justify-content: flex-start;
 	align-items: flex-start;
 	padding: 10px 0 10px 0;
-	
+
 
 }
 .info-box2 p{
@@ -358,13 +357,13 @@ input{
 }
 .front p,.opposite p{
 	color: rgb(240,240,240)!important;
-	width: auto !important; 
+	width: auto !important;
 }
 .front div,.opposite div{
-	
+
 	box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .1em 0.2em rgba(0, 0, 0, 0.6);
 	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
-	
+
 	margin-top: 20px;
 	margin-bottom: 20px;
 	position: relative;
@@ -384,8 +383,8 @@ input{
 }
 .front button,.opposite button{
 	border-radius: 2px;
-	width: 40%;
-	height: 100%;
+	width: auto;
+	height: auto;
 	border: none;
 	outline: none;
 }
