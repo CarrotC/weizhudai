@@ -64,10 +64,10 @@
                 <a href="login.html"><p class="main-style">登录/注册</p></a>
             </li>
             <li class="li-item">
-                <a href="../aboutUs.html"><p class="main-style">关于我们</p></a>
+                <a href="/frontend/center/aboutUs"><p class="main-style">关于我们</p></a>
             </li>
             <li class="li-item">
-                <a href="../contactUs.html"><p class="main-style">联系我们</p></a>
+                <a href="/frontend/center/contactUs"><p class="main-style">联系我们</p></a>
             </li>
             <li class="line"></li>
             <li class="language chinese" id="language">
