@@ -61,7 +61,7 @@
             </li>
             <li class="line"></li>
             <li class="language chinese">
-                <img class="rkmd-btn btn-fab-mini btn-pink ripple-effect" src="static/img/english.png"/>
+                <img class="rkmd-btn btn-fab-mini btn-pink ripple-effect" src="/statics/img/english.png"/>
             </li>
         </ul>
     </div>
