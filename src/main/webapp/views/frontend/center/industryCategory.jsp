@@ -14,6 +14,7 @@
     <script src="/dist/js/jquery-3.3.1.js"></script>
     <script src="/dist/js/button-style.js"></script>
     <script src="/dist/bookstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/statics/js/translation.js"></script>
 
     <title>微助贷-行业分类</title>
 </head>
@@ -26,36 +27,34 @@
 
     <div class="navbar-header">
         <img src="/statics/img/logo01.png" />
-        <a class="navbar-brand" href="index.html">微助贷</a>
+        <p class="navbar-brand" >微助贷</p>
     </div>
     <div>
         <ul class="nav navbar-nav">
+            <li class="li-item">
+                <a href="/frontend/center/index"><p class="main-style">首页</p></a>
+            </li>
             <li class="li-item active">
-                <a href="#">行业分类</a>
+                <a href="#"><p class="main-style">行业分类</p></a>
             </li>
+
             <li class="li-item">
-                <a href="#">关于我们</a>
-            </li>
-            <li class="li-item">
-                <a href="login.html">登陆/注册</a>
+                <a href="/frontend/sign/index"><p class="main-style">退出登录</p></a>
             </li>
             <li class="line"></li>
             <li class="language chinese">
-                <img class="rkmd-btn btn-fab-mini btn-pink ripple-effect" src="/statics/img/chinese.png" />
+                <img class="rkmd-btn btn-fab-mini btn-pink ripple-effect" src="/statics/img/english.png" />
             </li>
         </ul>
     </div>
 </nav>
+
 <div class="main-container">
     <div class="type-box">
-        <div class="card">
-            <img src="/statics/img/card-img.png" />
-            <p>行业类型</p>
-        </div>
 
         <c:forEach items="${companyTypeList}" var="t" varStatus="status">
             <div class="spilt"></div>
-            <div class="type-item " id="type1">
+            <div class="type-item">
                 <div onclick="getAllCompanyNameByType(this)" data-index="${status.index}">${t}</div>
                 <img src="/statics/img/arrow.png">
             </div>
@@ -67,19 +66,10 @@
     </div>
     <div class="company-box">
         <p class="title">${companyList.get(0).companyType}</p>
-        <div class="spilt2"></div>
         <div class="choose-box">
-            <div class="choose-item liveItem" id="name">
+            <div class="choose-item" id="name">
                 <div class="icon"></div>
-                <p>按名称</p>
-            </div>
-            <div class="choose-item" id="time">
-                <div class="icon"></div>
-                <p>按上市时间</p>
-            </div>
-            <div class="choose-item" id="grade">
-                <div class="icon"></div>
-                <p>按信用分数</p>
+                <p>已注册公司</p>
             </div>
         </div>
         <div class="spilt2"></div>
@@ -88,7 +78,10 @@
             <c:forEach items="${companyList}" var="c" varStatus="status">
                 <div class="company-Item" data-id="${c.companyId}" onclick="getCompanyInfo(this)">
                     <img class="quoted" src="/statics/img/star.png">
-                    <img class="company-icon" src="/statics/img/test/test.png">
+                    <div class="company-icon">
+                        <img  src="/statics/img/company.png">
+                    </div>
+
                     <p>${status.index+1}.&nbsp${c.companyName}</p>
                 </div>
             </c:forEach>
@@ -100,8 +93,11 @@
 <script>
     //更换筛选方式
     $(".choose-item").on("click",function(){
-        $(".choose-item").removeClass("liveItem");
-        $(this).addClass("liveItem");
+        if( $(".choose-item").hasClass("liveItem")){
+            $(this).removeClass("liveItem");
+        }else {
+            $(this).addClass("liveItem");
+        }
     })
     //更换行业类型
     $(".type-item").on("click", function() {
@@ -110,16 +106,7 @@
     })
     //		切换语言
     $(".language").on("click", function() {
-        if($(this).hasClass("chinese")) {
-            //换成英文
-            $(this).addClass("english");
-            $(this).removeClass("chinese");
-            $(".language img").attr("src", "/statics/img/english.png")
-        } else {
-            $(this).removeClass("english");
-            $(this).addClass("chinese");
-            $(".language img").attr("src", "/statics/img/chinese.png")
-        }
+        translate();
     })
     //查看公司信息
     function getCompanyInfo(e) {
