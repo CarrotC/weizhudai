@@ -2,6 +2,8 @@ package org.seckill.dao;
 
 import org.seckill.entity.CompMembers;
 
+import java.util.List;
+
 public interface CompMembersMapper {
-    public CompMembers selectCompMembersById(String id);
+    public List<CompMembers> selectCompMembersById(String id);
 }

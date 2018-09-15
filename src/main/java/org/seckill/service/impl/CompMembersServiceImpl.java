@@ -6,12 +6,14 @@ import org.seckill.service.CompMembersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CompMembersServiceImpl implements CompMembersService {
     @Autowired
     CompMembersMapper compMembersMapper;
     @Override
-    public CompMembers getCompMembersById(String id) {
+    public List<CompMembers> getCompMembersById(String id) {
         return compMembersMapper.selectCompMembersById(id);
     }
 }

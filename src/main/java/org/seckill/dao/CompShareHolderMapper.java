@@ -2,6 +2,8 @@ package org.seckill.dao;
 
 import org.seckill.entity.CompShareholder;
 
+import java.util.List;
+
 public interface CompShareHolderMapper {
-    public CompShareholder selectCompShareHolderById(String id);
+    public List<CompShareholder> selectCompShareHolderById(String id);
 }

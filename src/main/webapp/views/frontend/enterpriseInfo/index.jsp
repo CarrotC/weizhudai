@@ -155,6 +155,13 @@
                         <p class="title2">法人信息</p>
                         <p class="content">
                             <!--插入内容-->
+                            <c:forEach items="${compShareHolder}" var="item" varStatus="status">
+                                <span>${item.name}  </span>
+                                持股比例：${item.shareholdingRatio}
+                                股东类型：${item.type}
+                                认缴出资额（万元）：${item.subscribedCapitalContribution}
+                                认缴出资日期：${item.dateOfSubscription}
+                            </c:forEach>
                         </p>
                     </div>
                     <div class="split"></div>
@@ -162,6 +169,9 @@
                         <p class="title2">公司主要成员</p>
                         <p class="content">
                             <!--插入内容-->
+                            <c:forEach items="${compMembers}" var="item" varStatus="status">
+                                <span>${item.name}  ${item.position}</span>
+                            </c:forEach>
                         </p>
                     </div>
                     <div class="split"></div>
@@ -169,6 +179,7 @@
                         <p class="title2">公司股权结构</p>
                         <p class="content">
                             <!--插入内容-->
+                            <img src="/statics/img/company/shareHolderStructure/${companyId}.jpg">
                         </p>
                     </div>
                     <div class="split"></div>
