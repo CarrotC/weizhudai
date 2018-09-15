@@ -18,7 +18,7 @@
         select
         <include refid="Base_Column_List" />
         from comp_shareholder
-        where id = #{id, jdbcType=VARCHAR}
+        where comp_id = #{id, jdbcType=VARCHAR}
     </select>
 
 </mapper>

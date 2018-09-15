@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: coldilock
@@ -60,7 +61,7 @@
 <div class="main-container">
     <div class="title">
         <p class="big-title">${companyName}基本信息</p>
-        <p class="small-title">————XXX行业</p>
+        <p class="small-title">————${companyType}行业</p>
     </div>
     <section class="nav-box">
         <div id="nav">
@@ -125,6 +126,28 @@
                         <p class="title2">工商信息</p>
                         <p class="content">
                             <!--插入内容-->
+                            登记信息：
+                            法定代表人：${comp.legalRepresentative}       登记状态:${comp.status}
+                            注册资本：${comp.registeredCapital}万元人民币     实缴资本：${comp.paidInCapital}万元人民币
+                            企业类型：${comp.compType}       参保人数：${comp.peopleNo}
+
+                            统一社会信用代码：${comp.socialCreditCode}
+                            工商注册号：${comp.businessRegistrationNumber}
+                            组织机构代码：${comp.organizationCode}
+
+                            英文名：${comp.compNameEn}
+                            曾用名：<c:forEach items="${compFormerName}" var="item" varStatus="status">
+                            <span>${item.formerName}  </span>
+                        </c:forEach>
+                            所属行业：${comp.industry}
+
+                            经营范围：${comp.bussinessScope}
+                            经营方式：${comp.operatingProcedure}
+                            公司地址：${comp.addr}
+
+                            营业期限：${comp.operatingPeriod}
+                            核准日期：${comp.dateOfApproval}
+                            登记机关：${comp.registrationAuthority}
                         </p>
                     </div>
                     <div class="split"></div>

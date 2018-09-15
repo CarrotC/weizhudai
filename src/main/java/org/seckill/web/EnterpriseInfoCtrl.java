@@ -234,11 +234,11 @@ public class EnterpriseInfoCtrl {
 
         //从数据库中加载企业基本信息
         Comp comp = compService.getCompById(companyId);
-        List<CompFormerName> compFormerNameList = compFormerNameService.getCompFormerNameById(companyId);
+        List<CompFormerName> compFormerName = compFormerNameService.getCompFormerNameById(companyId);
         CompMembers compMembers = compMembersService.getCompMembersById(companyId);
         CompShareholder compShareHolder =  compShareHolderService.getCompShareholderById(companyId);
         model.addAttribute("comp", comp);
-        model.addAttribute("compFormerName", compFormerNameList);
+        model.addAttribute("compFormerName", compFormerName);
         model.addAttribute("compMembers", compMembers);
         model.addAttribute("compShareHolder", compShareHolder);
 
