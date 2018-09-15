@@ -45,12 +45,12 @@
                 </a>
             </li>
             <li class="li-item">
-                <a href="aboutUs.html">
+                <a href="../contactUs.html">
                     <P class="main-style">关于我们</P>
                 </a>
             </li>
             <li class="li-item">
-                <a href="contactUs.html">
+                <a href="../contactUs.html">
                     <P class="main-style">联系我们</P>
                 </a>
             </li>
