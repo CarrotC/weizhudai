@@ -59,7 +59,7 @@
 
 <div class="main-container">
     <div class="title">
-        <p class="big-title">${companyName}</p>
+        <p class="big-title">${companyName}基本信息</p>
         <p class="small-title">————XXX行业</p>
     </div>
     <section class="nav-box">

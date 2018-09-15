@@ -143,7 +143,7 @@ body{
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
 	background-color: rgb(120,120,120) !important;
-	color: (45,45,45)!important;
+	color: rgb(45,45,45)!important;
 }
 .tab-pane{
 	margin-top: 10px;
@@ -175,12 +175,18 @@ body{
 	flex-wrap: wrap;
 	margin-bottom: 20px;
 }
-.type,.order{
-	width: 45%;
+.type,.order,.formCover{
+	width: 30%;
+}
+.order{
+	width: 35% !important;
+}
+.state p{
+	margin:0;
+	width: 85px;
+
 }
 .type,.order{
-	padding-left: 50px;
-	padding-right: 50px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -201,7 +207,7 @@ form{
 	width:100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 }
 form div{
@@ -225,7 +231,7 @@ p{
 option{
 	background-color: rgb(100,100,100)!important;
 	border: 1px solid rgb(100,100,100);
-	display: flex;http://127.0.0.1:8020/MicroAssistance/static/img/indexBg.png
+	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
@@ -244,11 +250,6 @@ option{
 	height: 2px;
 	width: 100%;
 	border-bottom: 1px dashed rgb(55,55,55);
-}
-.time,.state{
-	margin-top: 15px;
-	padding-left: 50px;
-	padding-right: 50px;
 }
 
 .cover{

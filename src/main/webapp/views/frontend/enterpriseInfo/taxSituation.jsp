@@ -57,7 +57,7 @@
 </nav>
 <div class="main-container">
     <div class="title">
-        <p class="big-title">xxx公司近期财务数据</p>
+        <p class="big-title">xxx公司纳税情况</p>
         <p class="small-title">————XXX行业</p>
     </div>
     <section class="nav-box">
