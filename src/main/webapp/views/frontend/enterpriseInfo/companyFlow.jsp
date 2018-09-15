@@ -86,12 +86,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="taxSituation.html" class="three-d"> 纳税情况 <span class="three-d-box"><span
+                            <a href="/frontend/enterpriseInfo/taxSituation" class="three-d"> 纳税情况 <span class="three-d-box"><span
                                     class="front">纳税情况</span><span class="back">纳税情况</span></span>
                             </a>
                         </li>
                         <li>
-                            <a href="companyInfo.html" class="three-d"> 涉诉情况 <span class="three-d-box"><span
+                            <a href="/frontend/enterpriseInfo/complaint" class="three-d"> 涉诉情况 <span class="three-d-box"><span
                                     class="front">涉诉情况</span><span class="back">涉诉情况</span></span>
                             </a>
                         </li>
@@ -110,7 +110,7 @@
                     </a>
                 </li>
                 <li class="firstLayer">
-                    <a href="/frontend/enterpriseInfo/financialInfo" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span
+                    <a href="/frontend/enterpriseInfo/companyFinance" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span
                             class="back">财务信息</span></span>
                     </a>
                 </li>
