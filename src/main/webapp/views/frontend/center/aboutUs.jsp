@@ -33,7 +33,7 @@
     <div>
         <ul class="nav navbar-nav">
             <li class="li-item ">
-                <a href="login.html"><p class="main-style">登录/注册</p></a>
+                <a href="/frontend/login/index"><p class="main-style">登录/注册</p></a>
             </li>
             <li class="li-item active">
                 <a href="#"><p class="main-style">关于我们</p></a>
