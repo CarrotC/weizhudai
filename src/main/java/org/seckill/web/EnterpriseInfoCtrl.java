@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.seckill.dao.*;
 import org.seckill.entity.*;
 import org.seckill.service.*;
+import org.seckill.util.ListSortByDate;
 import org.seckill.util.SessionUtils;
 import org.seckill.util.TxtReader;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,6 +79,8 @@ public class EnterpriseInfoCtrl {
         String realPath = request.getSession().getServletContext().getRealPath("/");
         List<Flow> flowList = loanAndFlowService.getAllTransactionRecord(realPath, companyId);
 
+        ListSortByDate.flowListSort(flowList);
+
         model.addAttribute("flowList", flowList);
         model.addAttribute("companyType", companyType);
 
@@ -122,20 +125,28 @@ public class EnterpriseInfoCtrl {
                 }
             }
 
+            Date now = new Date();
             if(payAmountForOneBank.compareTo(loanAmountFromOneBank) < 0){
-                Date now = new Date();
                 if(loanList.get(i).getRepaymentPeriod().after(now)){
-                    loanList.get(i).setStatus("待还款");   //未逾期，待还款
+                    loanList.get(i).setStatus("负债中");   //未逾期，待还款
+                    loanList.get(i).setStatusIndex("0");
                 } else {
-                    loanList.get(i).setStatus("拖欠");   //逾期，待还款
+                    loanList.get(i).setStatus("未还清不良记录");   //逾期，待还款
+                    loanList.get(i).setStatusIndex("3");
                     BigDecimal temp = loanAmountFromOneBank.subtract(payAmountForOneBank);
                     delayAmountFromAllBank = delayAmountFromAllBank.add(temp);
                     delayCount++;
                 }
-            }else{
-                loanList.get(i).setStatus("已还款");
+            }else if(loanList.get(i).getRepaymentPeriod().after(now)){
+                loanList.get(i).setStatus("按时还款");
+                loanList.get(i).setStatusIndex("1");
+            } else {
+                loanList.get(i).setStatus("已还清不良记录");
+                loanList.get(i).setStatusIndex("2");
             }
         }
+
+        ListSortByDate.loanListSort(loanList);
 
         model.addAttribute("loanList", loanList);//贷款记录
         model.addAttribute("payList", payList);//还款记录

@@ -17,6 +17,7 @@ public class Loan {
     private String guarantorCreditRating;   //担保人信用评级
     private BigDecimal hostagePrice;       //担保品价格
     private String status;//还款状态
+    private String statusIndex;
 
     public Date getRepaymentPeriod() {
         return repaymentPeriod;
@@ -112,6 +113,14 @@ public class Loan {
 
     public String getStatus() {
         return this.status;
+    }
+
+    public void setStatusIndex(String statusIndex) {
+        this.statusIndex = statusIndex;
+    }
+
+    public String getStatusIndex() {
+        return this.statusIndex;
     }
 
     @Override
