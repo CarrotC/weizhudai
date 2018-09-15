@@ -11,16 +11,16 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="注册页面" />
-    <link href="dist/css/button-style.css" rel="stylesheet" />
-    <link href="static/css/register.css" rel="stylesheet" />
-    <link href="static/css/tabStyle.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="static/img/logo01.png" />
-    <link href="dist/bookstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="dist/js/jquery-3.3.1.js"></script>
-    <script src="dist/js/button-style.js"></script>
-    <script src="dist/bookstrap/js/bootstrap.min.js"></script>
+    <link href="/dist/css/button-style.css" rel="stylesheet" />
+    <link href="/statics/css/register.css" rel="stylesheet" />
+    <link href="/statics/css/tabStyle.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/statics/img/logo01.png" />
+    <link href="/dist/bookstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/dist/js/jquery-3.3.1.js"></script>
+    <script src="/dist/js/button-style.js"></script>
+    <script src="/dist/bookstrap/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="static/js/translation.js"></script>
+    <script type="text/javascript" src="/statics/js/translation.js"></script>
 
     <title>微助贷-企业注册</title>
 </head>
@@ -50,12 +50,12 @@
     <%--<br>--%>
 <%--</div>--%>
 <div class="bg">
-    <img src="static/img/loginBg.png" />
+    <img src="/statics/img/loginBg.png" />
 </div>
 <nav class="navbar navbar-inverse" role="navigation">
 
     <div class="navbar-header">
-        <img src="static/img/logo01.png" />
+        <img src="/statics/img/logo01.png" />
         <p class="navbar-brand">微助贷</p>
     </div>
     <div>
@@ -71,7 +71,7 @@
             </li>
             <li class="line"></li>
             <li class="language chinese" id="language">
-                <img class="rkmd-btn btn-fab-mini btn-pink ripple-effect" src="static/img/chinese.png" />
+                <img class="rkmd-btn btn-fab-mini btn-pink ripple-effect" src="/statics/img/chinese.png" />
             </li>
         </ul>
     </div>
@@ -84,15 +84,15 @@
                 <div class="dashed2"></div>
             </div>
             <div class="first-step">
-                <img src="static/img/1 (3).png" />
+                <img src="/statics/img/1 (3).png" />
                 <p style="color: white;">填写基础信息</p>
             </div>
             <div class="second-step">
-                <img src="static/img/2.png" />
+                <img src="/statics/img/2.png" />
                 <p>身份验证</p>
             </div>
             <div class="third-step">
-                <img src="static/img/3.png" />
+                <img src="/statics/img/3.png" />
                 <p>完成注册</p>
             </div>
         </div>
@@ -144,7 +144,7 @@
         </div>
         <div class="container2" style="display: none;">
             <div class="returnStep">
-                <img src="static/img/returnStep2.png" />
+                <img src="/statics/img/returnStep2.png" />
                 <p>上一步</p>
             </div>
             <p class="title">身份验证</p>
@@ -205,7 +205,7 @@
         </div>
         <div class="container3" style="display: none;">
             <p class="title">等待验证</p>
-            <img class="successRegister" src="static/img/successsRegister.png">
+            <img class="successRegister" src="/statics/img/successsRegister.png">
             <p class="prompt">信息将在24小时内审核完毕！请耐心等待！</p>
             <button id="goLogin" class="next rkmd-btn btn-lightBlue ripple-effect ">登陆</button>
             <p class="return-text"><span id="time"></span>&nbsp;秒后自动返回登陆页面！</p>
