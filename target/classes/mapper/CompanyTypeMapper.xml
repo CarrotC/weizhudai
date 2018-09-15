@@ -4,9 +4,11 @@
     <resultMap id="BaseResultMap" type="org.seckill.entity.CompanyType">
         <id column="company_name" jdbcType="VARCHAR" property="companyName" />
         <result column="company_type" jdbcType="VARCHAR" property="companyType" />
+        <result column="is_register" jdbcType="TINYINT" property="isRegister" />
+        <result column="company_id" jdbcType="VARCHAR" property="companyId" />
     </resultMap>
     <sql id="Base_Column_List">
-        company_name, company_type
+        company_name, company_type, is_register, company_id
     </sql>
 
     <select id="getAllCompany" resultMap="BaseResultMap">
@@ -25,6 +27,13 @@
         <include refid="Base_Column_List" />
         from company_and_type
         where company_type = #{companyType, jdbcType=VARCHAR}
+    </select>
+
+    <select id="getCompanyById" parameterType="java.lang.String" resultType="org.seckill.entity.CompanyType">
+        select
+        <include refid="Base_Column_List" />
+        from company_and_type
+        where company_id = #{companyId, jdbcType=VARCHAR}
     </select>
 
     <select id="getCompanyByFuzzyName" parameterType="java.lang.String" resultMap="BaseResultMap">
