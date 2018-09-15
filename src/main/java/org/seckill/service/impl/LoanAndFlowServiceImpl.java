@@ -43,7 +43,7 @@ public class LoanAndFlowServiceImpl implements LoanAndFlowService {
                     String companyName = this.companyTypeMapper.getCompanyById(flowSingleRecord.getString("firmId")).getCompanyName();
                     flow.setFirmId(companyName);
 
-                    //flow.setOperateTime(flowSingleRecord.getDate("operateTime"));
+                    flow.setOperateTime(flowSingleRecord.getDate("operateTime"));
                     //****flow.setTransactionPart(flowSingleRecord.getString("TransactionPart"));
                     String transactionPartName = this.companyTypeMapper.getCompanyById(flowSingleRecord.getString("TransactionPart")).getCompanyName();
                     flow.setTransactionPart(transactionPartName);
