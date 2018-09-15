@@ -2,6 +2,8 @@ package org.seckill.service;
 
 import org.seckill.entity.CompTax;
 
+import java.util.List;
+
 public interface CompTaxService {
-    public CompTax getCompTaxById(String id);
+    public List<CompTax> getCompTaxById(String id);
 }

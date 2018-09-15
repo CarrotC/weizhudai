@@ -2,6 +2,8 @@ package org.seckill.dao;
 
 import org.seckill.entity.CompTax;
 
+import java.util.List;
+
 public interface CompTaxMapper {
-    public CompTax selectCompTaxById(String id);
+    public List<CompTax> selectCompTaxById(String id);
 }

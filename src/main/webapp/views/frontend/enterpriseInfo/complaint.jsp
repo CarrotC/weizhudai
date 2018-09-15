@@ -104,17 +104,24 @@
         <!------------>
         <div id="complaint">
             <p class="tab-title">涉诉情况</p>
-            <div class="complaint-item">
-                <p class="time">时间：2016年06月24日</p>
-                <p class="state">状态：已解决</p>
-                <p class="reason">原因：公司经营不善，拖欠民工工资。公司管理层受贿，在与政府合作的项目中偷工减料。</p>
-            </div>
-            <div class="split"></div>
-            <div class="complaint-item">
-                <p class="time">时间：2016年06月24日</p>
-                <p class="state">状态：已解决</p>
-                <p class="reason">原因：公司经营不善，拖欠民工工资。公司管理层受贿，在与政府合作的项目中偷工减料。</p>
-            </div>
+
+            <c:forEach items="${compLawsuitList}" var="item" varStatus="status">
+                ${item.postingComp}
+               刊登日期： ${item.postingDate}
+                公告类型：${item.postingType}
+                公告人： ${item.postingPeople}
+            </c:forEach>
+            <%--<div class="complaint-item">--%>
+                <%--<p class="time">时间：2016年06月24日</p>--%>
+                <%--<p class="state">状态：已解决</p>--%>
+                <%--<p class="reason">原因：公司经营不善，拖欠民工工资。公司管理层受贿，在与政府合作的项目中偷工减料。</p>--%>
+            <%--</div>--%>
+            <%--<div class="split"></div>--%>
+            <%--<div class="complaint-item">--%>
+                <%--<p class="time">时间：2016年06月24日</p>--%>
+                <%--<p class="state">状态：已解决</p>--%>
+                <%--<p class="reason">原因：公司经营不善，拖欠民工工资。公司管理层受贿，在与政府合作的项目中偷工减料。</p>--%>
+            <%--</div>--%>
             <div class="split"></div>
         </div>
     </div>
