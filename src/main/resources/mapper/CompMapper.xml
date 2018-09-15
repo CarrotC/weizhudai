@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.seckill.dao.CompMapper">
+    <resultMap id="BaseResultMap" type="org.seckill.entity.Comp">
+        <id column="comp_id" jdbcType="VARCHAR" property="compId" />
+        <result column="comp_name" jdbcType="VARCHAR" property="compName" />
+        <result column="legal_representative" jdbcType="VARCHAR" property="legalRepresentative" />
+        <result column="status" jdbcType="VARCHAR" property="status" />
+        <result column="registered_capital" jdbcType="NUMERIC" property="registeredCapital" />
+        <result column="paid_in_capital" jdbcType="NUMERIC" property="paidInCapital" />
+        <result column="comp_type" jdbcType="NUMERIC" property="compType" />
+        <result column="people_no" jdbcType="INTEGER" property="peopleNo" />
+        <result column="social_credit_code" jdbcType="VARCHAR" property="socialCreditCode" />
+        <result column="business_registration_number" jdbcType="VARCHAR" property="businessRegistrationNumber" />
+        <result column="organization_code" jdbcType="VARCHAR" property="organizationCode" />
+        <result column="comp_name_en" jdbcType="VARCHAR" property="compNameEn" />
+        <result column="industry" jdbcType="VARCHAR" property="industry" />
+        <result column="business_scope" jdbcType="VARCHAR" property="businessScope" />
+        <result column="operating_procedure" jdbcType="VARCHAR" property="operatingProcedure" />
+        <result column="addr" jdbcType="VARCHAR" property="addr" />
+        <result column="operating_period" jdbcType="VARCHAR" property="operatingPeriod" />
+        <result column="date_of_approval" jdbcType="DATE" property="dateOfApproval" />
+        <result column="registration_authority" jdbcType="VARCHAR" property="registrationAuthority" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        comp_id, comp_name, legal_representative, status, registered_capital, paid_in_capital, comp_type, people_no,
+        social_credit_code, business_registration_number, organization_code, comp_name_en, industry, business_scope,
+        operating_procedure, addr, operating_period, date_of_approval, registration_authority
+    </sql>
+
+    <select id="selectCompById" resultType="org.seckill.entity.Comp">
+        select
+        <include refid="Base_Column_List" />
+        from comp
+        where id = #{id, jdbcType=VARCHAR}
+    </select>
+
+</mapper>

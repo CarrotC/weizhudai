@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.seckill.dao.CompShareHolderMapper">
+    <resultMap id="BaseResultMap" type="org.seckill.entity.CompShareholder">
+        <id column="s_id" jdbcType="VARCHAR" property="mId" />
+        <result column="comp_id" jdbcType="VARCHAR" property="compId" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="shareholding_ratio" jdbcType="NUMERIC" property="shareholdingRatio" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="subscribed_capital_contribution" jdbcType="NUMERIC" property="subscribedCapitalContribution" />
+        <result column="date_of_subscription" jdbcType="DATE" property="dateOfSubscription" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        s_id, comp_id, name, shareholding_ratio, type, subscribed_capital_contribution, date_of_subscription
+    </sql>
+
+    <select id="selectCompShareholderById" resultType="org.seckill.entity.CompShareholder">
+        select
+        <include refid="Base_Column_List" />
+        from comp_shareholder
+        where id = #{id, jdbcType=VARCHAR}
+    </select>
+
+</mapper>

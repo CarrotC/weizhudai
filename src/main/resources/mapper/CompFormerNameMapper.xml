@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.seckill.dao.CompFormerNameMapper">
+    <resultMap id="BaseResultMap" type="org.seckill.entity.CompFormerName">
+        <id column="f_id" jdbcType="VARCHAR" property="fId" />
+        <result column="comp_id" jdbcType="VARCHAR" property="compId" />
+        <result column="former_name" jdbcType="VARCHAR" property="formerName" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        f_id, comp_id, former_name
+    </sql>
+
+    <select id="selectCompFormerNameById" resultType="org.seckill.entity.CompFormerName">
+        select
+        <include refid="Base_Column_List" />
+        from comp_former_name
+        where id = #{id, jdbcType=VARCHAR}
+    </select>
+
+</mapper>

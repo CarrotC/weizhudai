@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.seckill.dao.CompMembersMapper">
+    <resultMap id="BaseResultMap" type="org.seckill.entity.CompMembers">
+        <id column="m_id" jdbcType="VARCHAR" property="mId" />
+        <result column="comp_id" jdbcType="VARCHAR" property="compId" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="position" jdbcType="VARCHAR" property="position" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        m_id, comp_id, name, position
+    </sql>
+
+    <select id="selectCompMembersById" resultType="org.seckill.entity.CompMembers">
+        select
+        <include refid="Base_Column_List" />
+        from comp_members
+        where id = #{id, jdbcType=VARCHAR}
+    </select>
+
+</mapper>
