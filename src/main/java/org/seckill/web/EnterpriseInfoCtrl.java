@@ -189,9 +189,9 @@ public class EnterpriseInfoCtrl {
             //years[i] = cashabilityList.get(i).getYear();
             //currentRatios[i] = cashabilityList.get(i).getCurrentRatio();
             //quickRatios[i] = cashabilityList.get(i).getQuickRatio();
-            currentRatios[0][i] = cashabilityList.get(i).getYear() + "-" + cashabilityList.get(i).getQuarter();
+            currentRatios[0][i] = cashabilityList.get(i).getYear() + "_" + cashabilityList.get(i).getQuarter();
             currentRatios[1][i] = String.valueOf(cashabilityList.get(i).getCurrentRatio());
-            quickRatios[0][i] = cashabilityList.get(i).getYear() + "-" + cashabilityList.get(i).getQuarter();
+            quickRatios[0][i] = cashabilityList.get(i).getYear() + "_" + cashabilityList.get(i).getQuarter();
             quickRatios[1][i] = String.valueOf(cashabilityList.get(i).getQuickRatio());
             averCurrentRatio += cashabilityList.get(i).getCurrentRatio();
             averQuickRatio += cashabilityList.get(i).getQuickRatio();
@@ -234,13 +234,13 @@ public class EnterpriseInfoCtrl {
 //            operatingCycle[i] = assetManagementRatioList.get(i).getOperatingCycle();
 //            currentAssetTurnover[i] = assetManagementRatioList.get(i).getCurrentAssetTurnover();
 //            totalAssetTurnover[i] = assetManagementRatioList.get(i).getTotalAssetTurnover();
-            inventoryTurnover[0][i] = assetManagementRatioList.get(i).getYear() + "-" + assetManagementRatioList.get(i).getQuarter();
-            inventoryTurnoverInDays[0][i] = assetManagementRatioList.get(i).getYear() + "-" + assetManagementRatioList.get(i).getQuarter();
-            accountReceivableTurnover[0][i] = assetManagementRatioList.get(i).getYear() + "-" + assetManagementRatioList.get(i).getQuarter();
-            accountReceivableTurnoverInDays[0][i] = assetManagementRatioList.get(i).getYear() + "-" + assetManagementRatioList.get(i).getQuarter();
-            operatingCycle[0][i] = assetManagementRatioList.get(i).getYear() + "-" + assetManagementRatioList.get(i).getQuarter();
-            currentAssetTurnover[0][i] = assetManagementRatioList.get(i).getYear() + "-" + assetManagementRatioList.get(i).getQuarter();
-            totalAssetTurnover[0][i] = assetManagementRatioList.get(i).getYear() + "-" + assetManagementRatioList.get(i).getQuarter();
+            inventoryTurnover[0][i] = assetManagementRatioList.get(i).getYear() + "_" + assetManagementRatioList.get(i).getQuarter();
+            inventoryTurnoverInDays[0][i] = assetManagementRatioList.get(i).getYear() + "_" + assetManagementRatioList.get(i).getQuarter();
+            accountReceivableTurnover[0][i] = assetManagementRatioList.get(i).getYear() + "_" + assetManagementRatioList.get(i).getQuarter();
+            accountReceivableTurnoverInDays[0][i] = assetManagementRatioList.get(i).getYear() + "_" + assetManagementRatioList.get(i).getQuarter();
+            operatingCycle[0][i] = assetManagementRatioList.get(i).getYear() + "_" + assetManagementRatioList.get(i).getQuarter();
+            currentAssetTurnover[0][i] = assetManagementRatioList.get(i).getYear() + "_" + assetManagementRatioList.get(i).getQuarter();
+            totalAssetTurnover[0][i] = assetManagementRatioList.get(i).getYear() + "_" + assetManagementRatioList.get(i).getQuarter();
 
             inventoryTurnover[1][i] = String.valueOf(assetManagementRatioList.get(i).getInventoryTurnover());
             inventoryTurnoverInDays[1][i] = String.valueOf(assetManagementRatioList.get(i).getInventoryTurnoverInDays());
@@ -296,10 +296,10 @@ public class EnterpriseInfoCtrl {
 //            equityRatio[i] = debtRatioList.get(i).getEquityRatio();
 //            tangibleDebtRatio[i] = debtRatioList.get(i).getTangibleDebtRatio();
 //            interestEarnedRatio[i] = debtRatioList.get(i).getInterestEarnedRatio();
-            assetLiabilityRatio[0][i] = debtRatioList.get(i).getYear() + "-" + debtRatioList.get(i).getQuarter();
-            equityRatio[0][i] = debtRatioList.get(i).getYear() + "-" + debtRatioList.get(i).getQuarter();
-            tangibleDebtRatio[0][i] = debtRatioList.get(i).getYear() + "-" + debtRatioList.get(i).getQuarter();
-            interestEarnedRatio[0][i] = debtRatioList.get(i).getYear() + "-" + debtRatioList.get(i).getQuarter();
+            assetLiabilityRatio[0][i] = debtRatioList.get(i).getYear() + "_" + debtRatioList.get(i).getQuarter();
+            equityRatio[0][i] = debtRatioList.get(i).getYear() + "_" + debtRatioList.get(i).getQuarter();
+            tangibleDebtRatio[0][i] = debtRatioList.get(i).getYear() + "_" + debtRatioList.get(i).getQuarter();
+            interestEarnedRatio[0][i] = debtRatioList.get(i).getYear() + "_" + debtRatioList.get(i).getQuarter();
 
             assetLiabilityRatio[1][i] = String.valueOf(debtRatioList.get(i).getAssetLiabilityRatio());
             equityRatio[1][i] = String.valueOf(debtRatioList.get(i).getEquityRatio());
@@ -342,10 +342,10 @@ public class EnterpriseInfoCtrl {
 //            netProfitRatioInAsset[i] = profitabilityRatioList.get(i).getNetProfitRatioInAsset();
 //            netAssetIncomeRatio[i] = profitabilityRatioList.get(i).getNetAssetIncomeRatio();
 
-            netProfitRatioInSale[0][i] = profitabilityRatioList.get(i).getYear() + "-" + profitabilityRatioList.get(i).getQuarter();
-            grossProfitRatioInSale[0][i] = profitabilityRatioList.get(i).getYear() + "-" + profitabilityRatioList.get(i).getQuarter();
-            netProfitRatioInAsset[0][i] = profitabilityRatioList.get(i).getYear() + "-" + profitabilityRatioList.get(i).getQuarter();
-            netAssetIncomeRatio[0][i] = profitabilityRatioList.get(i).getYear() + "-" + profitabilityRatioList.get(i).getQuarter();
+            netProfitRatioInSale[0][i] = profitabilityRatioList.get(i).getYear() + "_" + profitabilityRatioList.get(i).getQuarter();
+            grossProfitRatioInSale[0][i] = profitabilityRatioList.get(i).getYear() + "_" + profitabilityRatioList.get(i).getQuarter();
+            netProfitRatioInAsset[0][i] = profitabilityRatioList.get(i).getYear() + "_" + profitabilityRatioList.get(i).getQuarter();
+            netAssetIncomeRatio[0][i] = profitabilityRatioList.get(i).getYear() + "_" + profitabilityRatioList.get(i).getQuarter();
 
             netProfitRatioInSale[1][i] = String.valueOf(profitabilityRatioList.get(i).getNetProfitRatioInSale());
             grossProfitRatioInSale[1][i] = String.valueOf(profitabilityRatioList.get(i).getGrossProfitRatioInSale());
@@ -384,9 +384,9 @@ public class EnterpriseInfoCtrl {
 //            cashFlowDebtRatio[i] = cashFlowList.get(i).getCashFlowDebtRatio();
 //            totalCashDebtRatio[i] = cashFlowList.get(i).getTotalCashDebtRatio();
 
-            cashMaturityDebtRatio[0][i] = cashFlowList.get(i).getYear() + "-" + cashabilityList.get(i).getQuarter();
-            cashFlowDebtRatio[0][i] = cashFlowList.get(i).getYear() + "-" + cashabilityList.get(i).getQuarter();
-            totalCashDebtRatio[0][i] = cashFlowList.get(i).getYear() + "-" + cashabilityList.get(i).getQuarter();
+            cashMaturityDebtRatio[0][i] = cashFlowList.get(i).getYear() + "_" + cashabilityList.get(i).getQuarter();
+            cashFlowDebtRatio[0][i] = cashFlowList.get(i).getYear() + "_" + cashabilityList.get(i).getQuarter();
+            totalCashDebtRatio[0][i] = cashFlowList.get(i).getYear() + "_" + cashabilityList.get(i).getQuarter();
 
             cashMaturityDebtRatio[1][i] = String.valueOf(cashFlowList.get(i).getCashFlowDebtRatio());
             cashFlowDebtRatio[1][i] = String.valueOf(cashFlowList.get(i).getCashFlowDebtRatio());
@@ -417,8 +417,8 @@ public class EnterpriseInfoCtrl {
             averSaleCashRatio += profitabilityList.get(i).getSaleCashRatio();
             averCashRecoveryRatio += profitabilityList.get(i).getCashRecoveryRatio();
 
-            saleCashRatio[0][1] = profitabilityList.get(i).getYear() + "-" + profitabilityList.get(i).getQuarter();
-            cashRecoveryRatio[0][1] = profitabilityList.get(i).getYear() + "-" + profitabilityList.get(i).getQuarter();
+            saleCashRatio[0][1] = profitabilityList.get(i).getYear() + "_" + profitabilityList.get(i).getQuarter();
+            cashRecoveryRatio[0][1] = profitabilityList.get(i).getYear() + "_" + profitabilityList.get(i).getQuarter();
 
             saleCashRatio[1][i] = String.valueOf(profitabilityList.get(i).getSaleCashRatio());
             cashRecoveryRatio[1][i] = String.valueOf(profitabilityList.get(i).getCashRecoveryRatio());
@@ -430,7 +430,7 @@ public class EnterpriseInfoCtrl {
 
 
         //todo:前端需要添加页面
-         return "/views/frontend/enterpriseInfo/financialInfo";
+        return "/views/frontend/enterpriseInfo/financialInfo";
     }
     /**
      * 显示纳税情况
