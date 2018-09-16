@@ -74,19 +74,19 @@
         <div id="nav">
             <ul class="nav-menu clearfix unstyled">
                 <li class="firstLayer">
-                    <a href="/frontend/center/index" class="three-d "> 企业资料 <span class="three-d-box"><span class="front">企业资料</span><span class="back">企业资料</span></span>
+                    <a href="/frontend/center/index?companyId=${companyType.companyId}" class="three-d "> 企业资料 <span class="three-d-box"><span class="front">企业资料</span><span class="back">企业资料</span></span>
                     </a>
                     <ul class="clearfix unstyled drop-menu">
                         <li>
-                            <a href="/frontend/center/index" class="three-d"> 基本信息 <span class="three-d-box"><span class="front">基本信息</span><span class="back">基本信息</span></span>
+                            <a href="/frontend/center/index?companyId=${companyType.companyId}" class="three-d"> 基本信息 <span class="three-d-box"><span class="front">基本信息</span><span class="back">基本信息</span></span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
+                            <a href="/frontend/enterpriseInfo/taxSituation?companyId=${companyType.companyId}" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
                             </a>
                         </li>
                         <li>
-                            <a href="complaint.html" class="three-d"> 涉诉情况 <span class="three-d-box"><span class="front">涉诉情况</span><span class="back">涉诉情况</span></span>
+                            <a href="/frontend/enterpriseInfo/complaint?companyId=${companyType.companyId}" class="three-d"> 涉诉情况 <span class="three-d-box"><span class="front">涉诉情况</span><span class="back">涉诉情况</span></span>
                             </a>
                         </li>
 

@@ -64,15 +64,15 @@
         <div id="nav">
             <ul class="nav-menu clearfix unstyled">
                 <li class="firstLayer">
-                    <a href="/frontend/enterpriseInfo/index" class="three-d "> 企业资料 <span class="three-d-box"><span class="front">企业资料</span><span class="back">企业资料</span></span>
+                    <a href="/frontend/enterpriseInfo/index?companyId=${companyId}" class="three-d "> 企业资料 <span class="three-d-box"><span class="front">企业资料</span><span class="back">企业资料</span></span>
                     </a>
                     <ul class="clearfix unstyled drop-menu">
                         <li>
-                            <a href="/frontend/enterpriseInfo/index" class="three-d"> 基本信息 <span class="three-d-box"><span class="front">基本信息</span><span class="back">基本信息</span></span>
+                            <a href="/frontend/enterpriseInfo/index?companyId=${companyId}" class="three-d"> 基本信息 <span class="three-d-box"><span class="front">基本信息</span><span class="back">基本信息</span></span>
                             </a>
                         </li>
                         <li>
-                            <a href="/frontend/enterpriseInfo/taxSituation" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
+                            <a href="/frontend/enterpriseInfo/taxSituation?companyId=${companyId}" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
                             </a>
                         </li>
                         <li>
@@ -83,16 +83,16 @@
                     </ul>
                 </li>
                 <li class="firstLayer">
-                    <a href="/frontend/enterpriseInfo/companyFlow" class="three-d"> 企业流水 <span class="three-d-box"><span class="front">企业流水</span><span class="back">企业流水</span></span>
+                    <a href="/frontend/enterpriseInfo/companyFlow?companyId=${companyId}" class="three-d"> 企业流水 <span class="three-d-box"><span class="front">企业流水</span><span class="back">企业流水</span></span>
                     </a>
 
                 </li>
                 <li class="firstLayer">
-                    <a href="/frontend/enterpriseInfo/companyLoan" class="three-d "> 企业信用 <span class="three-d-box"><span class="front"> 企业信用</span><span class="back">企业信用</span></span>
+                    <a href="/frontend/enterpriseInfo/companyLoan?companyId=${companyId}" class="three-d "> 企业信用 <span class="three-d-box"><span class="front"> 企业信用</span><span class="back">企业信用</span></span>
                     </a>
                 </li>
                 <li class="firstLayer">
-                    <a href="/frontend/enterpriseInfo/companyFinance?companyId=${companyType.companyId}" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span class="back">财务信息</span></span>
+                    <a href="/frontend/enterpriseInfo/companyFinance?companyId=${companyId}" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span class="back">财务信息</span></span>
                     </a>
                 </li>
             </ul>

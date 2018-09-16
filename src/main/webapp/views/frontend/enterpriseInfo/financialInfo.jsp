@@ -73,7 +73,7 @@
         <div id="nav">
             <ul class="nav-menu clearfix unstyled">
                 <li class="firstLayer">
-                    <a href="/frontend/enterpriseInfo/index" class="three-d "> 企业资料 <span class="three-d-box"><span class="front">企业资料</span><span class="back">企业资料</span></span>
+                    <a href="/frontend/enterpriseInfo/index?companyId=${}" class="three-d "> 企业资料 <span class="three-d-box"><span class="front">企业资料</span><span class="back">企业资料</span></span>
                     </a>
                     <ul class="clearfix unstyled drop-menu">
                         <li>

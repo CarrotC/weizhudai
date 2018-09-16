@@ -173,6 +173,7 @@ public class EnterpriseInfoCtrl {
      */
     @RequestMapping("companyFinance")
     public String companyFinance(HttpServletRequest request, Model model,String companyId){
+        model.addAttribute("companyId", companyId);
         String compId = companyId;
 
         //变现能力
@@ -440,6 +441,10 @@ public class EnterpriseInfoCtrl {
      */
     @RequestMapping("taxSituation")
     public String taxSituation(String companyId, HttpServletRequest request, Model model){
+        if(companyId==null){
+            companyId = SessionUtils.getUser(request).getId();
+        }
+        model.addAttribute("companyId", companyId);
         //todo: 按时间分组
         List<CompTax> compTaxList = compTaxService.getCompTaxById(companyId);
         String year1 = "2016";
@@ -492,8 +497,12 @@ public class EnterpriseInfoCtrl {
      */
     @RequestMapping("complaint")
     public String complaint(String companyId, HttpServletRequest request, Model model){
+        if(companyId==null){
+            companyId = SessionUtils.getUser(request).getId();
+        }
         List<CompLawsuit> compLawsuitList = compLawsuitService.getCompLawsuitById(companyId);
         model.addAttribute("compLawsuitList", compLawsuitList);
+        model.addAttribute("companyId", companyId);
         //todo:前端需要添加页面
         return "/views/frontend/enterpriseInfo/complaint";
     }
@@ -550,6 +559,7 @@ public class EnterpriseInfoCtrl {
         List<CompFormerName> compFormerName = compFormerNameService.getCompFormerNameById(companyId);
         List<CompMembers> compMembers = compMembersService.getCompMembersById(companyId);
         List<CompShareholder> compShareHolder =  compShareHolderService.getCompShareholderById(companyId);
+
         model.addAttribute("comp", comp);
         model.addAttribute("compFormerName", compFormerName);
         model.addAttribute("compMembers", compMembers);
