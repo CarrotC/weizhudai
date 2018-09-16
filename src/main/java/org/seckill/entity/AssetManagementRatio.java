@@ -118,32 +118,48 @@ public class AssetManagementRatio {
         this.finalCurrentAssets = finalCurrentAssets;
     }
 
+
+
     public Double getInventoryTurnover() {//存货周期率
-        return sellingCost / ((initialInventory + finalInventory) / 2);
+        double t = sellingCost / ((initialInventory + finalInventory) / 2);
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
     public Double getInventoryTurnoverInDays() {//存货周转天数
-        return 360 / getInventoryTurnover();
+        double t = 360 / getInventoryTurnover();
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
     public Double getAccountReceivableTurnover() {//应收账款周转率
-        return salesRevenue / ((initialReceivables + finalReceivables) / 2);
+        double t = salesRevenue / ((initialReceivables + finalReceivables) / 2);
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
     public Double getAccountReceivableTurnoverInDays() {//应收账款周转天数
-        return 360 / getAccountReceivableTurnover();
+        double t =  360 / getAccountReceivableTurnover();
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
     public Double getOperatingCycle() {//营业周期
-        return getInventoryTurnoverInDays() + getAccountReceivableTurnoverInDays();
+        double t= getInventoryTurnoverInDays() + getAccountReceivableTurnoverInDays();
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
     public Double getCurrentAssetTurnover() {//流动资产周转率
-        return salesRevenue / ((initialCurrentAssets + finalCurrentAssets) / 2);
+        double t = salesRevenue / ((initialCurrentAssets + finalCurrentAssets) / 2);
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
     public Double getTotalAssetTurnover() {//总资产周转率
-        return salesRevenue / ((initialTotalAssets + finalTotalAssets) / 2);
+        double t= salesRevenue / ((initialTotalAssets + finalTotalAssets) / 2);
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
 

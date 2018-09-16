@@ -81,15 +81,21 @@ public class CashFlow {
 
 
     public Double getCashMaturityDebtRatio() {
-        return this.netCashFlowFromOperating / (this.currentMaturitiesOfLongtermDebt + this.notesPavable);
+        double t = this.netCashFlowFromOperating / (this.currentMaturitiesOfLongtermDebt + this.notesPavable);
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
     public Double getCashFlowDebtRatio() {
-        return this.yearNetCashFlowFromOperating / this.finalCurrentLiabilities;
+        double t = this.yearNetCashFlowFromOperating / this.finalCurrentLiabilities;
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
     public Double getTotalCashDebtRatio() {
-        return this.netCashFlowFromOperating / this.finalTotalLiabilities;
+        double t = this.netCashFlowFromOperating / this.finalTotalLiabilities;
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
 

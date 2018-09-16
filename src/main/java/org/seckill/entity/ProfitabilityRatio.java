@@ -86,26 +86,26 @@ public class ProfitabilityRatio {
 
     public Double getNetProfitRatioInSale() {//销售净利润
         Double netProfitRatioInSale = netProfits / salesRevenue;
-        netProfitRatioInSale = Double.valueOf(Math.round(netProfitRatioInSale * 100) / 100);
+        netProfitRatioInSale = (double)Math.round(netProfitRatioInSale * 10000) / 10000;
         return netProfitRatioInSale;
     }
 
     public Double getGrossProfitRatioInSale() {//销售毛利润
         Double grossProfitRatioInSale = (salesRevenue - salesCost) / salesRevenue;
-        grossProfitRatioInSale = Double.valueOf(Math.round(grossProfitRatioInSale * 100) / 100);
+        grossProfitRatioInSale = (double)Math.round(grossProfitRatioInSale * 10000) / 10000;
         return grossProfitRatioInSale;
     }
 
     public Double getNetProfitRatioInAsset() {//资产净利润(总资产报酬)
         Double temp = (initialTotalAssets + finalTotalAssets) / 2;
-        temp = Double.valueOf(Math.round(temp * 100) / 100);
+        temp = (double)Math.round(temp * 10000) / 10000;
         Double netProfitRatioInAsset = netProfits / temp;
         return netProfitRatioInAsset;
     }
 
     public Double getNetAssetIncomeRatio() {//净资产收益率（权益报酬率）
         Double temp = (initialOwnerEquity + finalOwnerEquity) / 2;
-        temp = Double.valueOf(Math.round(temp * 100) / 100);
+        temp = (double)Math.round(temp * 10000) / 10000;
         Double netAssetIncomeRatio = netProfits / temp;
         return netAssetIncomeRatio;
     }

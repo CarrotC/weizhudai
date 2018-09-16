@@ -94,26 +94,27 @@ public class DebtRatio {
     }
 
     public Double getAssetLiabilityRatio() {
-        Double assetLiabilityRatio = totalLiabilities / totalAssets;
+        double assetLiabilityRatio = totalLiabilities / totalAssets;
         //四舍五入保留两位小数
-        assetLiabilityRatio = Double.valueOf(Math.round(assetLiabilityRatio * 100) / 100);
+        assetLiabilityRatio = (double)Math.round(assetLiabilityRatio * 10000) / 10000;
         return assetLiabilityRatio;
     }
 
     public Double getEquityRatio() {
-        Double equityRatio = totalLiabilities / shareholdersEquity;
-        equityRatio = Double.valueOf(Math.round(equityRatio * 100) / 100);
+        double equityRatio = totalLiabilities / shareholdersEquity;
+        equityRatio =(double)Math.round(equityRatio * 10000) / 10000;
         return equityRatio;
     }
 
     public Double getTangibleDebtRatio() {
         Double tangibleDebtRatio = totalLiabilities / (shareholdersEquity - netIntangibleAssets);
-        tangibleDebtRatio = Double.valueOf(Math.round(tangibleDebtRatio * 100) / 100);
+        tangibleDebtRatio =(double)Math.round(tangibleDebtRatio * 10000) / 10000;
         return tangibleDebtRatio;
     }
 
     public Double getInterestEarnedRatio() {
-        Double interestEarnedRatio = (totalProfits + financialExpenses) / (interests + capitalizedInterest);
+        double interestEarnedRatio = (totalProfits + financialExpenses) / (interests + capitalizedInterest);
+        interestEarnedRatio = (double)Math.round(interestEarnedRatio * 10000)/10000;
         return interestEarnedRatio;
     }
 

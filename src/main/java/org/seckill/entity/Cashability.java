@@ -49,11 +49,15 @@ public class Cashability {
     }
 
     public Double getCurrentRatio() {
-        return this.currentAssets / this.currentLiabilities;
+        double t= this.currentAssets / this.currentLiabilities;
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
     public Double getQuickRatio() {
-        return (this.currentAssets - this.inventory) / this.currentLiabilities;
+        double t= (this.currentAssets - this.inventory) / this.currentLiabilities;
+        t = (double)Math.round(t * 10000) / 10000;
+        return t;
     }
 
 

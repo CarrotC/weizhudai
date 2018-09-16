@@ -51,12 +51,14 @@ public class Profitability {
     }
 
     public Double getSaleCashRatio() {
-        Double saleCashRatio = netCashFlowFromOperating / sales;
+        double saleCashRatio = netCashFlowFromOperating / sales;
+        saleCashRatio = (double)Math.round(saleCashRatio * 10000)/10000;
         return saleCashRatio;
     }
 
     public Double getCashRecoveryRatio() {
-        Double cashRecoveryRatio = netCashFlowFromOperating / finalTotalAssets;
+        double cashRecoveryRatio = netCashFlowFromOperating / finalTotalAssets;
+        cashRecoveryRatio = (double)Math.round(cashRecoveryRatio * 10000)/10000;
         return cashRecoveryRatio;
     }
 
