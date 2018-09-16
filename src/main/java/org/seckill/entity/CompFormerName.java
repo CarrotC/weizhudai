@@ -1,7 +1,7 @@
 package org.seckill.entity;
 public class CompFormerName {
 	private int fId;
-	private int compId;
+	private String compId;
 	private String formerName;
 
 
@@ -13,11 +13,11 @@ public class CompFormerName {
 		this.fId = fId;
 	}
 
-	public int getCompId() {
+	public String getCompId() {
 		return compId;
 	}
 
-	public void setCompId(int compId) {
+	public void setCompId(String compId) {
 		this.compId = compId;
 	}
 

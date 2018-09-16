@@ -1,7 +1,7 @@
 package org.seckill.entity;
 public class CompMembers {
 	private int mId;
-	private int compId;
+	private String compId;
 	private String name;
 	private String position;
 
@@ -27,11 +27,11 @@ public class CompMembers {
 		this.mId = mId;
 	}
 
-	public int getCompId() {
+	public String getCompId() {
 		return compId;
 	}
 
-	public void setCompId(int compId) {
+	public void setCompId(String compId) {
 		this.compId = compId;
 	}
 }

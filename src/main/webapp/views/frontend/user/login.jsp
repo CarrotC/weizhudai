@@ -220,7 +220,7 @@
                 }
             },
             error: function (res) {
-                alert(res.toString())
+                alert("网络繁忙，请重试！\nThe network is busy, please try again.");
 
             }
         })
@@ -248,7 +248,7 @@
                 }
             },
             error: function (res) {
-                alert("出错啦！")
+                alert("网络繁忙，请重试！\nThe network is busy, please try again.")
 
             }
         })

@@ -6,7 +6,7 @@ public class CompLawsuit {
 
 	
 	private int lId;
-	private int compId;
+	private String compId;
 	private String postingComp;
 	private Date postingDate;
 	private String postingType;
@@ -21,11 +21,11 @@ public class CompLawsuit {
 		this.lId = lId;
 	}
 
-	public int getCompId() {
+	public String getCompId() {
 		return compId;
 	}
 
-	public void setCompId(int compId) {
+	public void setCompId(String compId) {
 		this.compId = compId;
 	}
 

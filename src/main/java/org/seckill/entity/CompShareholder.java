@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class CompShareholder {
 	private int sId;
-	private int compId;
+	private String compId;
 	private String name;
 	private double shareholdingRatio;
 	private String type;
@@ -20,11 +20,11 @@ public class CompShareholder {
 		this.sId = sId;
 	}
 
-	public int getCompId() {
+	public String getCompId() {
 		return compId;
 	}
 
-	public void setCompId(int compId) {
+	public void setCompId(String compId) {
 		this.compId = compId;
 	}
 
