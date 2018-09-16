@@ -31,7 +31,7 @@ public class CenterCtrl {
      * @return
      */
     @RequestMapping("/index")
-    public String index(HttpServletRequest request, Model model){
+    public String index(String userType, HttpServletRequest request, Model model){
         //todo
         //1.判断用户是企业用户还是银行用户
         //2.如果是企业用户，进入search.jsp页面
@@ -40,8 +40,10 @@ public class CenterCtrl {
 
         if(user.getIsBank().equals(new Byte("0"))){  //是企业用户
             model.addAttribute("companyId", user.getId());
+            model.addAttribute("companyType", userType);
             return "/views/frontend/enterpriseInfo/index";
         } else {
+            model.addAttribute("comanyType, userType");
             return "/views/frontend/center/index";      //是银行用户
         }
 

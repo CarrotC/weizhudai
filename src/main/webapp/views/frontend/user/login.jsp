@@ -213,7 +213,7 @@
             async: false,
             success: function (res) {
                 if (res.status === 200) {
-                    window.location.href = '/frontend/center/index';
+                    window.location.href = '/frontend/center/index?userType=company';
                     alert("登录成功");
                 } else {
                     alert("密码错误")
@@ -241,7 +241,7 @@
             async: false,
             success: function (res) {
                 if (res.status === 200) {
-                    window.location.href = '/frontend/center/index';
+                    window.location.href = '/frontend/center/index?userType=bank';
                     alert("登录成功");
                 } else {
                     alert("密码错误")
