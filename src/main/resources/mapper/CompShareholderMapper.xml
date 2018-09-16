@@ -14,7 +14,7 @@
         s_id, comp_id, name, shareholding_ratio, type, subscribed_capital_contribution, date_of_subscription
     </sql>
 
-    <select id="selectCompShareholderById" resultType="org.seckill.entity.CompShareholder">
+    <select id="selectCompShareHolderById" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />
         from comp_shareholder
