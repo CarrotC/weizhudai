@@ -54,9 +54,9 @@
 
         <c:forEach items="${companyTypeList}" var="t" varStatus="status">
             <div class="spilt"></div>
-            <div class="type-item">
-                <div onclick="getAllCompanyNameByType(this)" data-index="${status.index}">${t}</div>
-                <img src="/statics/img/arrow.png">
+            <div class="type-item"  onclick="getAllCompanyNameByType(this)" data-index="${status.index}">
+                <div>${t}</div>
+                <%--<img src="/statics/img/arrow.png">--%>
             </div>
 
         </c:forEach>

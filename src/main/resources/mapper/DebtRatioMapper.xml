@@ -3,7 +3,8 @@
 <mapper namespace="org.seckill.dao.DebtRatioMapper">
     <resultMap id="BaseResultMap" type="org.seckill.entity.DebtRatio">
         <id column="id" jdbcType="VARCHAR" property="id" />
-        <result column="year" jdbcType="VARCHAR" property="year" />
+        <result column="year" jdbcType="INTEGER" property="year" />
+        <result column="quarter" jdbcType="INTEGER" property="quarter" />
         <result column="total_liabilities" jdbcType="NUMERIC" property="totalLiabilities" />
         <result column="total_assets" jdbcType="NUMERIC" property="totalAssets" />
         <result column="shareholders_equity" jdbcType="NUMERIC" property="shareholdersEquity" />
@@ -14,7 +15,7 @@
         <result column="capitalized_interest" jdbcType="NUMERIC" property="capitalizedInterest" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, year,total_liabilities, total_assets, shareholders_equity, net_intangible_assets, total_profits, financial_expenses, interests, capitalized_interest
+        id, year, quarter, total_liabilities, total_assets, shareholders_equity, net_intangible_assets, total_profits, financial_expenses, interests, capitalized_interest
     </sql>
 
     <select id="selectDebtRatioById" resultType="org.seckill.entity.DebtRatio">

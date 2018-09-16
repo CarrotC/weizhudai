@@ -3,7 +3,8 @@
 <mapper namespace="org.seckill.dao.ProfitabilityRatioMapper">
     <resultMap id="BaseResultMap" type="org.seckill.entity.ProfitabilityRatio">
         <id column="id" jdbcType="VARCHAR" property="id" />
-        <result column="year" jdbcType="VARCHAR" property="year" />
+        <result column="year" jdbcType="INTEGER" property="year" />
+        <result column="quarter" jdbcType="INTEGER" property="quarter" />
         <result column="net_profits" jdbcType="NUMERIC" property="netProfits" />
         <result column="sales_revenue" jdbcType="NUMERIC" property="salesRevenue" />
         <result column="sales_cost" jdbcType="NUMERIC" property="salesCost" />
@@ -13,7 +14,7 @@
         <result column="final_owner_equity" jdbcType="NUMERIC" property="finalOwnerEquity" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, year, net_profits, sales_revenue, sales_cost, initial_total_assets, final_total_assets, initial_owner_equity, final_owner_equity
+        id, year, quarter, net_profits, sales_revenue, sales_cost, initial_total_assets, final_total_assets, initial_owner_equity, final_owner_equity
     </sql>
 
     <select id="selectProfitabilityRatioById" resultType="org.seckill.entity.ProfitabilityRatio">

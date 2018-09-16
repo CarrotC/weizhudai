@@ -3,13 +3,14 @@
 <mapper namespace="org.seckill.dao.ProfitabilityMapper">
     <resultMap id="BaseResultMap" type="org.seckill.entity.Profitability">
         <id column="id" jdbcType="VARCHAR" property="id" />
-        <result column="year" jdbcType="VARCHAR" property="year" />
+        <result column="year" jdbcType="INTEGER" property="year" />
+        <result column="quarter" jdbcType="INTEGER" property="quarter" />
         <result column="net_cash_flow_from_operating" jdbcType="NUMERIC" property="netCashFlowFromOperating" />
         <result column="sales" jdbcType="NUMERIC" property="sales" />
         <result column="final_total_assets" jdbcType="NUMERIC" property="finalTotalAssets" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, year, net_cash_flow_from_operating, sales, final_total_assets
+        id, year,quarter, net_cash_flow_from_operating, sales, final_total_assets
     </sql>
 
     <select id="selectProfitabilityById" resultType="org.seckill.entity.Profitability">

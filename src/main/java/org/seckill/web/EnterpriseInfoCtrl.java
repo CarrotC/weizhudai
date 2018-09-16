@@ -172,143 +172,7 @@ public class EnterpriseInfoCtrl {
      * @return
      */
     @RequestMapping("companyFinance")
-    public String companyFinance(HttpServletRequest request, Model model){
-
-        //todo:前端需要添加页面
-         return "/views/frontend/enterpriseInfo/financialInfo";
-    }
-    /**
-     * 显示纳税情况
-     * @param request
-     * @param model
-     * @return
-     */
-    @RequestMapping("taxSituation")
-    public String taxSituation(String companyId, HttpServletRequest request, Model model){
-        //todo: 按时间分组
-        List<CompTax> compTaxList = compTaxService.getCompTaxById(companyId);
-        String year1 = "2016";
-        Double taxToPay1 = 0.0;
-        Double taxPaid1 = 0.0;
-        String status1 = "已缴清";
-        List<CompTax> compTaxList1 = new ArrayList<>();
-        String year2 = "2017";
-        Double taxToPay2 = 0.0;
-        Double taxPaid2 = 0.0;
-        String status2 = "已缴清";
-        List<CompTax> compTaxList2 = new ArrayList<>();
-        for(CompTax c: compTaxList){
-            if(c.getDt().before(new Date(2017-01-01)) && c.getDt().after(new Date(2015-12-31))){
-                compTaxList1.add(c);
-                taxToPay1 += c.getTaxShouldPay();
-                taxPaid1 += c.getTaxPaid();
-                if(!c.getStatus().equals("已缴清")){
-                    status1 = "欠税";
-                }
-            }else if(c.getDt().before(new Date(2018-01-01)) && c.getDt().after(new Date(2016-12-31))){
-                compTaxList2.add(c);
-                taxToPay2 += c.getTaxShouldPay();
-                taxPaid2 += c.getTaxPaid();
-                if(!c.getStatus().equals("已缴清")){
-                    status2 = "欠税";
-                }
-            }
-        }
-
-        model.addAttribute("year1", year1);
-        model.addAttribute("taxToPay1", taxToPay1);
-        model.addAttribute("taxPaid1", taxPaid1);
-        model.addAttribute("status1", status1);
-        model.addAttribute("compTaxList1", compTaxList1);
-        model.addAttribute("year2", year2);
-        model.addAttribute("taxToPay2", taxToPay2);
-        model.addAttribute("taxPaid2", taxPaid2);
-        model.addAttribute("status2", status2);
-        model.addAttribute("compTaxList2", compTaxList2);
-        //todo:前端需要添加页面
-        return "/views/frontend/enterpriseInfo/taxSituation";
-    }
-
-    /**
-     * 显示涉诉情况
-     * @param request
-     * @param model
-     * @return
-     */
-    @RequestMapping("complaint")
-    public String complaint(String companyId, HttpServletRequest request, Model model){
-        List<CompLawsuit> compLawsuitList = compLawsuitService.getCompLawsuitById(companyId);
-        model.addAttribute("compLawsuitList", compLawsuitList);
-        //todo:前端需要添加页面
-        return "/views/frontend/enterpriseInfo/complaint";
-    }
-
-
-    /**
-     * 显示搜索结果/企业信息（只能由银行用户进入）
-     * @return
-     */
-    @RequestMapping("searchResult")
-    public String searchResult(HttpServletRequest request, Model model){
-        return "/views/frontend/enterpriseInfo/index";
-    }
-
-    /**
-     * 行业分类页面点击企业信息的控制器（只能由银行用户进入）
-     * @param request
-     * @param model
-     * @return
-     */
-    @RequestMapping("companyInfo")
-    @ResponseBody
-    public ResultBean companyInfo(@RequestBody JSONObject body, HttpServletRequest request, Model model){
-        String companyId = body.getString("companyId");
-        if(companyId!=null){
-            CompanyType companyType = this.companyTypeService.getCompanyById(companyId);
-            if(companyType!=null&&companyType.getIsRegister().equals(new Byte("1"))){
-                String url = "/frontend/enterpriseInfo/showCompanyInfo?companyId=" + companyId;
-                //model.addAttribute("companyId",companyId);
-                return new ResultBean(200,url,"获取企业资料成功");
-            }
-        }
-        return new ResultBean(500,"获取企业资料失败");
-    }
-
-    /**
-     * 显示企业信息（搜索和行业分类通用，只有银行可以用）
-     * @param companyId
-     * @param request
-     * @param model
-     * @return
-     */
-    @RequestMapping("showCompanyInfo")
-    public String showCompanyInfo(String companyId, HttpServletRequest request, Model model){
-        //todo:从数据库中获取企业信息
-        //todo:从区块链中获取流水和借贷信息
-        CompanyType companyType = this.companyTypeService.getCompanyById(companyId);
-        model.addAttribute("companyName",companyType.getCompanyName());
-        model.addAttribute("companyType", companyType.getCompanyType());
-        model.addAttribute("companyId", companyId);
-
-        //从数据库中加载企业基本信息
-        Comp comp = compService.getCompById(companyId);
-        List<CompFormerName> compFormerName = compFormerNameService.getCompFormerNameById(companyId);
-        List<CompMembers> compMembers = compMembersService.getCompMembersById(companyId);
-        List<CompShareholder> compShareHolder =  compShareHolderService.getCompShareholderById(companyId);
-        model.addAttribute("comp", comp);
-        model.addAttribute("compFormerName", compFormerName);
-        model.addAttribute("compMembers", compMembers);
-        model.addAttribute("compShareHolder", compShareHolder);
-
-        return "/views/frontend/enterpriseInfo/index";
-    }
-
-    /**
-     * 显示搜索结果/财务信息（只能由银行用户进入）
-     * @return
-     */
-    @RequestMapping("financialInfo")
-    public String financialInfo(String companyId, HttpServletRequest request, Model model){
+    public String companyFinance(HttpServletRequest request, Model model,String companyId){
         String compId = companyId;
 
         //变现能力
@@ -564,6 +428,142 @@ public class EnterpriseInfoCtrl {
         model.addAttribute("saleCashRatio", saleCashRatio);
         model.addAttribute("cashRecoveryRatio", cashRecoveryRatio);
 
+
+        //todo:前端需要添加页面
+         return "/views/frontend/enterpriseInfo/financialInfo";
+    }
+    /**
+     * 显示纳税情况
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("taxSituation")
+    public String taxSituation(String companyId, HttpServletRequest request, Model model){
+        //todo: 按时间分组
+        List<CompTax> compTaxList = compTaxService.getCompTaxById(companyId);
+        String year1 = "2016";
+        Double taxToPay1 = 0.0;
+        Double taxPaid1 = 0.0;
+        String status1 = "已缴清";
+        List<CompTax> compTaxList1 = new ArrayList<>();
+        String year2 = "2017";
+        Double taxToPay2 = 0.0;
+        Double taxPaid2 = 0.0;
+        String status2 = "已缴清";
+        List<CompTax> compTaxList2 = new ArrayList<>();
+        for(CompTax c: compTaxList){
+            if(c.getDt().before(new Date(2017-01-01)) && c.getDt().after(new Date(2015-12-31))){
+                compTaxList1.add(c);
+                taxToPay1 += c.getTaxShouldPay();
+                taxPaid1 += c.getTaxPaid();
+                if(!c.getStatus().equals("已缴清")){
+                    status1 = "欠税";
+                }
+            }else if(c.getDt().before(new Date(2018-01-01)) && c.getDt().after(new Date(2016-12-31))){
+                compTaxList2.add(c);
+                taxToPay2 += c.getTaxShouldPay();
+                taxPaid2 += c.getTaxPaid();
+                if(!c.getStatus().equals("已缴清")){
+                    status2 = "欠税";
+                }
+            }
+        }
+
+        model.addAttribute("year1", year1);
+        model.addAttribute("taxToPay1", taxToPay1);
+        model.addAttribute("taxPaid1", taxPaid1);
+        model.addAttribute("status1", status1);
+        model.addAttribute("compTaxList1", compTaxList1);
+        model.addAttribute("year2", year2);
+        model.addAttribute("taxToPay2", taxToPay2);
+        model.addAttribute("taxPaid2", taxPaid2);
+        model.addAttribute("status2", status2);
+        model.addAttribute("compTaxList2", compTaxList2);
+        //todo:前端需要添加页面
+        return "/views/frontend/enterpriseInfo/taxSituation";
+    }
+
+    /**
+     * 显示涉诉情况
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("complaint")
+    public String complaint(String companyId, HttpServletRequest request, Model model){
+        List<CompLawsuit> compLawsuitList = compLawsuitService.getCompLawsuitById(companyId);
+        model.addAttribute("compLawsuitList", compLawsuitList);
+        //todo:前端需要添加页面
+        return "/views/frontend/enterpriseInfo/complaint";
+    }
+
+
+    /**
+     * 显示搜索结果/企业信息（只能由银行用户进入）
+     * @return
+     */
+    @RequestMapping("searchResult")
+    public String searchResult(HttpServletRequest request, Model model){
+        return "/views/frontend/enterpriseInfo/index";
+    }
+
+    /**
+     * 行业分类页面点击企业信息的控制器（只能由银行用户进入）
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("companyInfo")
+    @ResponseBody
+    public ResultBean companyInfo(@RequestBody JSONObject body, HttpServletRequest request, Model model){
+        String companyId = body.getString("companyId");
+        if(companyId!=null){
+            CompanyType companyType = this.companyTypeService.getCompanyById(companyId);
+            if(companyType!=null&&companyType.getIsRegister().equals(new Byte("1"))){
+                String url = "/frontend/enterpriseInfo/showCompanyInfo?companyId=" + companyId;
+                //model.addAttribute("companyId",companyId);
+                return new ResultBean(200,url,"获取企业资料成功");
+            }
+        }
+        return new ResultBean(500,"获取企业资料失败");
+    }
+
+    /**
+     * 显示企业信息（搜索和行业分类通用，只有银行可以用）
+     * @param companyId
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("showCompanyInfo")
+    public String showCompanyInfo(String companyId, HttpServletRequest request, Model model){
+        //todo:从数据库中获取企业信息
+        //todo:从区块链中获取流水和借贷信息
+        CompanyType companyType = this.companyTypeService.getCompanyById(companyId);
+        model.addAttribute("companyName",companyType.getCompanyName());
+        model.addAttribute("companyType", companyType.getCompanyType());
+        model.addAttribute("companyId", companyId);
+
+        //从数据库中加载企业基本信息
+        Comp comp = compService.getCompById(companyId);
+        List<CompFormerName> compFormerName = compFormerNameService.getCompFormerNameById(companyId);
+        List<CompMembers> compMembers = compMembersService.getCompMembersById(companyId);
+        List<CompShareholder> compShareHolder =  compShareHolderService.getCompShareholderById(companyId);
+        model.addAttribute("comp", comp);
+        model.addAttribute("compFormerName", compFormerName);
+        model.addAttribute("compMembers", compMembers);
+        model.addAttribute("compShareHolder", compShareHolder);
+
+        return "/views/frontend/enterpriseInfo/index";
+    }
+
+    /**
+     * 显示搜索结果/财务信息（只能由银行用户进入）
+     * @return
+     */
+    @RequestMapping("financialInfo")
+    public String financialInfo(String companyId, HttpServletRequest request, Model model){
 
         return "/views/frontend/enterpriseInfo/financialInfo";
     }

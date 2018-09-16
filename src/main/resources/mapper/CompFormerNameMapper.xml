@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.seckill.dao.CompFormerNameMapper">
     <resultMap id="BaseResultMap" type="org.seckill.entity.CompFormerName">
-        <id column="f_id" jdbcType="VARCHAR" property="fId" />
+        <id column="f_id" jdbcType="INTEGER" property="fId" />
         <result column="comp_id" jdbcType="VARCHAR" property="compId" />
         <result column="former_name" jdbcType="VARCHAR" property="formerName" />
     </resultMap>
