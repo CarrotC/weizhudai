@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.seckill.dao.CompLawsuitMapper">
+    <resultMap id="BaseResultMap" type="org.seckill.entity.CompLawsuit">
+        <id column="l_id" jdbcType="INTEGER" property="lId" />
+        <result column="comp_id" jdbcType="VARCHAR" property="compId" />
+        <result column="posting_comp" jdbcType="VARCHAR" property="postingComp" />
+        <result column="posting_date" jdbcType="DATE" property="postingDate" />
+        <result column="posting_type" jdbcType="VARCHAR" property="postingType" />
+        <result column="posting_people" jdbcType="VARCHAR" property="postingPeople" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        l_id, comp_id, posting_comp, posting_date, posting_type, posting_people
+    </sql>
+
+    <select id="selectCompLawsuitById" resultType="org.seckill.entity.CompLawsuit">
+        select
+        <include refid="Base_Column_List" />
+        from comp_lawsuit
+        where comp_id = #{id, jdbcType=VARCHAR}
+    </select>
+
+</mapper>

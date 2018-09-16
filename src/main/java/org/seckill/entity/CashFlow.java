@@ -8,7 +8,7 @@ public class CashFlow {
     private Integer quarter;
     private Double netCashFlowFromOperating;
     private Double currentMaturitiesOfLongtermDebt;
-    private Double notesPavable;
+    private Double notesPayable;
     private Double yearNetCashFlowFromOperating;
     private Double finalCurrentLiabilities;
     private Double finalTotalLiabilities;
@@ -45,12 +45,12 @@ public class CashFlow {
         this.currentMaturitiesOfLongtermDebt = currentMaturitiesOfLongtermDebt;
     }
 
-    public Double getNotesPavable() {
-        return notesPavable;
+    public Double getNotesPayable() {
+        return notesPayable;
     }
 
-    public void setNotesPavable(Double notesPavable) {
-        this.notesPavable = notesPavable;
+    public void setNotesPayable(Double notesPayable) {
+        this.notesPayable = notesPayable;
     }
 
     public Double getYearNetCashFlowFromOperating() {
@@ -81,7 +81,7 @@ public class CashFlow {
 
 
     public Double getCashMaturityDebtRatio() {
-        double t = this.netCashFlowFromOperating / (this.currentMaturitiesOfLongtermDebt + this.notesPavable);
+        double t = this.netCashFlowFromOperating / (this.currentMaturitiesOfLongtermDebt + this.notesPayable);
         t = (double)Math.round(t * 10000) / 10000;
         return t;
     }
@@ -107,4 +107,6 @@ public class CashFlow {
     public void setQuarter(Integer quarter) {
         this.quarter = quarter;
     }
+
+
 }

@@ -13,7 +13,7 @@
         <result column="final_total_liabilities" jdbcType="NUMERIC" property="finalTotalLiabilities" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, year, net_cash_flow_from_operating, current_maturities_of_longterm_debt, notes_payable, year_net_cash_flow_from_operating, final_current_liabilities, final_total_liabilities
+        id, year,quarter, net_cash_flow_from_operating, current_maturities_of_longterm_debt, notes_payable, year_net_cash_flow_from_operating, final_current_liabilities, final_total_liabilities
     </sql>
 
     <select id="selectCashFlowById" resultType="org.seckill.entity.CashFlow">
