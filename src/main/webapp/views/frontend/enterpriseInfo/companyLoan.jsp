@@ -141,19 +141,7 @@
                             <p>筛选</p>
                         </div>
                     </div>
-                    <div class="order">
-                        <p>顺序：</p>
-                        <div class="timeUp choosed" id="timeUp">
-                            <div class="filter-item" id="timeUp-button"></div>
-                            <p>时间升序</p>
-                        </div>
-                        <div class="timeDown" id="timeDown">
-                            <div class="filter-item" id="timeDown-button"></div>
-                            <p>时间降序</p>
-                        </div>
-                    </div>
-
-                    <form class="coverd">
+                    <form class="coverd formCover">
                         <div class="cover"></div>
                         <div class="state">
                             <p>还款情况：</p>
@@ -164,7 +152,7 @@
                                 <option>未还清不良记录</option>
                             </select>
                         </div>
-                        <div class="time">
+                        <div class="time" style="display: none">
                             <p>时间</p>
                             <select class="form-control" id="time-select1" style="background-color: rgb(100,100,100);border: rgb(55,55,55);color: rgb(240,240,240);">
                                 <option>2015</option>
@@ -183,6 +171,19 @@
                             </select>
                         </div>
                     </form>
+                    <div class="order">
+                        <p>顺序：</p>
+                        <div class="timeUp" id="timeUp">
+                            <div class="filter-item" id="timeUp-button"></div>
+                            <p>时间升序</p>
+                        </div>
+                        <div class="timeDown  choosed" id="timeDown">
+                            <div class="filter-item" id="timeDown-button"></div>
+                            <p>时间降序</p>
+                        </div>
+                    </div>
+
+
 
                 </div>
                 <div class="split"></div>
@@ -196,7 +197,7 @@
                         <p>拖欠金额：¥<fmt:formatNumber value="${delayAmount}" pattern="#,#00.0#"/></p>
                     </div>
                     <div class="split"></div>
-
+                    <div class="credit-down">
                     <c:set var="startIndex" value="${fn:length(loanList)-1 }"></c:set>
                     <c:forEach items="${loanList}" var="t"  varStatus="status">
                         <div class="credit-item credit-status-${loanList[startIndex - status.index].statusIndex}" >
@@ -234,43 +235,46 @@
                         </div>
                         <div class="split"></div>
                     </c:forEach>
+                    </div>
+                    <div class="credit-up" style="display: none">
+                        <c:forEach items="${loanList}" var="t" varStatus="status">
+                            <div class="credit-item" credit-status-${t.statusIndex}>
+                                <p class="item-title"><strong>借贷记录:</strong></p>
+                                <div class="left-box">
+                                    <p>贷款时间：<fmt:formatDate value='${t.operateDate}' pattern='yyyy/MM/dd'/></p>
+                                    <p>融资利率：${t.interestRate*100}%</p>
+                                    <p>融资金额：¥<fmt:formatNumber value="${t.amount}" pattern="#,#00.0#"/></p>
+                                    <p>融资提供人：${t.bank}</p>
+                                </div>
+                                <p class="credit-state">状态：${t.status}</p>
+                                <button class="md-trigger detail rkmd-btn btn-flat ripple-effect">查看借贷详情</button>
+                                <div class="md-modal md-effect-5">
+                                    <div class="md-content">
+                                        <h3>借贷详情</h3>
+                                        <div>
+                                            <ul>
+                                                <li><strong>贷款时间：</strong> <fmt:formatDate value='${t.operateDate}' pattern='yyyy/MM/dd'/></li>
+                                                <li><strong>融资金额：</strong> ¥<fmt:formatNumber value="${t.amount}" pattern="#,#00.0#"/></li>
+                                                <li><strong>融资利率：</strong> ${t.interestRate*100}%</li>
+                                                <li><strong>融资提供人：</strong> ${t.bank}</li>
+                                                <li><strong>担保信息：</strong></li>
+                                                <li style="text-indent: 50px;"><strong>担保人信用评级：</strong> ${t.guarantorCreditRating}</li>
+                                                <li style="text-indent: 50px;"><strong>质押抵押品价值：</strong> ¥<fmt:formatNumber value="${t.hostagePrice}" pattern="#,#00.0#"/></li>
+                                                <li><strong>状态变化：</strong> </li>
+                                                <li style="text-indent: 50px;"><strong>贷还款情况：</strong> ${t.status}</li>
+                                                <li style="text-indent: 50px;"><strong>信用评级：</strong> ${t.creditRating}</li>
+                                                <li style="text-indent: 50px;"><strong>授信额度：</strong> ¥<fmt:formatNumber value="${t.creditLine}" pattern="#,#00.0#"/></li>
+                                            </ul>
+                                            <!--<button class="md-close">Close me!</button>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="md-overlay" style="z-index: 999;"></div>
+                            </div>
+                            <div class="split"></div>
+                        </c:forEach>
+                    </div>
 
-                    <%--<c:forEach items="${loanList}" var="t" varStatus="status">--%>
-                        <%--<div class="credit-item" credit-status-${t.statusIndex}>--%>
-                            <%--<p class="item-title"><strong>借贷记录:</strong></p>--%>
-                            <%--<div class="left-box">--%>
-                                <%--<p>贷款时间：<fmt:formatDate value='${t.operateDate}' pattern='yyyy/MM/dd'/></p>--%>
-                                <%--<p>融资利率：${t.interestRate*100}%</p>--%>
-                                <%--<p>融资金额：¥<fmt:formatNumber value="${t.amount}" pattern="#,#00.0#"/></p>--%>
-                                <%--<p>融资提供人：${t.bank}</p>--%>
-                            <%--</div>--%>
-                            <%--<p class="credit-state">状态：${t.status}</p>--%>
-                            <%--<button class="md-trigger detail rkmd-btn btn-flat ripple-effect">查看借贷详情</button>--%>
-                            <%--<div class="md-modal md-effect-5">--%>
-                                    <%--<div class="md-content">--%>
-                                        <%--<h3>借贷详情</h3>--%>
-                                        <%--<div>--%>
-                                            <%--<ul>--%>
-                                                <%--<li><strong>贷款时间：</strong> <fmt:formatDate value='${t.operateDate}' pattern='yyyy/MM/dd'/></li>--%>
-                                                <%--<li><strong>融资金额：</strong> ¥<fmt:formatNumber value="${t.amount}" pattern="#,#00.0#"/></li>--%>
-                                                <%--<li><strong>融资利率：</strong> ${t.interestRate*100}%</li>--%>
-                                                <%--<li><strong>融资提供人：</strong> ${t.bank}</li>--%>
-                                                <%--<li><strong>担保信息：</strong></li>--%>
-                                                <%--<li style="text-indent: 50px;"><strong>担保人信用评级：</strong> ${t.guarantorCreditRating}</li>--%>
-                                                <%--<li style="text-indent: 50px;"><strong>质押抵押品价值：</strong> ¥<fmt:formatNumber value="${t.hostagePrice}" pattern="#,#00.0#"/></li>--%>
-                                                <%--<li><strong>状态变化：</strong> </li>--%>
-                                                <%--<li style="text-indent: 50px;"><strong>贷还款情况：</strong> ${t.status}</li>--%>
-                                                <%--<li style="text-indent: 50px;"><strong>信用评级：</strong> ${t.creditRating}</li>--%>
-                                                <%--<li style="text-indent: 50px;"><strong>授信额度：</strong> ¥<fmt:formatNumber value="${t.creditLine}" pattern="#,#00.0#"/></li>--%>
-                                            <%--</ul>--%>
-                                            <%--<!--<button class="md-close">Close me!</button>-->--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
-                            <%--</div>--%>
-                            <%--<div class="md-overlay" style="z-index: 999;"></div>--%>
-                        <%--</div>--%>
-                        <%--<div class="split"></div>--%>
-                    <%--</c:forEach>--%>
 
                 </div>
             </div>
@@ -492,10 +496,14 @@
     $("#timeUp").on("click", function() {
         $("#timeDown").removeClass("choosed");
         $(this).addClass("choosed");
+        $(".credit-down").hide();
+        $(".credit-up").show();
     })
     $("#timeDown").on("click", function() {
         $(this).addClass("choosed");
         $("#timeUp").removeClass("choosed");
+        $(".credit-up").hide();
+        $(".credit-down").show();
     })
     //		切换语言
     $(".language").on("click", function() {

@@ -60,7 +60,7 @@
 
 <div class="main-container">
     <div class="title">
-        <p class="big-title">${companyName}基本信息</p>
+        <p class="big-title">${companyName}中国石油基本信息</p>
         <p class="small-title">————${companyType}行业</p>
     </div>
     <section class="nav-box">
@@ -124,63 +124,65 @@
                     <div class="split"></div>
                     <div id="industryAndC">
                         <p class="title2">工商信息</p>
-                        <p class="content">
+                        <div class="content">
                             <!--插入内容-->
-                            登记信息：
-                            法定代表人：${comp.legalRepresentative}       登记状态:${comp.status}
-                            注册资本：${comp.registeredCapital}万元人民币     实缴资本：${comp.paidInCapital}万元人民币
-                            企业类型：${comp.compType}       参保人数：${comp.peopleNo}
+                            <p>登记信息：</p>
+                            <p>法定代表人：${comp.legalRepresentative} </p>      <p>登记状态:${comp.status}</p>
+                            <p> 注册资本：${comp.registeredCapital}万元人民币</p>    <p> 实缴资本：${comp.paidInCapital}万元人民币</p>
+                            <p>企业类型：${comp.compType}</p>       <p>参保人数：${comp.peopleNo}</p>
 
-                            统一社会信用代码：${comp.socialCreditCode}
-                            工商注册号：${comp.businessRegistrationNumber}
-                            组织机构代码：${comp.organizationCode}
+                            <p>统一社会信用代码：${comp.socialCreditCode}</p>
+                            <p>工商注册号：${comp.businessRegistrationNumber}</p>
+                            <p>组织机构代码：${comp.organizationCode}</p>
 
-                            英文名：${comp.compNameEn}
-                            曾用名：<c:forEach items="${compFormerName}" var="item" varStatus="status">
+                            <p>英文名：${comp.compNameEn}</p>
+                            <p>曾用名：<c:forEach items="${compFormerName}" var="item" varStatus="status">
                             <span>${item.formerName}  </span>
-                        </c:forEach>
-                            所属行业：${comp.industry}
+                        </c:forEach></p>
+                            <p>所属行业：${comp.industry}</p>
 
-                            经营范围：${comp.bussinessScope}
-                            经营方式：${comp.operatingProcedure}
-                            公司地址：${comp.addr}
+                            <p>经营范围：${comp.bussinessScope}</p>
+                            <p> 经营方式：${comp.operatingProcedure}</p>
+                            <p>公司地址：${comp.addr}</p>
 
-                            营业期限：${comp.operatingPeriod}
-                            核准日期：${comp.dateOfApproval}
-                            登记机关：${comp.registrationAuthority}
-                        </p>
+                            <p> 营业期限：${comp.operatingPeriod}</p>
+                            <p>核准日期：${comp.dateOfApproval}</p>
+                            <p>登记机关：${comp.registrationAuthority}</p>
+                        </div>
                     </div>
                     <div class="split"></div>
                     <div id="corporation">
                         <p class="title2">法人信息</p>
-                        <p class="content">
+                        <div class="content">
                             <!--插入内容-->
                             <c:forEach items="${compShareHolder}" var="item" varStatus="status">
-                                <span>${item.name}  </span>
-                                持股比例：${item.shareholdingRatio}
-                                股东类型：${item.type}
-                                认缴出资额（万元）：${item.subscribedCapitalContribution}
-                                认缴出资日期：${item.dateOfSubscription}
+                            <div class="corporation-item">
+                                <p>${item.name}</p>
+                                <p>持股比例：${item.shareholdingRatio}</p>
+                                <p>股东类型：${item.type}</p>
+                                <p>认缴出资额（万元）：${item.subscribedCapitalContribution}</p>
+                                <p>认缴出资日期：${item.dateOfSubscription}</p>
+                            </div>
                             </c:forEach>
-                        </p>
+                        </div>
                     </div>
                     <div class="split"></div>
                     <div id="mainMember">
                         <p class="title2">公司主要成员</p>
-                        <p class="content">
+                        <div class="content">
                             <!--插入内容-->
                             <c:forEach items="${compMembers}" var="item" varStatus="status">
-                                <span>${item.name}  ${item.position}</span>
+                                <p>${item.name}<p>  <p>${item.position}</p>
                             </c:forEach>
-                        </p>
+                        </div>
                     </div>
                     <div class="split"></div>
                     <div id="stockRight">
                         <p class="title2">公司股权结构</p>
-                        <p class="content">
+                        <div class="content">
                             <!--插入内容-->
                             <img src="/statics/img/company/shareHolderStructure/${companyId}.jpg">
-                        </p>
+                        </div>
                     </div>
                     <div class="split"></div>
                     <div id="history">
