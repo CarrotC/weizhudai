@@ -102,7 +102,7 @@
                     </a>
                 </li>
                 <li class="firstLayer">
-                    <a href="financialInfo.html" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span class="back">财务信息</span></span>
+                    <a href="/frontend/enterpriseInfo/companyFinance?companyId=${companyType.companyId}" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span class="back">财务信息</span></span>
                     </a>
                 </li>
             </ul>

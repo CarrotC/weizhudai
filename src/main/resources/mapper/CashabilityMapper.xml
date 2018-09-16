@@ -17,7 +17,7 @@
         select
         <include refid="Base_Column_List" />
         from cashability
-        where id = #{id, jdbcType=INTEGER}
+        where id = #{id, jdbcType=VARCHAR}
     </select>
 
 </mapper>

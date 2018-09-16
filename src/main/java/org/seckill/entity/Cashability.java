@@ -4,8 +4,8 @@ public class Cashability {
     private String id;
     private Integer year;
     private Integer quarter;
-    private Double currentAsset;
-    private Double currentLiabililties;
+    private Double currentAssets;
+    private Double currentLiabilities;
     private Double inventory;
 
     public String getId() {
@@ -24,21 +24,20 @@ public class Cashability {
         this.year = year;
     }
 
-
-    public Double getCurrentAsset() {
-        return currentAsset;
+    public Double getCurrentAssets() {
+        return currentAssets;
     }
 
-    public void setCurrentAsset(Double currentAsset) {
-        this.currentAsset = currentAsset;
+    public void setCurrentAssets(Double currentAssets) {
+        this.currentAssets = currentAssets;
     }
 
-    public Double getCurrentLiabililties() {
-        return currentLiabililties;
+    public Double getCurrentLiabilities() {
+        return currentLiabilities;
     }
 
-    public void setCurrentLiabililties(Double currentLiabililties) {
-        this.currentLiabililties = currentLiabililties;
+    public void setCurrentLiabilities(Double currentLiabilities) {
+        this.currentLiabilities = currentLiabilities;
     }
 
     public Double getInventory() {
@@ -50,11 +49,11 @@ public class Cashability {
     }
 
     public Double getCurrentRatio() {
-        return this.currentAsset / this.currentLiabililties;
+        return this.currentAssets / this.currentLiabilities;
     }
 
     public Double getQuickRatio() {
-        return (this.currentAsset - this.inventory) / this.currentLiabililties;
+        return (this.currentAssets - this.inventory) / this.currentLiabilities;
     }
 
 
@@ -66,4 +65,7 @@ public class Cashability {
     public void setQuarter(Integer quarter) {
         this.quarter = quarter;
     }
+
+
+
 }
