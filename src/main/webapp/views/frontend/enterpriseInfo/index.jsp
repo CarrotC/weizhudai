@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: coldilock
@@ -59,8 +60,8 @@
 
 <div class="main-container">
     <div class="title">
-        <p class="big-title">${companyName}基本信息</p>
-        <p class="small-title">————XXX行业</p>
+        <p class="big-title">${companyName}中国石油基本信息</p>
+        <p class="small-title">————${companyType}行业</p>
     </div>
     <section class="nav-box">
         <div id="nav">
@@ -74,11 +75,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/frontend/enterpriseInfo/taxSituation" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
+                            <a href="/frontend/enterpriseInfo/taxSituation?companyId=${companyId}" class="three-d"> 纳税情况 <span class="three-d-box"><span class="front">纳税情况</span><span class="back">纳税情况</span></span>
                             </a>
                         </li>
                         <li>
-                            <a href="/frontend/enterpriseInfo/complaint" class="three-d"> 涉诉情况 <span class="three-d-box"><span class="front">涉诉情况</span><span class="back">涉诉情况</span></span>
+                            <a href="/frontend/enterpriseInfo/complaint?companyId=${companyId}" class="three-d"> 涉诉情况 <span class="three-d-box"><span class="front">涉诉情况</span><span class="back">涉诉情况</span></span>
                             </a>
                         </li>
 
@@ -94,7 +95,7 @@
                     </a>
                 </li>
                 <li class="firstLayer">
-                    <a href="/frontend/enterpriseInfo/companyFinance" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span class="back">财务信息</span></span>
+                    <a href="/frontend/enterpriseInfo/companyFinance?companyId=${companyId}" class="three-d "> 财务信息<span class="three-d-box"><span class="front">财务信息</span><span class="back">财务信息</span></span>
                     </a>
                 </li>
             </ul>
@@ -123,30 +124,65 @@
                     <div class="split"></div>
                     <div id="industryAndC">
                         <p class="title2">工商信息</p>
-                        <p class="content">
+                        <div class="content">
                             <!--插入内容-->
-                        </p>
+                            <p>登记信息：</p>
+                            <p>法定代表人：${comp.legalRepresentative} </p>      <p>登记状态:${comp.status}</p>
+                            <p> 注册资本：${comp.registeredCapital}万元人民币</p>    <p> 实缴资本：${comp.paidInCapital}万元人民币</p>
+                            <p>企业类型：${comp.compType}</p>       <p>参保人数：${comp.peopleNo}</p>
+
+                            <p>统一社会信用代码：${comp.socialCreditCode}</p>
+                            <p>工商注册号：${comp.businessRegistrationNumber}</p>
+                            <p>组织机构代码：${comp.organizationCode}</p>
+
+                            <p>英文名：${comp.compNameEn}</p>
+                            <p>曾用名：<c:forEach items="${compFormerName}" var="item" varStatus="status">
+                            <span>${item.formerName}  </span>
+                        </c:forEach></p>
+                            <p>所属行业：${comp.industry}</p>
+
+                            <p>经营范围：${comp.bussinessScope}</p>
+                            <p> 经营方式：${comp.operatingProcedure}</p>
+                            <p>公司地址：${comp.addr}</p>
+
+                            <p> 营业期限：${comp.operatingPeriod}</p>
+                            <p>核准日期：${comp.dateOfApproval}</p>
+                            <p>登记机关：${comp.registrationAuthority}</p>
+                        </div>
                     </div>
                     <div class="split"></div>
                     <div id="corporation">
                         <p class="title2">法人信息</p>
-                        <p class="content">
+                        <div class="content">
                             <!--插入内容-->
-                        </p>
+                            <c:forEach items="${compShareHolder}" var="item" varStatus="status">
+                            <div class="corporation-item">
+                                <p>${item.name}</p>
+                                <p>持股比例：${item.shareholdingRatio}</p>
+                                <p>股东类型：${item.type}</p>
+                                <p>认缴出资额（万元）：${item.subscribedCapitalContribution}</p>
+                                <p>认缴出资日期：${item.dateOfSubscription}</p>
+                            </div>
+                            </c:forEach>
+                        </div>
                     </div>
                     <div class="split"></div>
                     <div id="mainMember">
                         <p class="title2">公司主要成员</p>
-                        <p class="content">
+                        <div class="content">
                             <!--插入内容-->
-                        </p>
+                            <c:forEach items="${compMembers}" var="item" varStatus="status">
+                                <p>${item.name}<p>  <p>${item.position}</p>
+                            </c:forEach>
+                        </div>
                     </div>
                     <div class="split"></div>
                     <div id="stockRight">
                         <p class="title2">公司股权结构</p>
-                        <p class="content">
+                        <div class="content">
                             <!--插入内容-->
-                        </p>
+                            <img src="/statics/img/company/shareHolderStructure/${companyId}.jpg">
+                        </div>
                     </div>
                     <div class="split"></div>
                     <div id="history">
@@ -160,16 +196,20 @@
                 <div class="tab-pane fade" id="appendix-box">
                     <div class="appendix-item">
                         <p>法人证件照（正）.jpg</p>
-                        <a><p style="margin:0;">下载</p></a>
+                        <a href="/statics/img/company/legalPerson/${companyId}_1.jpg" download="法人证件照（正）.jpg"><p style="margin:0;">下载</p></a>
                     </div>
                     <div class="appendix-item">
                         <p>法人证件照（反）.jpg</p>
-                        <a><p style="margin:0;">下载</p></a>
+                        <a href="/statics/img/company/legalPerson/${companyId}_2.jpg" download="法人证件照（反）.jpg"><p style="margin:0;">下载</p></a>
                     </div>
                     <div class="appendix-item">
-                        <p>法人信息导出.pdf</p>
-                        <a><p style="margin:0;">下载</p></a>
+                        <p>股权结构.jpg</p>
+                        <a href="/statics/img/company/shareHolderStructure/${companyId}.jpg" download="股权结构.jpg"><p style="margin:0;">下载</p></a>
                     </div>
+                    <%--<div class="appendix-item">--%>
+                        <%--<p>法人信息导出.pdf</p>--%>
+                        <%--<a><p style="margin:0;">下载</p></a>--%>
+                    <%--</div>--%>
                 </div>
 
             </div>

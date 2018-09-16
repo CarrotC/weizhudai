@@ -6,13 +6,15 @@ import org.seckill.service.CompShareHolderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CompShareHolderServiceImpl implements CompShareHolderService {
     @Autowired
     CompShareHolderMapper compShareHolderMapper;
 
     @Override
-    public CompShareholder getCompShareholderById(String id) {
+    public List<CompShareholder> getCompShareholderById(String id) {
         return compShareHolderMapper.selectCompShareHolderById(id);
     }
 }

@@ -25,30 +25,7 @@
     <title>微助贷-企业注册</title>
 </head>
 <body>
-<%--<h3>注册入口</h3>--%>
-<%--<div id="companyUserSign">--%>
-<%--<h3>企业用户注册</h3><br>--%>
-<%--<h4>（测试而已，不需要填）</h4>--%>
-<%--账户名:<input name="userName" type="text" placeholder="weizhudai"><br>--%>
-<%--密码:<input name="password" type="password" placeholder="123456"><br>--%>
-<%--信用代码:<input name="socialCredit" type="text" placeholder="123456"><br>--%>
-<%--企业类型:<input name="companyType" type="text" placeholder="123456"><br>--%>
-<%--法人姓名:<input name="legalPersonName" type="text" placeholder="123456"><br>--%>
-<%--法人证件号:<input name="legalPersonId" type="text" placeholder="123456"><br>--%>
-<%--注册资本:<input name="registeredCapital" type="text" placeholder="123456"><br>--%>
-<%--营业期限:<input name="operatingPeriod" type="text" placeholder="123456"><br>--%>
-<%--企业名称:<input name="companyName" type="text" placeholder="123456"><br>--%>
-<%--&lt;%&ndash;企业执照正:<input name="password" placeholder="123456"><br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;企业执照反:<input name="password" placeholder="123456"><br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;法人证件照正:<input name="password" placeholder="123456"><br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;法人证件照反:<input name="password" placeholder="123456"><br>&ndash;%&gt;--%>
-<%--<br>--%>
-<%--<button onclick="signIn()">注册</button>--%>
-<%--<br>--%>
-<%--<br>--%>
-<%--<br>--%>
-<%--<br>--%>
-<%--</div>--%>
+
 <div class="bg">
     <img src="/statics/img/loginBg.png"/>
 </div>
@@ -133,9 +110,9 @@
                     <p>注册资本：</p>
                     <input id="registerCapital" name="registerCapital" type="text" />
                 </div>
-                <div class="bussinessLimit">
+                <div class="businessLimit">
                     <p>营业期限：</p>
-                    <input id="bussinessLimit" name="bussinessLimit" type="text" />
+                    <input id="businessLimit" name="businessLimit" type="text" />
                 </div>
                 <!--<div class="bankAccount">
                     <p>企业银行账户：</p>
@@ -162,6 +139,8 @@
                             <div>
                                 <p>正面</p>
                                 <!--此处插入图片-->
+                                <input type="file" id="businessLicense1" style="display:none;" onchange="filechange1(event)">
+                                <img src="" width="200px" height="200px" id="img_businessLicense1">
                             </div>
                             <button id="LFront" class="uploadBt rkmd-btn btn-lightBlue ripple-effect "><p style="margin: 0;">上传</p></button>
                         </div>
@@ -169,6 +148,8 @@
                             <div>
                                 <p>反面</p>
                                 <!--此处插入图片-->
+                                <input type="file" id="businessLicense2" style="display:none;" onchange="filechange2(event)">
+                                <img src="" width="200px" height="200px" id="img_businessLicense2">
                             </div>
                             <button id="LOpposite" class="uploadBt rkmd-btn btn-lightBlue ripple-effect "><p style="margin: 0;">上传</p></button>
                         </div>
@@ -189,6 +170,8 @@
                             <div>
                                 <p>正面</p>
                                 <!--此处插入图片-->
+                                <input type="file" id="legalPerson1" style="display:none;" onchange="filechange3(event)">
+                                <img src="" width="200px" height="200px" id="img_legalPerson1">
                             </div>
                             <button id="IDFront" class="uploadBt rkmd-btn btn-lightBlue ripple-effect "><p style="margin: 0;">上传</p></button>
                         </div>
@@ -196,6 +179,8 @@
                             <div>
                                 <p>反面</p>
                                 <!--此处插入图片-->
+                                <input type="file" id="legalPerson2" style="display:none;" onchange="filechange4(event)">
+                                <img src="" width="200px" height="200px" id="img_legalPerson2">
                             </div>
                             <button id="IDOpposite" class="uploadBt rkmd-btn btn-lightBlue ripple-effect "><p style="margin: 0;">上传</p></button>
                         </div>
@@ -214,44 +199,71 @@
         </div>
     </div>
 </div>
-
-<script>
-    function signIn() {
-        var userName = 'lll';
-        var password = 'xxxx';
-        var companyName = "testCompany";
-        var companyType = "testType";
-
-        $.ajax({
-            url: '/frontend/signIn',
-            data: JSON.stringify({
-                userName: userName,
-                password: password,
-                companyName: companyName,
-                companyType: companyType
-            }),
-            contentType: 'application/json',
-            dataType: 'json',
-            method: 'post',
-            async: false,
-            success: function (res) {
-                if (res.status === 200) {
-                    window.location.href = '/frontend/login/index';
-                    alert("yes");
-                } else {
-                    alert("no")
-                }
-            },
-            error: function (xhr, err) {
-                jQuery("#companyUserSign").html(xhr.responseText);
-            }
-        })
-
-    }
-</script>
 </body>
 
 <script>
+    //上传图片相关
+    $("#img_businessLicense1").click(function () {
+        $("#businessLicense1").click();
+    })
+
+    var filechange1=function(event){
+        var files = event.target.files, file;
+        if (files && files.length > 0) {
+            // 获取目前上传的文件
+            file = files[0];// 文件大小校验的动作
+            // 获取 window 的 URL 工具
+            var URL = window.URL || window.webkitURL;
+            // 通过 file 生成目标 url
+            var imgURL = URL.createObjectURL(file);
+            //用attr将img的src属性改成获得的url
+            $("#img_businessLicense1").attr("src",imgURL);
+            // 使用下面这句可以在内存中释放对此 url 的伺服，跑了之后那个 URL 就无效了
+            // URL.revokeObjectURL(imgURL);
+        }
+    };
+    $("#img_businessLicense2").click(function () {
+        $("#businessLicense2").click();
+    })
+
+    var filechange2=function(event){
+        var files = event.target.files, file;
+        if (files && files.length > 0) {
+            file = files[0];// 文件大小校验的动作
+            var URL = window.URL || window.webkitURL;
+            var imgURL = URL.createObjectURL(file);
+            $("#img_businessLicense2").attr("src",imgURL);
+        }
+    };
+
+    $("#img_legalPerson1").click(function () {
+        $("#legalPerson1").click();
+    })
+
+    var filechange3=function(event){
+        var files = event.target.files, file;
+        if (files && files.length > 0) {
+            file = files[0];// 文件大小校验的动作
+            var URL = window.URL || window.webkitURL;
+            var imgURL = URL.createObjectURL(file);
+            $("#img_legalPerson1").attr("src",imgURL);
+        }
+    };
+
+    $("#img_legalPerson2").click(function () {
+        $("#legalPerson2").click();
+    })
+
+    var filechange4=function(event){
+        var files = event.target.files, file;
+        if (files && files.length > 0) {
+            file = files[0];// 文件大小校验的动作
+            var URL = window.URL || window.webkitURL;
+            var imgURL = URL.createObjectURL(file);
+            $("#img_legalPerson2").attr("src",imgURL);
+        }
+    };
+
     //		切换语言
     $("#language").on("click", function () {
         if ($(this).hasClass("chinese")) {
@@ -295,28 +307,66 @@
                 $(".second-step img").attr("src", "/statics/img/2 (3).png");
                 $(".second-step p").attr("style", "color: white;")
             } else if (thisStep == 2) {
-                thisStep = 3;
-                $(".container2").hide();
-                $(".container3").show();
-                $(".second-step img").attr("src", "/statics/img/2.png");
-                $(".second-step p").attr("style", "")
-                $(".third-step img").attr("src", "/statics/img/3 (3).png");
-                $(".third-step p").attr("style", "color: white;");
-                //跳轉到登錄界面
-                $("#time").text("10"); //首先默认给10s
+                $.ajax({
+                    url: '/frontend/signIn',
+                    data: JSON.stringify({
+                        userName: $("#userName").val(),
+                        password: $("#password").val(),
+                        socialCredit: $("#creditCode").val(),
+                        companyName: $("#companyName").val(),
+                        companyType: $("#companyType").val(),
+                        legalPersonName: $("#corporationName"),
+                        legalPersonId: $("#corporationId"),
+                        registerCapital: $("#registerCapital"),
+                        operatingPeriod: $("#businessLimit")
+                    }),
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    method: 'post',
+                    async: false,
+                    success: function (res) {
+                        if (res.status === 200) {
+                            $.ajaxFileUpload({
+                                url: '/imgUpload',
+                                fileElementId:'file',
+                                dataType:'txt',
+                                secureuri : false,
+                                success: function (data){
+                                    thisStep = 3;
+                                    $(".container2").hide();
+                                    $(".container3").show();
+                                    $(".second-step img").attr("src", "/statics/img/2.png");
+                                    $(".second-step p").attr("style", "")
+                                    $(".third-step img").attr("src", "/statics/img/3 (3).png");
+                                    $(".third-step p").attr("style", "color: white;");
+                                    //跳轉到登錄界面
+                                    $("#time").text("10"); //首先默认给10s
 
-                var i = 10;
-                var Timer = setInterval(function () {
-                    i--;
-                    $("#time").text(i);
-                    if ($("#time").text() == "1") {
-                        location.href = "/frontend/login/index"; //PC网页式跳转
-                        clearInterval(Timer);
+                                    var i = 10;
+                                    var Timer = setInterval(function () {
+                                        i--;
+                                        $("#time").text(i);
+                                        if ($("#time").text() == "1") {
+                                            location.href = "/frontend/login/index"; //PC网页式跳转
+                                            clearInterval(Timer);
+                                        }
+                                    }, 1000)
+
+                                    $("#goLogin").on("click", function () {
+                                        location.href = "/frontend/login/index"; //PC网页式跳转
+                                    })
+                                },
+                                error:function(data,status,e){
+                                    alert(e);
+                                }
+                            });
+                        } else {
+                            alert("注册失败")
+                        }
+                    },
+                    error: function (xhr, err) {
+                        jQuery("#companyUserSign").html(xhr.responseText);
                     }
-                }, 1000)
-
-                $("#goLogin").on("click", function () {
-                    location.href = "/frontend/login/index"; //PC网页式跳转
                 })
             }
         })

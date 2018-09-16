@@ -2,6 +2,8 @@ package org.seckill.dao;
 
 import org.seckill.entity.CompLawsuit;
 
+import java.util.List;
+
 public interface CompLawsuitMapper {
-    public CompLawsuit selectCompLawsuitById(String id);
+    public List<CompLawsuit> selectCompLawsuitById(String id);
 }

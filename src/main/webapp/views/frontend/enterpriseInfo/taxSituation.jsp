@@ -160,81 +160,91 @@
                     <div class="tax-inner">
                         <div class="tax-item">
                             <div class="content">
-                                <p class="tax-time">时间：2018年</p>
-                                <p class="tax-type">税种：个人所得税</p>
-                                <p class="tax-should">应缴：2，000，000</p>
-                                <p class="tax-pay">实缴：2，000，000</p>
-                                <p class="tax-state">状态：已缴清</p>
+                                <p class="tax-time">时间：2016年</p>
+                                <p class="tax-should">应缴：${taxToPay1}</p>
+                                <p class="tax-pay">实缴：${taxPaid1}</p>
+                                <p class="tax-state">状态：${status1}</p>
                                 <img src="/statics/img/down.png">
                             </div>
                             <div class="detail" style="display: none;">
                                 <img src="/statics/img/up-arrow.png" />
-                                <div class="detail-item">
-                                    <p class="detail-time">时间：2018年</p>
-                                    <p class="detail-should">应缴：2，000，000</p>
-                                    <p class="detail-pay">实缴：2，000，000</p>
-                                    <p class="detail-state">状态：已缴清</p>
-                                </div>
-                                <div class="detail-item">
-                                    <p class="detail-time">时间：2018年</p>
-                                    <p class="detail-should">应缴：2，000，000</p>
-                                    <p class="detail-pay">实缴：2，000，000</p>
-                                    <p class="detail-state">状态：已缴清</p>
-                                </div>
-                                <div class="detail-item">
-                                    <p class="detail-time">时间：2018年</p>
-                                    <p class="detail-should">应缴：2，000，000</p>
-                                    <p class="detail-pay">实缴：2，000，000</p>
-                                    <p class="detail-state">状态：已缴清</p>
-                                </div>
+                                <c:forEach items="${compTaxList1}" var="item" varStatus="status">
+                                    <div class="detail-item">
+                                        <p class="detail-time">时间：${item.dt}</p>
+                                        <p class="tax-type">税种：${item.type}</p>
+                                        <p class="detail-should">应缴：${item.taxShouldPay}</p>
+                                        <p class="detail-pay">实缴：${item.taxPaid}</p>
+                                        <p class="detail-state">状态：${item.status}</p>
+                                    </div>
+                                </c:forEach>
                             </div>
+                            <div class="tax-item">
+                                <div class="content">
+                                    <p class="tax-time">时间：2017年</p>
+                                    <p class="tax-should">应缴：${taxToPay2}</p>
+                                    <p class="tax-pay">实缴：${taxPaid2}</p>
+                                    <p class="tax-state">状态：${status2}</p>
+                                    <img src="/statics/img/down.png">
+                                </div>
+                                <div class="detail" style="display: none;">
+                                    <img src="/statics/img/up-arrow.png" />
+                                    <c:forEach items="${compTaxList2}" var="item" varStatus="status">
+                                        <div class="detail-item">
+                                            <p class="detail-time">时间：${item.dt}</p>
+                                            <p class="tax-type">税种：${item.type}</p>
+                                            <p class="detail-should">应缴：${item.taxShouldPay}</p>
+                                            <p class="detail-pay">实缴：${item.taxPaid}</p>
+                                            <p class="detail-state">状态：${item.status}</p>
+                                        </div>
+                                    </c:forEach>
+                                </div>
 
-                        </div>
-                        <div class="tax-item unpaid">
-                            <div class="content">
-                                <p class="tax-time">时间：2018年</p>
-                                <p class="tax-type">税种：个人所得税</p>
-                                <p class="tax-should">应缴：2，000，000</p>
-                                <p class="tax-pay">实缴：1，000，000</p>
-                                <p class="tax-state">状态：欠费</p>
-                                <img src="/statics/img/down.png">
-                            </div>
-                            <div class="detail" style="display: none;">
-                                <img src="/statics/img/up-arrow.png" />
-                            </div>
-                        </div>
-                        <div class="tax-item">
-                            <div class="content">
-                                <p class="tax-time">时间：2018年</p>
-                                <p class="tax-type">税种：个人所得税</p>
-                                <p class="tax-should">应缴：2，000，000</p>
-                                <p class="tax-pay">实缴：2，000，000</p>
-                                <p class="tax-state">状态：已缴清</p>
-                                <img src="/statics/img/down.png">
-                            </div>
-                            <div class="detail" style="display: none;">
-                                <img src="/statics/img/up-arrow.png" />
-                            </div>
-                        </div>
-                        <div class="tax-item">
-                            <div class="content">
-                                <p class="tax-time">时间：2018年</p>
-                                <p class="tax-type">税种：个人所得税</p>
-                                <p class="tax-should">应缴：2，000，000</p>
-                                <p class="tax-pay">实缴：2，000，000</p>
-                                <p class="tax-state">状态：已缴清</p>
-                                <img src="/statics/img/down.png">
-                            </div>
-                            <div class="detail" style="display: none;">
-                                <img src="/statics/img/up-arrow.png" />
-                                <div class="detail-item">
-                                    <p class="detail-time">时间：2018年</p>
-                                    <p class="detail-should">应缴：2，000，000</p>
-                                    <p class="detail-pay">实缴：2，000，000</p>
-                                    <p class="detail-state">状态：已缴清</p>
-                                </div>
-                            </div>
-                        </div>
+                        <%--</div>--%>
+                        <%--<div class="tax-item unpaid">--%>
+                            <%--<div class="content">--%>
+                                <%--<p class="tax-time">时间：2018年</p>--%>
+                                <%--<p class="tax-type">税种：个人所得税</p>--%>
+                                <%--<p class="tax-should">应缴：2，000，000</p>--%>
+                                <%--<p class="tax-pay">实缴：1，000，000</p>--%>
+                                <%--<p class="tax-state">状态：欠费</p>--%>
+                                <%--<img src="/statics/img/down.png">--%>
+                            <%--</div>--%>
+                            <%--<div class="detail" style="display: none;">--%>
+                                <%--<img src="/statics/img/up-arrow.png" />--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="tax-item">--%>
+                            <%--<div class="content">--%>
+                                <%--<p class="tax-time">时间：2018年</p>--%>
+                                <%--<p class="tax-type">税种：个人所得税</p>--%>
+                                <%--<p class="tax-should">应缴：2，000，000</p>--%>
+                                <%--<p class="tax-pay">实缴：2，000，000</p>--%>
+                                <%--<p class="tax-state">状态：已缴清</p>--%>
+                                <%--<img src="/statics/img/down.png">--%>
+                            <%--</div>--%>
+                            <%--<div class="detail" style="display: none;">--%>
+                                <%--<img src="/statics/img/up-arrow.png" />--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="tax-item">--%>
+                            <%--<div class="content">--%>
+                                <%--<p class="tax-time">时间：2018年</p>--%>
+                                <%--<p class="tax-type">税种：个人所得税</p>--%>
+                                <%--<p class="tax-should">应缴：2，000，000</p>--%>
+                                <%--<p class="tax-pay">实缴：2，000，000</p>--%>
+                                <%--<p class="tax-state">状态：已缴清</p>--%>
+                                <%--<img src="/statics/img/down.png">--%>
+                            <%--</div>--%>
+                            <%--<div class="detail" style="display: none;">--%>
+                                <%--<img src="/statics/img/up-arrow.png" />--%>
+                                <%--<div class="detail-item">--%>
+                                    <%--<p class="detail-time">时间：2018年</p>--%>
+                                    <%--<p class="detail-should">应缴：2，000，000</p>--%>
+                                    <%--<p class="detail-pay">实缴：2，000，000</p>--%>
+                                    <%--<p class="detail-state">状态：已缴清</p>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="invariantRecord-box">

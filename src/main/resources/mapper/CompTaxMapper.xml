@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.seckill.dao.CompTaxMapper">
+    <resultMap id="BaseResultMap" type="org.seckill.entity.CompTax">
+        <id column="t_id" jdbcType="VARCHAR" property="tId" />
+        <result column="comp_id" jdbcType="VARCHAR" property="compId" />
+        <result column="dt" jdbcType="NUMERIC" property="dt" />
+        <result column="type" jdbcType="NUMERIC" property="type" />
+        <result column="tax_should_pay" jdbcType="NUMERIC" property="taxShouldPay" />
+        <result column="tax_paid" jdbcType="NUMERIC" property="taxPaid" />
+        <result column="status" jdbcType="NUMERIC" property="status" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        t_id, comp_id, dt, type, tax_should_pay, tax_paid, status
+    </sql>
+
+    <select id="selectCompTaxById" resultType="org.seckill.entity.CompTax">
+        select
+        <include refid="Base_Column_List" />
+        from comp_tax
+        where comp_id = #{id, jdbcType=INTEGER}
+    </select>
+
+</mapper>
