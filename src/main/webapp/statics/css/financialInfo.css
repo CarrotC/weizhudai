@@ -12,7 +12,7 @@
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
 	background-color: rgb(100,100,100) !important;
-	color: (45,45,45)!important;
+	color: rgb(45,45,45)!important;
 }
 p,font,tr,th,td,caption{
 	background-color: transparent !important; 
@@ -113,7 +113,7 @@ body {
 	font-weight: 600;
 }
 .inner-table{
-	width: 300px;
+	width: auto;
 }
 
 /*主体内容*/
@@ -159,7 +159,7 @@ body {
 	border-radius: 8px;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
 }
@@ -190,8 +190,11 @@ a {
 .table {
 	margin: 0 !important;
 }
-
+table{
+	font-size: 12px !important;
+}
 .chart {
-	width: 320px;
+	margin-left: 20px;
+	width: 400px;
 	height: 250px;
 }

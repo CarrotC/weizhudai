@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: zhaha
@@ -154,23 +155,21 @@
                                 <thead>
                                 <tr>
                                     <th>年份</th>
-                                    <th>2015</th>
-                                    <th>2016</th>
-                                    <th>2017</th>
-                                    <th>2018</th>
+                                    <c:forEach items= "${currentRatios[0]}" var="i" varStatus="status">
+                                        <th>${i}</th>
+                                    </c:forEach>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>变现能力</td>
-                                    <td>1.8</td>
-                                    <td>2.3</td>
-                                    <td>2.6</td>
-                                    <td>2</td>
+                                    <c:forEach items= "${currentRatios[1]}" var="i" varStatus="status">
+                                        <td>${i}</td>
+                                    </c:forEach>
                                 </tr>
                                 </tbody>
                             </table>
-                            <p>行业平均值：1.8</p>
+                            <p>行业平均值：${averCurrentRatio}</p>
                         </div>
                         <button class="md-trigger explain rkmd-btn ripple-effect"><p style="margin:0">查看详细信息</p></button>
                         <div class="md-modal md-effect-5">
@@ -204,23 +203,21 @@
                                 <thead>
                                 <tr>
                                     <th>年份</th>
-                                    <th>2015</th>
-                                    <th>2016</th>
-                                    <th>2017</th>
-                                    <th>2018</th>
+                                    <c:forEach items= "${quickRatios[0]}" var="i" varStatus="status">
+                                        <th>${i}</th>
+                                    </c:forEach>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td>变现能力</td>
-                                    <td>1.8</td>
-                                    <td>2.3</td>
-                                    <td>2.6</td>
-                                    <td>2</td>
+                                    <c:forEach items= "${quickRatios[1]}" var="i" varStatus="status">
+                                        <td>${i}</td>
+                                    </c:forEach>
                                 </tr>
                                 </tbody>
                             </table>
-                            <p>行业平均值：1.8</p>
+                            <p>行业平均值：${averQuickRatio}</p>
                         </div>
                         <button class="md-trigger explain rkmd-btn ripple-effect"><p style="margin:0">查看详细信息</p></button>
                         <div class="md-modal md-effect-5">
@@ -367,14 +364,31 @@
 <script>
     var id = null;
     $("document").ready(function() {
-        var data = [
-            [37, 60, 82, 91, 51, 42]
-        ];
-        var line_title = ["流动比率"]; //曲线名称
+        var data = [[]];
+        <c:forEach items= "${currentRatios[1]}" var="i" varStatus="status">
+        data[0].push(${i});
+        </c:forEach>
+        var data_max = 2; //Y轴最大刻度
         var chartId1 = "currentRatioChart";
-        addChart(chartId1, data, line_title);
+        var x = []; //定义X轴刻度值
+        <c:forEach items= "${currentRatios[0]}" var="i" varStatus="status">
+         x.push("${i}");
+        </c:forEach>
+        addChart(chartId1, data, x,data_max);
+
+        var data2=[[]];
+        <c:forEach items= "${quickRatios[1]}" var="i" varStatus="status">
+        data2[0].push(${i});
+        </c:forEach>
+        var data_max2 = 15; //Y轴最大刻度
         var chartId2 = "speedRatioChart";
-        addChart(chartId2, data, line_title);
+        var x2 = []; //定义X轴刻度值
+        <c:forEach items= "${quickRatios[0]}" var="i" varStatus="status">
+        x2.push("${i}");
+        </c:forEach>
+        addChart(chartId2, data2, x2,data_max2);
+        // var chartId2 = "speedRatioChart";
+        // addChart(chartId2, data, line_title);
     })
 
     $(".aTab").on("click", function() {
@@ -384,24 +398,44 @@
         var item = box + " .chart";
         setTimeout(function() {
             $(item).each(function() {
-                var data = [
-                    [37, 60, 22, 51, 51, 42]
-                ];
-                var line_title = ["资产"]; //曲线名称
+
+                 //曲线名称
                 var id = $(this).attr("id");
-                addChart(id, data, line_title);
+                if(id=="currentRatioChart"){
+                    var data = [[]];
+                    <c:forEach items= "${currentRatios[1]}" var="i" varStatus="status">
+                    data[0].push(${i});
+                    </c:forEach>
+                    var data_max = 2; //Y轴最大刻度
+                    var chartId1 = "currentRatioChart";
+                    var x = []; //定义X轴刻度值
+                    <c:forEach items= "${currentRatios[0]}" var="i" varStatus="status">
+                    x.push("${i}");
+                    </c:forEach>
+                    addChart(chartId1, data, x,data_max);
+                }else if(id=="speedRatioChart"){
+                    var data2=[[]];
+                    <c:forEach items= "${quickRatios[1]}" var="i" varStatus="status">
+                    data2[0].push(${i});
+                    </c:forEach>
+                    var data_max2 = 15; //Y轴最大刻度
+                    var chartId2 = "speedRatioChart";
+                    var x2 = []; //定义X轴刻度值
+                    <c:forEach items= "${quickRatios[0]}" var="i" varStatus="status">
+                    x2.push("${i}");
+                    </c:forEach>
+                    addChart(chartId2, data2, x2,data_max2);
+                }
             })
         }, 200)
 
     })
 
-    function addChart(chartId, data, line_title) {
-
-        var data_max = 100; //Y轴最大刻度
-
+    function addChart(chartId, data,x,data_max) {
+        var line_title = ["A"];
         //			var y_label = "授信额度"; //Y轴标题
         //			var x_label = "时间"; //X轴标题
-        var x = [2013, 2014, 2015, 2016, 2017, 2018]; //定义X轴刻度值
+
         j.jqplot.diagram.base(chartId, data, line_title, "", x, "", "", data_max, 1);
 
     }
